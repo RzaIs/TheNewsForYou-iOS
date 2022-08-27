@@ -91,6 +91,7 @@
 		32A7924128B9403300CC94FE /* Domain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Domain.xcodeproj; path = Domain/Domain.xcodeproj; sourceTree = "<group>"; };
 		32A7929528B9454900CC94FE /* Presenter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Presenter.xcodeproj; path = Presenter/Presenter.xcodeproj; sourceTree = "<group>"; };
 		32F827E328BA950A00FE142E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		32F827E728BAC10300FE142E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +119,7 @@
 				32A7919828B9293800CC94FE /* TheNewsForYou */,
 				32A7919728B9293800CC94FE /* Products */,
 				32A791DF28B92AE500CC94FE /* Frameworks */,
+				32F827E728BAC10300FE142E /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
