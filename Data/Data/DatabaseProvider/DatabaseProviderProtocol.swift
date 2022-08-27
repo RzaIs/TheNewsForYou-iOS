@@ -14,4 +14,9 @@ protocol DatabaseProviderProtocol {
     func deleteAll<T: Object>(of: T.Type) async throws
     func delete<T: Object>(of: T.Type, when: (T) -> Bool) async throws
     func deleteAll() async throws
+    
+    func cache<T: Codable>(data: T, key: String)
+    func cacheSafe<T: Codable>(data: T, key: String)
+    func getCache<T: Codable>(key: String) -> T?
+    func getSafeCache<T: Codable>(key: String) -> T?
 }

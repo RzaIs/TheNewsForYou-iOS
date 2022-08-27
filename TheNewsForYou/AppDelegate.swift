@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         guard let baseURL = infoPlist["BaseURL"] as? String,
-              let APIKey = infoPlist["APIKey"] as? String
+              let APIKey = infoPlist["APIKey"] as? String,
+              let keychainService = infoPlist["KeychainService"] as? String
         else {
             fatalError("Environment variables not found")
         }
@@ -37,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DomainAssembly(),
             DataAssembly(
                 baseURL: baseURL,
-                APIKey: APIKey
+                APIKey: APIKey,
+                keychainService: keychainService
             )
         ])
  

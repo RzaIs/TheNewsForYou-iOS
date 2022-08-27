@@ -7,13 +7,20 @@
 
 import Realm
 import RealmSwift
+import KeychainAccess
 
 class DatabaseProvider: DatabaseProviderProtocol {
     
     private let realm: Realm
+    private let keychain: Keychain
+    private let defaults: UserDefaults = .standard
     
-    init(realm: Realm) {
+    private let encoder: JSONEncoder = .init()
+    private let decoder: JSONDecoder = .init()
+    
+    init(realm: Realm, keychain: Keychain) {
         self.realm = realm
+        self.keychain = keychain
     }
     
     @MainActor
@@ -50,4 +57,40 @@ class DatabaseProvider: DatabaseProviderProtocol {
             self.realm.deleteAll()
         }
     }
+    
+    func cache<T: Codable>(data: T, key: String) {
+        if let json = try? self.encoder.encode(data) {
+            self.defaults.set(json, forKey: key)
+        } else {
+            print("[USERDEFAULTS-ERROR]: Encoding Error")
+        }
+    }
+    
+    func cacheSafe<T: Codable>(data: T, key: String) {
+        if let json = try? self.encoder.encode(data) {
+            do {
+                try self.keychain.accessibility(.whenUnlocked)
+                    .set(json, key: key)
+            } catch {
+                print("[KEYCHAIN-ERROR]: \(error.localizedDescription)")
+            }
+        } else {
+            print("[KEYCHAIN-ERROR]: Encoding Error")
+        }
+    }
+    
+    func getCache<T: Codable>(key: String) -> T? {
+        if let json = self.defaults.data(forKey: key) {
+            return try? self.decoder.decode(T.self, from: json)
+        }
+        return nil
+    }
+    
+    func getSafeCache<T: Codable>(key: String) -> T? {
+        if let json = try? self.keychain.getData(key) {
+            return try? self.decoder.decode(T.self, from: json)
+        }
+        return nil
+    }
+    
 }
