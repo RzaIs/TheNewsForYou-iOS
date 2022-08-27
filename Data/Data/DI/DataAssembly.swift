@@ -10,24 +10,28 @@ import Swinject
 import RealmSwift
 import Domain
 import Foundation
+import KeychainAccess
 
 public class DataAssembly: Assembly {
     
     private let baseURL: String
     private let APIKey: String
+    private let keychainService: String
     
     public init(
         baseURL: String,
-        APIKey: String
+        APIKey: String,
+        keychainService: String
     ) {
         FirebaseApp.configure()
         self.baseURL = baseURL
         self.APIKey = APIKey
+        self.keychainService = keychainService
     }
     
     public func assemble(container: Container) {
         
-        // Realm
+        // Realm & Keychain
         
         container.register(Realm.self) { r in
             try! Realm(
@@ -38,10 +42,17 @@ public class DataAssembly: Assembly {
             )
         }.inObjectScope(.container)
         
+        container.register(Keychain.self) { r in
+            Keychain(service: self.keychainService)
+        }.inObjectScope(.container)
+        
         // Providers
         
         container.register(DatabaseProviderProtocol.self) { r in
-            DatabaseProvider(realm: r.resolve(Realm.self)!)
+            DatabaseProvider(
+                realm: r.resolve(Realm.self)!,
+                keychain: r.resolve(Keychain.self)!
+            )
         }.inObjectScope(.container)
         
         container.register(FirebaseProviderProtocol.self) { r in
@@ -54,7 +65,7 @@ public class DataAssembly: Assembly {
                 APIKey: self.APIKey,
                 logger: Logger(),
                 adapters: [],
-                retrier: []
+                retriers: []
             )
         }
         
