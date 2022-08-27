@@ -18,7 +18,7 @@ class NetworkProvider: NetworkProviderProtocol {
          APIKey: String,
          logger: Logger,
          adapters: [RequestAdapter],
-         retrier: [RequestRetrier]
+         retriers: [RequestRetrier]
     ) {
         self.baseURL = baseURL
         self.APIKey = APIKey
@@ -26,7 +26,7 @@ class NetworkProvider: NetworkProviderProtocol {
         self.session = Session(
             interceptor: Interceptor(
                 adapters: adapters,
-                retriers: retrier
+                retriers: retriers
             )
         )
     }
@@ -50,7 +50,6 @@ class NetworkProvider: NetworkProviderProtocol {
                 encoder: encoder,
                 headers: headers
             ).responseDecodable(of: O.self) { response in
-                
                 self.logger.log(response: response)
                 if let obj = response.value {
                     continuation.resume(returning: obj)
@@ -78,14 +77,13 @@ class NetworkProvider: NetworkProviderProtocol {
                 encoder: encoder,
                 headers: headers
             ).responseDecodable(of: O.self) { response in
-                
                 self.logger.log(response: response)
                 if let obj = response.value {
                     continuation.resume(returning: obj)
                 } else if let error = response.error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(throwing: NSError(domain: "Network-Request", code: 1))
+                    continuation.resume(throwing: NSError(domain: "Network-Request", code: 2))
                 }
             }
         }
@@ -106,14 +104,13 @@ class NetworkProvider: NetworkProviderProtocol {
                 encoder: encoder,
                 headers: headers
             ).response { response in
-                
                 self.logger.log(response: response)
                 if let status = response.response?.statusCode, status >= 200, status <= 299 {
                     continuation.resume(returning: Void())
                 } else if let error = response.error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(throwing: NSError(domain: "Network-Request", code: 1))
+                    continuation.resume(throwing: NSError(domain: "Network-Request", code: 4))
                 }
             }
         }
