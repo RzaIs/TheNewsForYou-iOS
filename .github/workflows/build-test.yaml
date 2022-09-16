@@ -34,10 +34,7 @@ jobs:
 
       - name: Install Sonar-Scanner
         run: brew install sonar-scanner
-      
-      # - name: Install Swiftgen
-      #   run: brew install swiftgen
-
+        
       - name: Build and test
         run: bundle exec fastlane test sonar_login:"$SONAR_TOKEN"
         env:
