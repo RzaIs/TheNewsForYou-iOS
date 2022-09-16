@@ -19,8 +19,7 @@ protocol NetworkProviderProtocol {
     func request<O: Decodable>(
         endpoint: String,
         method: HTTPMethod,
-        headers: HTTPHeaders,
-        encoder: ParameterEncoder
+        headers: HTTPHeaders
     ) async throws -> O
     
     func request<I: Encodable>(

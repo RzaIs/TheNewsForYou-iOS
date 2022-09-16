@@ -1,11 +1,11 @@
 //
-//  ErrorInfo.swift
+//  UIError.swift
 //  Presenter
 //
 //  Created by Rza Ismayilov on 27.08.22.
 //
 
-public struct ErrorInfo: Error {
+public struct UIError: Error {
     public let title: String
     public let message: String
     

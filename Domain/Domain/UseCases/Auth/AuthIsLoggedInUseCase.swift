@@ -14,6 +14,6 @@ public class AuthIsLoggedInUseCase: BaseUseCase<Void, Bool> {
     }
     
     override public func execute(input: Void) -> Bool {
-        self.repo.isLeoggedIn()
+        self.repo.isLeoggedIn
     }
 }

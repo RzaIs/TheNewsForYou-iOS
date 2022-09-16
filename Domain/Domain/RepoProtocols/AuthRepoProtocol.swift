@@ -8,8 +8,10 @@
 import Foundation
 
 public protocol AuthRepoProtocol {
-    func isLeoggedIn() -> Bool
     func login(credentials: AuthInput) async throws
     func register(credentials: AuthInput) async throws
     func logout() throws
+    func setFirstOpening(date: Date)
+    var getFirstOpeningDate: FirstOpeningEntity { get }
+    var isLeoggedIn: Bool { get }
 }

@@ -5,10 +5,10 @@
 //  Created by Rza Ismayilov on 26.08.22.
 //
 
-import RxSwift
+import Combine
 
 public class BaseObserveUseCase<Input, Output> {
-    public func observe(input: Input) -> Observable<Output> {
+    public func observe(input: Input) -> AnyPublisher<Output, Never> {
         fatalError("Method Not Implemented")
     }
 }

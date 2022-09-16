@@ -1,0 +1,35 @@
+name: Build and Test
+
+on: 
+  pull_request:
+    branches:
+     - main
+     - develop
+
+jobs:
+  test:
+    name: Build and Test
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Lizard
+        run: pip install lizard
+
+      - name: Install Sonar-Scanner
+        run: brew install sonar-scanner
+      
+      - name: Build and test
+        run: bundle exec fastlane test sonar_login:"$SONAR_TOKEN"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

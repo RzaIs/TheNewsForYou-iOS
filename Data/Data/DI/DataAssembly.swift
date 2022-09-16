@@ -15,24 +15,24 @@ import KeychainAccess
 public class DataAssembly: Assembly {
     
     private let baseURL: String
-    private let APIKey: String
+    private let apiKey: String
     private let keychainService: String
     
     public init(
         baseURL: String,
-        APIKey: String,
+        apiKey: String,
         keychainService: String
     ) {
         FirebaseApp.configure()
         self.baseURL = baseURL
-        self.APIKey = APIKey
+        self.apiKey = apiKey
         self.keychainService = keychainService
     }
     
     public func assemble(container: Container) {
         
         // Realm & Keychain
-        
+                
         container.register(Realm.self) { r in
             try! Realm(
                 configuration: Realm.Configuration(
@@ -59,12 +59,20 @@ public class DataAssembly: Assembly {
             FirebaseProvider()
         }.inObjectScope(.container)
         
+        container.register(Logger.self) { r in
+            Logger()
+        }
+        
         container.register(NetworkProviderProtocol.self) { r in
             NetworkProvider(
                 baseURL: self.baseURL,
-                APIKey: self.APIKey,
-                logger: Logger(),
-                adapters: [],
+                apiKey: self.apiKey,
+                logger: r.resolve(Logger.self)!,
+                adapters: [
+                    LogAdapter(
+                        logger: r.resolve(Logger.self)!
+                    )
+                ],
                 retriers: []
             )
         }
@@ -72,7 +80,24 @@ public class DataAssembly: Assembly {
         // Repositories
         
         container.register(AuthRepoProtocol.self) { r in
-            AuthRepo(remoteDataSource: r.resolve(AuthRemoteDataSourceProtocol.self)!)
+            AuthRepo(
+                remoteDataSource: r.resolve(AuthRemoteDataSourceProtocol.self)!,
+                localDataSource: r.resolve(AuthLocalDataSourceProtocol.self)!
+            )
+        }
+        
+        container.register(TopStoriesRepoProtocol.self) { r in
+            TopStoriesRepo(
+                localDataSource: r.resolve(TopStoriesLocalDataSourceProtocol.self)!,
+                remoteDataSource: r.resolve(TopStoriesRemoteDataSourceProtocol.self)!
+            )
+        }
+        
+        container.register(MostPopularRepoProtocol.self) { r in
+            MostPopularRepo(
+                localDataSource: r.resolve(MostPopularLocalDataSourceProtocol.self)!,
+                remoteDataSource: r.resolve(MostPopularRemoteDataSourceProtocol.self)!
+            )
         }
         
         // Remote Data Sources
@@ -81,6 +106,30 @@ public class DataAssembly: Assembly {
             AuthRemoteDataSource(firebaseProvider: r.resolve(FirebaseProviderProtocol.self)!)
         }
         
+        container.register(TopStoriesRemoteDataSourceProtocol.self) { r in
+            TopStoriesRemoteDataSource(networkProvider: r.resolve(NetworkProviderProtocol.self)!)
+        }
+        
+        container.register(MostPopularRemoteDataSourceProtocol.self) { r in
+            MostPopularRemoteDataSource(networkProvider: r.resolve(NetworkProviderProtocol.self)!)
+        }
+        
+        container.register(CommentRemoteDataSourceProtocol.self) { r in
+            CommentRemoteDataSource(firebaseProvider: r.resolve(FirebaseProviderProtocol.self)!)
+        }
+        
         // Local Data Sources
+        
+        container.register(AuthLocalDataSourceProtocol.self) { r in
+            AuthLocalDataSource(databaseProvider: r.resolve(DatabaseProviderProtocol.self)!)
+        }.inObjectScope(.container)
+        
+        container.register(TopStoriesLocalDataSourceProtocol.self) { r in
+            TopStoriesLocalDataSource(databaseProvider: r.resolve(DatabaseProviderProtocol.self)!)
+        }.inObjectScope(.container)
+        
+        container.register(MostPopularLocalDataSourceProtocol.self) { r in
+            MostPopularLocalDataSource(databaseProvider: r.resolve(DatabaseProviderProtocol.self)!)
+        }.inObjectScope(.container)
     }
 }

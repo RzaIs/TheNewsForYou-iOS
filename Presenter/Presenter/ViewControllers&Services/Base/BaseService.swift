@@ -6,51 +6,53 @@
 //
 
 import Domain
-import RxRelay
-import RxSwift
+import Combine
 
 open class BaseService<State, Effect> {
     
-    private let disposeBag: DisposeBag = .init()
+    private let calcelBag: Set<AnyCancellable> = .init()
     
     private(set) var state: State?
     private(set) var effect: Effect?
-    private(set) var error: ErrorInfo?
+    private(set) var error: UIError?
     
-    private let stateRelay: PublishRelay<State> = .init()
-    private let effectRelay: PublishRelay<Effect> = .init()
-    private let errorRelay: PublishRelay<ErrorInfo> = .init()
+    private let stateSubject: PassthroughSubject<State, Never> = .init()
+    private let effectSubject: PassthroughSubject<Effect, Never> = .init()
+    private let errorSubject: PassthroughSubject<UIError, Never> = .init()
 
-    var observeState: Observable<State> {
-        self.stateRelay.asObservable()
+    var observeState: AnyPublisher<State, Never> {
+        self.stateSubject.receive(on: DispatchQueue.main).eraseToAnyPublisher()
     }
  
-    var observeEffect: Observable<Effect> {
-        self.effectRelay.asObservable()
+    var observeEffect: AnyPublisher<Effect, Never> {
+        self.effectSubject.receive(on: DispatchQueue.main).eraseToAnyPublisher()
     }
     
-    var observeError: Observable<ErrorInfo> {
-        self.errorRelay.asObservable()
+    var observeError: AnyPublisher<UIError, Never> {
+        self.errorSubject.receive(on: DispatchQueue.main).eraseToAnyPublisher()
     }
     
     func post(state: State) {
-        self.stateRelay.accept(state)
+        self.state = state
+        self.stateSubject.send(state)
     }
     
     func post(effect: Effect) {
-        self.effectRelay.accept(effect)
+        self.effect = effect
+        self.effectSubject.send(effect)
     }
     
     func show(error: Error) {
-        if let error = error as? ErrorInfo {
-            self.errorRelay.accept(error)
+        if let error = error as? UIError {
+            self.error = error
+            self.errorSubject.send(error)
         } else {
-            self.errorRelay.accept(
-                ErrorInfo(
-                    title: "Error",
-                    message: "An unknown error occured"
-                )
+            let error =  UIError(
+                title: "Error",
+                message: "An unknown error occured"
             )
+            self.error = error
+            self.errorSubject.send(error)
         }
     }
 }

@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3220D3DE28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */; };
+		3220D3E028CD2CE800DB4A9E /* MostPopularLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3DF28CD2CE800DB4A9E /* MostPopularLocalDTO.swift */; };
+		3220D3E728CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3E628CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift */; };
+		3220D3E928CD328F00DB4A9E /* MostPopularRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3E828CD328F00DB4A9E /* MostPopularRemoteDataSource.swift */; };
+		3220D3EB28CD329D00DB4A9E /* MostPopularAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3EA28CD329D00DB4A9E /* MostPopularAPI.swift */; };
+		3220D3EF28CD345900DB4A9E /* MostPopularRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3EE28CD345900DB4A9E /* MostPopularRepo.swift */; };
+		3220D3F228CD34BF00DB4A9E /* MostPopularLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3F128CD34BF00DB4A9E /* MostPopularLocalDataSourceProtocol.swift */; };
+		3220D3F428CD353600DB4A9E /* MostPopularLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3F328CD353600DB4A9E /* MostPopularLocalDataSource.swift */; };
+		3225E93F28CFC22F00747B5E /* Remote2Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E93E28CFC22F00747B5E /* Remote2Domain.swift */; };
+		3225E94828CFC39400747B5E /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94728CFC39400747B5E /* CommentBody.swift */; };
+		3225E94C28CFC4B800747B5E /* CommentRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94B28CFC4B800747B5E /* CommentRepo.swift */; };
+		3225E94E28CFC53E00747B5E /* Domain2Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94D28CFC53E00747B5E /* Domain2Remote.swift */; };
 		32A791BC28B929D100CC94FE /* Data.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A791BB28B929D100CC94FE /* Data.docc */; };
 		32A791C228B929D100CC94FE /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A791B728B929D100CC94FE /* Data.framework */; };
 		32A791C728B929D100CC94FE /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A791C628B929D100CC94FE /* DataTests.swift */; };
 		32A791C828B929D100CC94FE /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A791BA28B929D100CC94FE /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A791DB28B92A7D00CC94FE /* DataAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A791DA28B92A7D00CC94FE /* DataAssembly.swift */; };
-		32A791DE28B92A9400CC94FE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 32A791DD28B92A9400CC94FE /* Swinject */; };
 		32A791EB28B92BD000CC94FE /* AuthRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A791EA28B92BD000CC94FE /* AuthRemoteDataSourceProtocol.swift */; };
 		32A791EE28B92C5200CC94FE /* AuthRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A791ED28B92C5200CC94FE /* AuthRemoteDataSource.swift */; };
 		32A791F028B92CA000CC94FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A791EF28B92CA000CC94FE /* GoogleService-Info.plist */; };
@@ -24,10 +35,6 @@
 		32A7920428B9395200CC94FE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7920328B9395200CC94FE /* RealmSwift */; };
 		32A7920928B93AFE00CC94FE /* DatabaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7920828B93AFE00CC94FE /* DatabaseProvider.swift */; };
 		32A7920C28B93DBD00CC94FE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7920B28B93DBD00CC94FE /* Alamofire */; };
-		32A7920F28B93E1800CC94FE /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7920E28B93E1800CC94FE /* RxBlocking */; };
-		32A7921128B93E1800CC94FE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7921028B93E1800CC94FE /* RxCocoa */; };
-		32A7921328B93E1800CC94FE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7921228B93E1800CC94FE /* RxRelay */; };
-		32A7921528B93E1800CC94FE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7921428B93E1800CC94FE /* RxSwift */; };
 		32A7921828B93E6600CC94FE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 32A7921728B93E6600CC94FE /* KeychainAccess */; };
 		32A7921C28B93F5600CC94FE /* AuthRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7921B28B93F5600CC94FE /* AuthRepo.swift */; };
 		32A7926C28B9441500CC94FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7926B28B9441500CC94FE /* Domain.framework */; };
@@ -35,6 +42,27 @@
 		32A792BD28B9487800CC94FE /* NetworkProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A792BC28B9487800CC94FE /* NetworkProviderProtocol.swift */; };
 		32A792BF28B9487B00CC94FE /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A792BE28B9487B00CC94FE /* NetworkProvider.swift */; };
 		32A792C128B94A2400CC94FE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A792C028B94A2400CC94FE /* Logger.swift */; };
+		32E0F11828CE76F900C8986A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 32E0F11728CE76F900C8986A /* FirebaseFirestore */; };
+		32E0F11A28CE7B5C00C8986A /* CommentRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */; };
+		32E0F11C28CE7E1B00C8986A /* FirestoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */; };
+		32E0F11E28CE810200C8986A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32E0F11D28CE810200C8986A /* GoogleService-Info.plist */; };
+		32E0F13428CFB04E00C8986A /* CommentRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */; };
+		32E0F13628CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */; };
+		32FADE0528BD458700A3FD5D /* DataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE0428BD458700A3FD5D /* DataKeys.swift */; };
+		32FADE0828BD467400A3FD5D /* AuthLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE0728BD467400A3FD5D /* AuthLocalDataSource.swift */; };
+		32FADE0A28BD468C00A3FD5D /* AuthLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE0928BD468C00A3FD5D /* AuthLocalDataSourceProtocol.swift */; };
+		32FADE2C28BFBA3200A3FD5D /* BaseRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE2B28BFBA3200A3FD5D /* BaseRemoteDTO.swift */; };
+		32FADE2E28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE2D28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift */; };
+		32FADE3128BFC41A00A3FD5D /* TopStoriesRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3028BFC41A00A3FD5D /* TopStoriesRemoteDataSourceProtocol.swift */; };
+		32FADE3328BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3228BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift */; };
+		32FADE3628BFC50B00A3FD5D /* TopStoriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3528BFC50B00A3FD5D /* TopStoriesAPI.swift */; };
+		32FADE3A28BFCB6900A3FD5D /* TopStoriesLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3928BFCB6900A3FD5D /* TopStoriesLocalDataSourceProtocol.swift */; };
+		32FADE3C28C006C600A3FD5D /* TopStoriesLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3B28C006C600A3FD5D /* TopStoriesLocalDTO.swift */; };
+		32FADE3E28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3D28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift */; };
+		32FADE4028C00C9F00A3FD5D /* TopStoriesRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE3F28C00C9F00A3FD5D /* TopStoriesRepo.swift */; };
+		32FADE4328C00EAD00A3FD5D /* Remote2Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE4228C00EAD00A3FD5D /* Remote2Local.swift */; };
+		32FADE4728C13CA400A3FD5D /* Local2Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE4628C13CA400A3FD5D /* Local2Domain.swift */; };
+		32FADE5028C296AE00A3FD5D /* LogAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE4F28C296AD00A3FD5D /* LogAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +90,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRemoteDTO.swift; sourceTree = "<group>"; };
+		3220D3DF28CD2CE800DB4A9E /* MostPopularLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularLocalDTO.swift; sourceTree = "<group>"; };
+		3220D3E628CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		3220D3E828CD328F00DB4A9E /* MostPopularRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRemoteDataSource.swift; sourceTree = "<group>"; };
+		3220D3EA28CD329D00DB4A9E /* MostPopularAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularAPI.swift; sourceTree = "<group>"; };
+		3220D3EE28CD345900DB4A9E /* MostPopularRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRepo.swift; sourceTree = "<group>"; };
+		3220D3F128CD34BF00DB4A9E /* MostPopularLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		3220D3F328CD353600DB4A9E /* MostPopularLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularLocalDataSource.swift; sourceTree = "<group>"; };
+		3225E93E28CFC22F00747B5E /* Remote2Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote2Domain.swift; sourceTree = "<group>"; };
+		3225E94728CFC39400747B5E /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
+		3225E94B28CFC4B800747B5E /* CommentRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepo.swift; sourceTree = "<group>"; };
+		3225E94D28CFC53E00747B5E /* Domain2Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain2Remote.swift; sourceTree = "<group>"; };
 		32A791B728B929D100CC94FE /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A791BA28B929D100CC94FE /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		32A791BB28B929D100CC94FE /* Data.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Data.docc; sourceTree = "<group>"; };
@@ -80,6 +120,26 @@
 		32A792BC28B9487800CC94FE /* NetworkProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderProtocol.swift; sourceTree = "<group>"; };
 		32A792BE28B9487B00CC94FE /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		32A792C028B94A2400CC94FE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDTO.swift; sourceTree = "<group>"; };
+		32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreObject.swift; sourceTree = "<group>"; };
+		32E0F11D28CE810200C8986A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDataSource.swift; sourceTree = "<group>"; };
+		32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		32FADE0428BD458700A3FD5D /* DataKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeys.swift; sourceTree = "<group>"; };
+		32FADE0728BD467400A3FD5D /* AuthLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLocalDataSource.swift; sourceTree = "<group>"; };
+		32FADE0928BD468C00A3FD5D /* AuthLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		32FADE2B28BFBA3200A3FD5D /* BaseRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRemoteDTO.swift; sourceTree = "<group>"; };
+		32FADE2D28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesRemoteDTO.swift; sourceTree = "<group>"; };
+		32FADE3028BFC41A00A3FD5D /* TopStoriesRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		32FADE3228BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesRemoteDataSource.swift; sourceTree = "<group>"; };
+		32FADE3528BFC50B00A3FD5D /* TopStoriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesAPI.swift; sourceTree = "<group>"; };
+		32FADE3928BFCB6900A3FD5D /* TopStoriesLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		32FADE3B28C006C600A3FD5D /* TopStoriesLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesLocalDTO.swift; sourceTree = "<group>"; };
+		32FADE3D28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesLocalDataSource.swift; sourceTree = "<group>"; };
+		32FADE3F28C00C9F00A3FD5D /* TopStoriesRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesRepo.swift; sourceTree = "<group>"; };
+		32FADE4228C00EAD00A3FD5D /* Remote2Local.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote2Local.swift; sourceTree = "<group>"; };
+		32FADE4628C13CA400A3FD5D /* Local2Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Local2Domain.swift; sourceTree = "<group>"; };
+		32FADE4F28C296AD00A3FD5D /* LogAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,17 +147,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A7921528B93E1800CC94FE /* RxSwift in Frameworks */,
 				32A7920C28B93DBD00CC94FE /* Alamofire in Frameworks */,
-				32A7920F28B93E1800CC94FE /* RxBlocking in Frameworks */,
 				32A7920428B9395200CC94FE /* RealmSwift in Frameworks */,
 				32A7921828B93E6600CC94FE /* KeychainAccess in Frameworks */,
-				32A7921128B93E1800CC94FE /* RxCocoa in Frameworks */,
 				32A7926C28B9441500CC94FE /* Domain.framework in Frameworks */,
 				32A7920228B9395200CC94FE /* Realm in Frameworks */,
-				32A791DE28B92A9400CC94FE /* Swinject in Frameworks */,
-				32A7921328B93E1800CC94FE /* RxRelay in Frameworks */,
 				32A791F328B92DB400CC94FE /* FirebaseAuth in Frameworks */,
+				32E0F11828CE76F900C8986A /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +168,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3220D3E528CD326A00DB4A9E /* MostPopular */ = {
+			isa = PBXGroup;
+			children = (
+				3220D3E628CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift */,
+				3220D3E828CD328F00DB4A9E /* MostPopularRemoteDataSource.swift */,
+				3220D3EA28CD329D00DB4A9E /* MostPopularAPI.swift */,
+			);
+			path = MostPopular;
+			sourceTree = "<group>";
+		};
+		3220D3F028CD34A800DB4A9E /* MostPopular */ = {
+			isa = PBXGroup;
+			children = (
+				3220D3F128CD34BF00DB4A9E /* MostPopularLocalDataSourceProtocol.swift */,
+				3220D3F328CD353600DB4A9E /* MostPopularLocalDataSource.swift */,
+			);
+			path = MostPopular;
+			sourceTree = "<group>";
+		};
 		32A791AD28B929D100CC94FE = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +209,8 @@
 		32A791B928B929D100CC94FE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				32FADE4128C00E9B00A3FD5D /* Mappers */,
+				32FADE2828BFBA0400A3FD5D /* DTOs */,
 				32A791F428B92DC800CC94FE /* DI */,
 				32A791FD28B9385400CC94FE /* DatabaseProvider */,
 				32A791F828B935A100CC94FE /* FirebaseProvider */,
@@ -152,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				32A791C628B929D100CC94FE /* DataTests.swift */,
+				32E0F11D28CE810200C8986A /* GoogleService-Info.plist */,
 			);
 			path = DataTests;
 			sourceTree = "<group>";
@@ -159,6 +237,8 @@
 		32A791E928B92BAD00CC94FE /* RemoteDataSources */ = {
 			isa = PBXGroup;
 			children = (
+				32E0F13228CFB03E00C8986A /* Firestore */,
+				32FADE2F28BFC3F800A3FD5D /* NewYorkTimes */,
 				32A791EC28B92C4800CC94FE /* Auth */,
 			);
 			path = RemoteDataSources;
@@ -195,6 +275,7 @@
 			children = (
 				32A791FE28B9386400CC94FE /* DatabaseProviderProtocol.swift */,
 				32A7920828B93AFE00CC94FE /* DatabaseProvider.swift */,
+				32FADE0428BD458700A3FD5D /* DataKeys.swift */,
 			);
 			path = DatabaseProvider;
 			sourceTree = "<group>";
@@ -202,6 +283,8 @@
 		32A7921928B93EDF00CC94FE /* LocalDataSources */ = {
 			isa = PBXGroup;
 			children = (
+				32FADE3728BFCB4800A3FD5D /* NewYorkTimes */,
+				32FADE0628BD466600A3FD5D /* Auth */,
 			);
 			path = LocalDataSources;
 			sourceTree = "<group>";
@@ -210,6 +293,9 @@
 			isa = PBXGroup;
 			children = (
 				32A7921B28B93F5600CC94FE /* AuthRepo.swift */,
+				32FADE3F28C00C9F00A3FD5D /* TopStoriesRepo.swift */,
+				3220D3EE28CD345900DB4A9E /* MostPopularRepo.swift */,
+				3225E94B28CFC4B800747B5E /* CommentRepo.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -236,8 +322,106 @@
 		32A792C228B94B4A00CC94FE /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
+				32FADE4F28C296AD00A3FD5D /* LogAdapter.swift */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		32E0F13228CFB03E00C8986A /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */,
+				32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
+		32FADE0628BD466600A3FD5D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE0928BD468C00A3FD5D /* AuthLocalDataSourceProtocol.swift */,
+				32FADE0728BD467400A3FD5D /* AuthLocalDataSource.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		32FADE2828BFBA0400A3FD5D /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE2A28BFBA1A00A3FD5D /* Local */,
+				32FADE2928BFBA1000A3FD5D /* Remote */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		32FADE2928BFBA1000A3FD5D /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE2B28BFBA3200A3FD5D /* BaseRemoteDTO.swift */,
+				32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */,
+				32FADE2D28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift */,
+				3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */,
+				32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */,
+				3225E94728CFC39400747B5E /* CommentBody.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		32FADE2A28BFBA1A00A3FD5D /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE3B28C006C600A3FD5D /* TopStoriesLocalDTO.swift */,
+				3220D3DF28CD2CE800DB4A9E /* MostPopularLocalDTO.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		32FADE2F28BFC3F800A3FD5D /* NewYorkTimes */ = {
+			isa = PBXGroup;
+			children = (
+				3220D3E528CD326A00DB4A9E /* MostPopular */,
+				32FADE3428BFC45600A3FD5D /* TopStories */,
+			);
+			path = NewYorkTimes;
+			sourceTree = "<group>";
+		};
+		32FADE3428BFC45600A3FD5D /* TopStories */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE3028BFC41A00A3FD5D /* TopStoriesRemoteDataSourceProtocol.swift */,
+				32FADE3228BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift */,
+				32FADE3528BFC50B00A3FD5D /* TopStoriesAPI.swift */,
+			);
+			path = TopStories;
+			sourceTree = "<group>";
+		};
+		32FADE3728BFCB4800A3FD5D /* NewYorkTimes */ = {
+			isa = PBXGroup;
+			children = (
+				3220D3F028CD34A800DB4A9E /* MostPopular */,
+				32FADE3828BFCB5C00A3FD5D /* TopStories */,
+			);
+			path = NewYorkTimes;
+			sourceTree = "<group>";
+		};
+		32FADE3828BFCB5C00A3FD5D /* TopStories */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE3928BFCB6900A3FD5D /* TopStoriesLocalDataSourceProtocol.swift */,
+				32FADE3D28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift */,
+			);
+			path = TopStories;
+			sourceTree = "<group>";
+		};
+		32FADE4128C00E9B00A3FD5D /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE4228C00EAD00A3FD5D /* Remote2Local.swift */,
+				3225E93E28CFC22F00747B5E /* Remote2Domain.swift */,
+				32FADE4628C13CA400A3FD5D /* Local2Domain.swift */,
+				3225E94D28CFC53E00747B5E /* Domain2Remote.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,16 +454,12 @@
 			);
 			name = Data;
 			packageProductDependencies = (
-				32A791DD28B92A9400CC94FE /* Swinject */,
 				32A791F228B92DB400CC94FE /* FirebaseAuth */,
 				32A7920128B9395200CC94FE /* Realm */,
 				32A7920328B9395200CC94FE /* RealmSwift */,
 				32A7920B28B93DBD00CC94FE /* Alamofire */,
-				32A7920E28B93E1800CC94FE /* RxBlocking */,
-				32A7921028B93E1800CC94FE /* RxCocoa */,
-				32A7921228B93E1800CC94FE /* RxRelay */,
-				32A7921428B93E1800CC94FE /* RxSwift */,
 				32A7921728B93E6600CC94FE /* KeychainAccess */,
+				32E0F11728CE76F900C8986A /* FirebaseFirestore */,
 			);
 			productName = Data;
 			productReference = 32A791B728B929D100CC94FE /* Data.framework */;
@@ -331,11 +511,9 @@
 			);
 			mainGroup = 32A791AD28B929D100CC94FE;
 			packageReferences = (
-				32A791DC28B92A9400CC94FE /* XCRemoteSwiftPackageReference "Swinject" */,
 				32A791F128B92DB400CC94FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				32A7920028B9395200CC94FE /* XCRemoteSwiftPackageReference "realm-swift" */,
 				32A7920A28B93DBD00CC94FE /* XCRemoteSwiftPackageReference "Alamofire" */,
-				32A7920D28B93E1800CC94FE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				32A7921628B93E6600CC94FE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 32A791B828B929D100CC94FE /* Products */;
@@ -361,6 +539,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E0F11E28CE810200C8986A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,18 +550,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FADE5028C296AE00A3FD5D /* LogAdapter.swift in Sources */,
+				32FADE0828BD467400A3FD5D /* AuthLocalDataSource.swift in Sources */,
+				32FADE4028C00C9F00A3FD5D /* TopStoriesRepo.swift in Sources */,
+				32E0F13628CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift in Sources */,
 				32A791BC28B929D100CC94FE /* Data.docc in Sources */,
+				3220D3F428CD353600DB4A9E /* MostPopularLocalDataSource.swift in Sources */,
 				32A7920928B93AFE00CC94FE /* DatabaseProvider.swift in Sources */,
+				32FADE3C28C006C600A3FD5D /* TopStoriesLocalDTO.swift in Sources */,
+				3220D3E928CD328F00DB4A9E /* MostPopularRemoteDataSource.swift in Sources */,
+				32E0F11C28CE7E1B00C8986A /* FirestoreObject.swift in Sources */,
+				32FADE0528BD458700A3FD5D /* DataKeys.swift in Sources */,
 				32A791FC28B9364300CC94FE /* FirebaseProvider.swift in Sources */,
 				32A792BD28B9487800CC94FE /* NetworkProviderProtocol.swift in Sources */,
 				32A7921C28B93F5600CC94FE /* AuthRepo.swift in Sources */,
+				3220D3EF28CD345900DB4A9E /* MostPopularRepo.swift in Sources */,
+				3225E94C28CFC4B800747B5E /* CommentRepo.swift in Sources */,
 				32A791FF28B9386400CC94FE /* DatabaseProviderProtocol.swift in Sources */,
+				32FADE3628BFC50B00A3FD5D /* TopStoriesAPI.swift in Sources */,
+				3220D3E028CD2CE800DB4A9E /* MostPopularLocalDTO.swift in Sources */,
+				32FADE3328BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift in Sources */,
+				3220D3EB28CD329D00DB4A9E /* MostPopularAPI.swift in Sources */,
+				3225E94828CFC39400747B5E /* CommentBody.swift in Sources */,
+				3225E94E28CFC53E00747B5E /* Domain2Remote.swift in Sources */,
 				32A791DB28B92A7D00CC94FE /* DataAssembly.swift in Sources */,
 				32A792C128B94A2400CC94FE /* Logger.swift in Sources */,
+				3225E93F28CFC22F00747B5E /* Remote2Domain.swift in Sources */,
+				3220D3F228CD34BF00DB4A9E /* MostPopularLocalDataSourceProtocol.swift in Sources */,
 				32A792BF28B9487B00CC94FE /* NetworkProvider.swift in Sources */,
+				32FADE3A28BFCB6900A3FD5D /* TopStoriesLocalDataSourceProtocol.swift in Sources */,
 				32A791EE28B92C5200CC94FE /* AuthRemoteDataSource.swift in Sources */,
+				32FADE2E28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift in Sources */,
+				32FADE4728C13CA400A3FD5D /* Local2Domain.swift in Sources */,
+				32FADE2C28BFBA3200A3FD5D /* BaseRemoteDTO.swift in Sources */,
+				32FADE3E28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift in Sources */,
+				3220D3DE28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift in Sources */,
 				32A791FA28B9363C00CC94FE /* FirebaseProviderProtocol.swift in Sources */,
+				3220D3E728CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift in Sources */,
+				32E0F13428CFB04E00C8986A /* CommentRemoteDataSource.swift in Sources */,
+				32FADE0A28BD468C00A3FD5D /* AuthLocalDataSourceProtocol.swift in Sources */,
+				32FADE3128BFC41A00A3FD5D /* TopStoriesRemoteDataSourceProtocol.swift in Sources */,
+				32FADE4328C00EAD00A3FD5D /* Remote2Local.swift in Sources */,
 				32A791EB28B92BD000CC94FE /* AuthRemoteDataSourceProtocol.swift in Sources */,
+				32E0F11A28CE7B5C00C8986A /* CommentRemoteDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +757,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = is.rza.Data;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,7 +788,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = is.rza.Data;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,14 +862,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		32A791DC28B92A9400CC94FE /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		32A791F128B92DB400CC94FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -669,7 +875,7 @@
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.28.6;
+				minimumVersion = 10.29.0;
 			};
 		};
 		32A7920A28B93DBD00CC94FE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -678,14 +884,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
-			};
-		};
-		32A7920D28B93E1800CC94FE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
 			};
 		};
 		32A7921628B93E6600CC94FE /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
@@ -699,11 +897,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		32A791DD28B92A9400CC94FE /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A791DC28B92A9400CC94FE /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
 		32A791F228B92DB400CC94FE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 32A791F128B92DB400CC94FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -724,30 +917,15 @@
 			package = 32A7920A28B93DBD00CC94FE /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		32A7920E28B93E1800CC94FE /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A7920D28B93E1800CC94FE /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		32A7921028B93E1800CC94FE /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A7920D28B93E1800CC94FE /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		32A7921228B93E1800CC94FE /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A7920D28B93E1800CC94FE /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		32A7921428B93E1800CC94FE /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A7920D28B93E1800CC94FE /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
 		32A7921728B93E6600CC94FE /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 32A7921628B93E6600CC94FE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		32E0F11728CE76F900C8986A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32A791F128B92DB400CC94FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

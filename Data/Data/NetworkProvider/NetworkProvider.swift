@@ -10,18 +10,18 @@ import Alamofire
 class NetworkProvider: NetworkProviderProtocol {
     
     private let baseURL: String
-    private let APIKey: String
+    private let apiKey: String
     private let logger: Logger
     private let session: Session
     
     init(baseURL: String,
-         APIKey: String,
+         apiKey: String,
          logger: Logger,
          adapters: [RequestAdapter],
          retriers: [RequestRetrier]
     ) {
         self.baseURL = baseURL
-        self.APIKey = APIKey
+        self.apiKey = apiKey
         self.logger = logger
         self.session = Session(
             interceptor: Interceptor(
@@ -32,7 +32,7 @@ class NetworkProvider: NetworkProviderProtocol {
     }
     
     func fullUrl(endpoint: String) -> String {
-        return "\(self.baseURL)/\(endpoint)".replacingOccurrences(of: "{APIKey}", with: self.APIKey)
+        return "\(self.baseURL)/\(endpoint)".replacingOccurrences(of: "{apiKey}", with: self.apiKey)
     }
     
     func request<I: Encodable, O: Decodable>(
@@ -42,7 +42,7 @@ class NetworkProvider: NetworkProviderProtocol {
         encoder: ParameterEncoder,
         parameters: I
     ) async throws -> O {
-        try await withUnsafeThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { continuation in
             self.session.request(
                 self.fullUrl(endpoint: endpoint),
                 method: method,
@@ -65,16 +65,13 @@ class NetworkProvider: NetworkProviderProtocol {
     func request<O: Decodable>(
         endpoint: String,
         method: HTTPMethod,
-        headers: HTTPHeaders,
-        encoder: ParameterEncoder
+        headers: HTTPHeaders
     ) async throws -> O {
-        try await withUnsafeThrowingContinuation { continuation in
-            let parameters: EmptyParameters? = nil
+        try await withCheckedThrowingContinuation { continuation in
             self.session.request(
                 self.fullUrl(endpoint: endpoint),
                 method: method,
-                parameters: parameters,
-                encoder: encoder,
+                parameters: nil,
                 headers: headers
             ).responseDecodable(of: O.self) { response in
                 self.logger.log(response: response)
@@ -96,7 +93,7 @@ class NetworkProvider: NetworkProviderProtocol {
         encoder: ParameterEncoder,
         parameters: I
     ) async throws {
-        return try await withUnsafeThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             self.session.request(
                 self.fullUrl(endpoint: endpoint),
                 method: method,
@@ -115,9 +112,6 @@ class NetworkProvider: NetworkProviderProtocol {
             }
         }
     }
-    
-    
-    
 }
 
 class EmptyParameters: Codable {}
