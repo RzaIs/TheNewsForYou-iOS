@@ -15,10 +15,18 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
+      - name: XCode setup
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '14.0'
+
       - name: Install Bundle
         run: bundle install
 
-      - name: Setup python
+      - name: Install Homebrew
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
