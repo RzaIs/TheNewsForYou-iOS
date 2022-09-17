@@ -405,6 +405,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		32FADE8528C4875400A3FD5D /* Swiftgen */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -419,7 +420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swiftgen config run\n";
+			shellScript = "if which swiftgen >/dev/null; then\nswiftgen config run\nelse\necho \"warning: swiftgen not installed!\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
