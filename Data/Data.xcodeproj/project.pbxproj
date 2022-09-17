@@ -46,7 +46,6 @@
 		32E0F11828CE76F900C8986A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 32E0F11728CE76F900C8986A /* FirebaseFirestore */; };
 		32E0F11A28CE7B5C00C8986A /* CommentRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */; };
 		32E0F11C28CE7E1B00C8986A /* FirestoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */; };
-		32E0F11E28CE810200C8986A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32E0F11D28CE810200C8986A /* GoogleService-Info.plist */; };
 		32E0F13428CFB04E00C8986A /* CommentRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */; };
 		32E0F13628CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */; };
 		32FADE0528BD458700A3FD5D /* DataKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE0428BD458700A3FD5D /* DataKeys.swift */; };
@@ -123,7 +122,6 @@
 		32A792C028B94A2400CC94FE /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDTO.swift; sourceTree = "<group>"; };
 		32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreObject.swift; sourceTree = "<group>"; };
-		32E0F11D28CE810200C8986A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDataSource.swift; sourceTree = "<group>"; };
 		32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		32FADE0428BD458700A3FD5D /* DataKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKeys.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				32A791C628B929D100CC94FE /* DataTests.swift */,
-				32E0F11D28CE810200C8986A /* GoogleService-Info.plist */,
 			);
 			path = DataTests;
 			sourceTree = "<group>";
@@ -542,7 +539,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32E0F11E28CE810200C8986A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

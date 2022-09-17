@@ -20,6 +20,11 @@ jobs:
         with:
           xcode-version: latest-stable
 
+      - name: Google Info Plist Setup
+        run: echo "$GOOGLE_SERVICE_INFO_PLIST" > Data/Data/GoogleService-Info.plist 
+        env:
+          GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.SONAR_TOKEN }}
+
       - name: Install Bundle
         run: bundle install
 
