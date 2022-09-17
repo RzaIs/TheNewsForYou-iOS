@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		320D1DB928D51CFD00E78315 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 320D1DB828D51CFD00E78315 /* SkeletonView */; };
+		321CF20B28D629DF006C68F7 /* NewsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321CF20A28D629DF006C68F7 /* NewsCellView.swift */; };
 		323120EE28CDD9DA00C3960D /* MostPopularVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323120ED28CDD9DA00C3960D /* MostPopularVC.swift */; };
 		323120F028CDD9F500C3960D /* MostPopularService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323120EF28CDD9F500C3960D /* MostPopularService.swift */; };
 		323120F228CDE43800C3960D /* MostPopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323120F128CDE43800C3960D /* MostPopularCell.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		321CF20A28D629DF006C68F7 /* NewsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellView.swift; sourceTree = "<group>"; };
 		323120ED28CDD9DA00C3960D /* MostPopularVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularVC.swift; sourceTree = "<group>"; };
 		323120EF28CDD9F500C3960D /* MostPopularService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularService.swift; sourceTree = "<group>"; };
 		323120F128CDE43800C3960D /* MostPopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularCell.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		321CF20928D629C8006C68F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				321CF20A28D629DF006C68F7 /* NewsCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		323120EC28CDD9C400C3960D /* MostPopular */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +166,7 @@
 				32FADE5928C4841100A3FD5D /* Assets */,
 				32A792C428B9556E00CC94FE /* NavigationProvider */,
 				32A792C328B9555900CC94FE /* ViewControllers&Services */,
+				321CF20928D629C8006C68F7 /* Views */,
 				32A7927E28B9454900CC94FE /* Presenter.h */,
 				32A7927F28B9454900CC94FE /* Presenter.docc */,
 			);
@@ -435,6 +446,7 @@
 				32A792D128BA0FE700CC94FE /* BaseVC.swift in Sources */,
 				323120EE28CDD9DA00C3960D /* MostPopularVC.swift in Sources */,
 				32FADE2728BFB79300A3FD5D /* TopStoriesService.swift in Sources */,
+				321CF20B28D629DF006C68F7 /* NewsCellView.swift in Sources */,
 				323120F228CDE43800C3960D /* MostPopularCell.swift in Sources */,
 				32FADE5828C3A58E00A3FD5D /* TopStoryCell.swift in Sources */,
 			);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321CF21628D6327C006C68F7 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 321CF21528D6327C006C68F7 /* FirebaseRemoteConfig */; };
 		3220D3DE28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */; };
 		3220D3E028CD2CE800DB4A9E /* MostPopularLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3DF28CD2CE800DB4A9E /* MostPopularLocalDTO.swift */; };
 		3220D3E728CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3E628CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift */; };
@@ -154,6 +155,7 @@
 				32A7920228B9395200CC94FE /* Realm in Frameworks */,
 				32A791F328B92DB400CC94FE /* FirebaseAuth in Frameworks */,
 				32E0F11828CE76F900C8986A /* FirebaseFirestore in Frameworks */,
+				321CF21628D6327C006C68F7 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +211,9 @@
 		32A791B928B929D100CC94FE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				32A791F428B92DC800CC94FE /* DI */,
 				32FADE4128C00E9B00A3FD5D /* Mappers */,
 				32FADE2828BFBA0400A3FD5D /* DTOs */,
-				32A791F428B92DC800CC94FE /* DI */,
 				32A791FD28B9385400CC94FE /* DatabaseProvider */,
 				32A791F828B935A100CC94FE /* FirebaseProvider */,
 				32A792BB28B9485F00CC94FE /* NetworkProvider */,
@@ -460,6 +462,7 @@
 				32A7920B28B93DBD00CC94FE /* Alamofire */,
 				32A7921728B93E6600CC94FE /* KeychainAccess */,
 				32E0F11728CE76F900C8986A /* FirebaseFirestore */,
+				321CF21528D6327C006C68F7 /* FirebaseRemoteConfig */,
 			);
 			productName = Data;
 			productReference = 32A791B728B929D100CC94FE /* Data.framework */;
@@ -901,6 +904,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		321CF21528D6327C006C68F7 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 32A791F128B92DB400CC94FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
 		32A791F228B92DB400CC94FE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 32A791F128B92DB400CC94FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

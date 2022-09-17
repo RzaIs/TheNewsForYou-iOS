@@ -17,7 +17,8 @@ class TopStoriesRemoteDataSource: TopStoriesRemoteDataSourceProtocol {
         try await self.networkProvider.request(
             endpoint: TopStoriesAPI.getStories.rawValue.replacingOccurrences(of: "{segment}", with: segment),
             method: .get,
-            headers: [:]
+            headers: [:],
+            retry: true
         )
     }
 }

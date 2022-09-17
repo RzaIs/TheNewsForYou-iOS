@@ -10,7 +10,7 @@ import Combine
 
 open class BaseService<State, Effect> {
     
-    private let calcelBag: Set<AnyCancellable> = .init()
+    var cancelBag: Set<AnyCancellable> = .init()
     
     private(set) var state: State?
     private(set) var effect: Effect?

@@ -15,17 +15,14 @@ import KeychainAccess
 public class DataAssembly: Assembly {
     
     private let baseURL: String
-    private let apiKey: String
     private let keychainService: String
     
     public init(
         baseURL: String,
-        apiKey: String,
         keychainService: String
     ) {
         FirebaseApp.configure()
         self.baseURL = baseURL
-        self.apiKey = apiKey
         self.keychainService = keychainService
     }
     
@@ -65,8 +62,8 @@ public class DataAssembly: Assembly {
         
         container.register(NetworkProviderProtocol.self) { r in
             NetworkProvider(
+                firebaseProvider: r.resolve(FirebaseProviderProtocol.self)!,
                 baseURL: self.baseURL,
-                apiKey: self.apiKey,
                 logger: r.resolve(Logger.self)!,
                 adapters: [
                     LogAdapter(

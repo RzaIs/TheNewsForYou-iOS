@@ -8,19 +8,29 @@
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseRemoteConfig
 
 class FirebaseProvider: FirebaseProviderProtocol {
     
-    private let fireBaseAuth = FirebaseAuth.Auth.auth()
-    private let firestore = FirebaseFirestore.Firestore.firestore()
+    private let apiKeyConfigKey: String = "nyt_api_key"
+    
+    private let auth: Auth = .auth()
+    private let firestore: Firestore = .firestore()
+    private let remoteConfig: RemoteConfig = .remoteConfig()
     
     func isSignedIn() -> Bool {
-        self.fireBaseAuth.currentUser != nil
+        self.auth.currentUser != nil
+    }
+    
+    init() {
+        let remoteConfigSettings = RemoteConfigSettings()
+        remoteConfigSettings.minimumFetchInterval = 0
+        self.remoteConfig.configSettings = remoteConfigSettings
     }
     
     func createUser(email: String, password: String) async throws {
         return try await withCheckedThrowingContinuation { continuation in
-            self.fireBaseAuth.createUser(withEmail: email, password: password) { result, error in
+            self.auth.createUser(withEmail: email, password: password) { result, error in
                 if let _ = result {
                     continuation.resume(returning: Void())
                 } else if let error = error {
@@ -34,7 +44,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
     
     func signin(email: String, password: String) async throws {
         return try await withCheckedThrowingContinuation { continuation in
-            self.fireBaseAuth.signIn(withEmail: email, password: password) { result, error in
+            self.auth.signIn(withEmail: email, password: password) { result, error in
                 if let _ = result {
                     continuation.resume(returning: Void())
                 } else if let error = error {
@@ -47,12 +57,12 @@ class FirebaseProvider: FirebaseProviderProtocol {
     }
     
     func signout() throws {
-        try self.fireBaseAuth.signOut()
+        try self.auth.signOut()
     }
     
     func getDocuments<T: FirestoreObject>() async throws -> [T] {
         return try await withCheckedThrowingContinuation { continuation in
-            guard let _ = self.fireBaseAuth.currentUser else {
+            guard let _ = self.auth.currentUser else {
                 continuation.resume(throwing: NSError(domain: "User not defined", code: 1))
                 return
             }
@@ -70,7 +80,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
     
     func deleteDocument<T: FirestoreObject>(_ type: T.Type, id: String) async throws {
         return try await withCheckedThrowingContinuation { continuation in
-            guard let _ = self.fireBaseAuth.currentUser else {
+            guard let _ = self.auth.currentUser else {
                 continuation.resume(throwing: NSError(domain: "User not defined", code: 1))
                 return
             }
@@ -86,7 +96,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
     
     func sendDocument<T: DictionaryObject>(document: T) async throws {
         return try await withCheckedThrowingContinuation { continuation in
-            guard let user = self.fireBaseAuth.currentUser else {
+            guard let user = self.auth.currentUser else {
                 continuation.resume(throwing: NSError(domain: "User not defined", code: 1))
                 return
             }
@@ -102,5 +112,23 @@ class FirebaseProvider: FirebaseProviderProtocol {
                 }
             }
         }
+    }
+    
+    func syncRemoteConfig() async throws {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.remoteConfig.fetchAndActivate { status, error in
+                if status == .successFetchedFromRemote || status == .successUsingPreFetchedData  {
+                    continuation.resume()
+                } else if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "Firebase-RemoteConfig", code: 1))
+                }
+            }
+        }
+    }
+    
+    func getApiKey() -> String? {
+        self.remoteConfig.configValue(forKey: self.apiKeyConfigKey).stringValue
     }
 }

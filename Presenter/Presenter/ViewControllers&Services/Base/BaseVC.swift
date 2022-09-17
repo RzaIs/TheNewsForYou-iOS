@@ -40,6 +40,8 @@ open class BaseVC<State, Effect, Service: BaseService<State, Effect>>: UIViewCon
         super.viewWillDisappear(animated)
         self.cancelBag.forEach { $0.cancel() }
         self.cancelBag.removeAll()
+        self.service.cancelBag.forEach { $0.cancel() }
+        self.service.cancelBag.removeAll()
     }
     
     func subscribe() {

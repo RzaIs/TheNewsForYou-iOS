@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var appAssembler: Assembler = {
         guard let infoPlist = Bundle.main.infoDictionary,
               let baseURL = infoPlist["BaseURL"] as? String,
-              let apiKey = infoPlist["APIKey"] as? String,
               let keychainService = infoPlist["KeychainService"] as? String
         else {
             fatalError("info.plist not found or Environment variables not found")
@@ -30,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DomainAssembly(),
             DataAssembly(
                 baseURL: baseURL,
-                apiKey: apiKey,
                 keychainService: keychainService
             )
         ])

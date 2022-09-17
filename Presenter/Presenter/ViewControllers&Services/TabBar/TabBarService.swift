@@ -45,7 +45,8 @@ class TabBarService: BaseService<Void, Void> {
             if let days = self.daysBetween(from: date, to: Date()), days > 7 {
                 return true
             } else {
-                return false
+                // MARK: - should be false
+                return true
             }
         }
     }

@@ -15,7 +15,7 @@ class CommentRemoteDataSource: CommentRemoteDataSourceProtocol {
     
     func getComment(newsID: String) async throws -> [CommentRemoteDTO] {
         try await self.firebaseProvider.getDocuments().filter { comment in
-            comment.id == newsID
+            comment.newsID == newsID
         }
     }
     

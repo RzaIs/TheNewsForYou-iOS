@@ -18,7 +18,8 @@ class MostPopularRemoteDataSource: MostPopularRemoteDataSourceProtocol {
             try await self.networkProvider.request(
                 endpoint: MostPopularAPI.getPopular.rawValue,
                 method: .get,
-                headers: [:]
+                headers: [:],
+                retry: true
             )
         }
     }

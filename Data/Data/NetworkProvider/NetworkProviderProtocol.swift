@@ -13,13 +13,15 @@ protocol NetworkProviderProtocol {
         method: HTTPMethod,
         headers: HTTPHeaders,
         encoder: ParameterEncoder,
-        parameters: I
+        parameters: I,
+        retry: Bool
     ) async throws -> O
     
     func request<O: Decodable>(
         endpoint: String,
         method: HTTPMethod,
-        headers: HTTPHeaders
+        headers: HTTPHeaders,
+        retry: Bool
     ) async throws -> O
     
     func request<I: Encodable>(
@@ -27,6 +29,7 @@ protocol NetworkProviderProtocol {
         method: HTTPMethod,
         headers: HTTPHeaders,
         encoder: ParameterEncoder,
-        parameters: I
+        parameters: I,
+        retry: Bool
     ) async throws
 }

@@ -15,4 +15,6 @@ protocol FirebaseProviderProtocol {
     func getDocuments<T: FirestoreObject>() async throws -> [T]
     func deleteDocument<T: FirestoreObject>(_ type: T.Type, id: String) async throws
     func sendDocument<T: DictionaryObject>(document: T) async throws
+    func syncRemoteConfig() async throws
+    func getApiKey() -> String?
 }

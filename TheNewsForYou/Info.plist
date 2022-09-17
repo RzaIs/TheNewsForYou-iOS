@@ -4,8 +4,6 @@
 <dict>
     <key>BaseURL</key>
     <string>https://$(BASE_URL)</string>
-    <key>APIKey</key>
-    <string>$(API_KEY)</string>
     <key>KeychainService</key>
     <string>$(KEYCHAIN_SERVICE)</string>
 </dict>
