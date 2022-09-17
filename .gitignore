@@ -80,6 +80,5 @@ reports
 
 ### Secrets ###
 **/GoogleService-Info.plist
-**/Config.xcconfig
 
 # End of https://www.gitignore.io/api/swift,xcode
