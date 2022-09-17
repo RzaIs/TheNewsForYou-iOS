@@ -23,7 +23,7 @@ jobs:
       - name: Google Info Plist Setup
         run: echo "$GOOGLE_SERVICE_INFO_PLIST" > Data/Data/GoogleService-Info.plist 
         env:
-          GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.SONAR_TOKEN }}
+          GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}
 
       - name: Install Bundle
         run: bundle install
