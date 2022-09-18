@@ -9,6 +9,19 @@ import Foundation
 import Alamofire
 
 class Logger {
+    
+    let encoder = JSONEncoder()
+    
+    init() {
+        self.encoder.outputFormatting = .prettyPrinted
+    }
+    
+    private func log(error: Error) {
+    #if DEBUG
+    print("\t[ERROR-BODY]: \(error)")
+    #endif
+    }
+    
     private func log(info: String, type: LogType) {
         #if DEBUG
         
@@ -44,36 +57,43 @@ class Logger {
         if let statusCode = response.response?.statusCode {
             self.log(info: statusCode.description, type: .status_code)
         }
-        if let data = response.data, let body = String(data: data, encoding: .utf8) {
+        if let data = response.data, let body = data.prettyJSON {
             self.log(info: body, type: .response_body)
         }
         if let headers = response.response?.headers {
             self.log(info: headers.description, type: .response_header)
         }
         if let error = response.error {
-            self.log(info: error.localizedDescription, type: .error_body)
+            self.log(error: error)
         }
         self.log(info: "", type: .end)
     }
     
-    func log(request: DataRequest) {
+    func log(request: URLRequest) {
         self.log(info: "", type: .start)
-        if let url = request.request?.url {
+        if let url = request.url {
             self.log(info: url.path, type: .url)
         }
-        if let data = request.data, let body = String(data: data, encoding: .utf8) {
-            self.log(info: body, type: .request_body)
+        if let body = request.httpBody, let json = body.prettyJSON {
+            self.log(info: json, type: .request_body)
         }
-        if let headers = request.request?.headers {
-            self.log(info: headers.description, type: .request_header)
-        }
-        if let error = request.error {
-            self.log(info: error.localizedDescription, type: .error_body)
-        }
+        self.log(info: request.headers.description, type: .request_header)
         self.log(info: "", type: .end)
     }
 }
 
 enum LogType {
     case start, end, url, status_code, response_body, request_body, request_header, response_header, error_body
+}
+
+extension Data {
+    var prettyJSON: String? {
+        do {
+            let json = try JSONSerialization.jsonObject(with: self, options: [])
+            let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            return String(data: data, encoding: .utf8)
+        } catch {
+            return nil
+        }
+    }
 }

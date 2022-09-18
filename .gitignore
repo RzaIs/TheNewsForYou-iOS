@@ -69,6 +69,7 @@ fastlane/test_output
 
 ## Other
 **/.DS_Store
+reports
 
 ### Xcode Patch ###
 *.xcodeproj/*
@@ -79,6 +80,5 @@ fastlane/test_output
 
 ### Secrets ###
 **/GoogleService-Info.plist
-**/Config.xcconfig
 
 # End of https://www.gitignore.io/api/swift,xcode

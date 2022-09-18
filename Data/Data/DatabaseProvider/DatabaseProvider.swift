@@ -23,38 +23,43 @@ class DatabaseProvider: DatabaseProviderProtocol {
         self.keychain = keychain
     }
     
-    @MainActor
-    func read<T: Object>() async -> [T] {
-        self.realm.objects(T.self).map { $0 }
-    }
-    
-    @MainActor
-    func write<T: Object>(objects: [T]) async throws {
-        try self.realm.write {
-            self.realm.add(objects, update: .modified)
+    func read<T: Object>() -> [T] {
+        self.main {
+            self.realm.objects(T.self).freeze().map { $0 }
         }
     }
     
-    @MainActor
-    func deleteAll<T: Object>(of: T.Type) async throws {
-        let objects: [T] = await self.read()
-        try self.realm.write {
-            self.realm.delete(objects)
+    func write<T: Object>(objects: [T]) throws {
+        try self.main {
+            try self.realm.write {
+                self.realm.add(objects, update: .modified)
+            }
         }
     }
     
-    @MainActor
-    func delete<T: Object>(of: T.Type, when: (T) -> Bool) async throws {
-        let objects: [T] = await self.read().filter(when)
-        try self.realm.write {
-            self.realm.delete(objects)
+    func deleteAll<T: Object>(of: T.Type) throws {
+        try self.main {
+            let objects = self.realm.objects(T.self)
+            try self.realm.write {
+                self.realm.delete(objects)
+            }
+        }
+    }
+
+    func delete<T: Object>(of: T.Type, when: @escaping (T) -> Bool) throws {
+        try self.main {
+            let objects = self.realm.objects(T.self).filter(when)
+            try self.realm.write {
+                self.realm.delete(objects)
+            }
         }
     }
     
-    @MainActor
-    func deleteAll() async throws {
-        try self.realm.write {
-            self.realm.deleteAll()
+    func deleteAll() throws {
+        try self.main {
+            try self.realm.write {
+                self.realm.deleteAll()
+            }
         }
     }
     
@@ -93,4 +98,23 @@ class DatabaseProvider: DatabaseProviderProtocol {
         return nil
     }
     
+    func main<T>(task: @escaping () throws -> T ) throws -> T {
+        if !Thread.isMainThread {
+            return try DispatchQueue.main.sync {
+                return try task()
+            }
+        } else {
+            return try task()
+        }
+    }
+    
+    func main<T>(task: @escaping () -> T ) -> T {
+        if !Thread.isMainThread {
+            return DispatchQueue.main.sync {
+                return task()
+            }
+        } else {
+            return task()
+        }
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import Swinject
+import UIKit
 
 class NavigationProvider: NavigationProviderProtocol {
     
@@ -15,7 +16,23 @@ class NavigationProvider: NavigationProviderProtocol {
         self.resolver = resolver
     }
     
-    var mainVC: MainVC {
-        self.resolver.resolve(MainVC.self)!
+    var rootNC: UINavigationController {
+        self.resolver.resolve(UINavigationController.self)!
+    }
+    
+    var topStoriesVC: TopStoriesVC {
+        self.resolver.resolve(TopStoriesVC.self)!
+    }
+    
+    var mostPopularVC: MostPopularVC {
+        self.resolver.resolve(MostPopularVC.self)!
+    }
+    
+    var welcomeVC: WelcomeVC {
+        self.resolver.resolve(WelcomeVC.self)!
+    }
+    
+    var authVC: AuthVC {
+        self.resolver.resolve(AuthVC.self)!
     }
 }
