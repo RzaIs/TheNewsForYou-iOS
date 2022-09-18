@@ -17,7 +17,7 @@ extension TopStoryRemoteDTO {
             abstract: self.abstract,
             url: self.url,
             author: self.byline,
-            publishDate: self.published_date,
+            publishDate: self.publishedDate,
             segment: segment,
             multimedia: (self.multimedia ?? []).map {
                 $0.toLocal
@@ -42,7 +42,7 @@ extension MostPopularRemoteDTO {
             abstract: self.abstract,
             url: self.url,
             author: self.byline,
-            publishDate: self.published_date,
+            publishDate: self.publishedDate,
             media: (self.media ?? []).toLocal
         )
     }

@@ -11,7 +11,7 @@ import SafariServices
 
 class MostPopularVC: BaseVC<Void, MostPopularEffect, MostPopularService> {
     
-    private let SafariConfig: SFSafariViewController.Configuration = {
+    private let safariConfig: SFSafariViewController.Configuration = {
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         return config
@@ -88,7 +88,7 @@ extension MostPopularVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = self.service.mostPopular[indexPath.row].url {
-            let vc = SFSafariViewController(url: url, configuration: self.SafariConfig)
+            let vc = SFSafariViewController(url: url, configuration: self.safariConfig)
             self.presentVC(vc)
         }
     }

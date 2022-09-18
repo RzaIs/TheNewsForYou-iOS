@@ -36,7 +36,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
                 } else if let error = error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(throwing: NSError(domain: "Auth-CreateUser", code: 1))
+                    continuation.resume(throwing: NSError(domain: FirebaseErrors.createUser.rawValue, code: 1))
                 }
             }
         }
@@ -50,7 +50,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
                 } else if let error = error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(throwing: NSError(domain: "Auth-Signin", code: 2))
+                    continuation.resume(throwing: NSError(domain: FirebaseErrors.singIn.rawValue, code: 2))
                 }
             }
         }
@@ -63,16 +63,18 @@ class FirebaseProvider: FirebaseProviderProtocol {
     func getDocuments<T: FirestoreObject>() async throws -> [T] {
         return try await withCheckedThrowingContinuation { continuation in
             guard let _ = self.auth.currentUser else {
-                continuation.resume(throwing: NSError(domain: "User not defined", code: 1))
+                continuation.resume(throwing: NSError(domain: FirebaseErrors.userNotDefined.rawValue, code: 1))
                 return
             }
             self.firestore.collection(T.collection).getDocuments { snapshot, error in
-                if let documents = snapshot?.documents.map({ T(document: $0) }) {
+                if let documents = snapshot?.documents.map({ documentSnapshot in
+                    T(document: documentSnapshot)
+                }) {
                     continuation.resume(returning: documents)
                 } else if let error = error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(throwing: NSError(domain: "Firebase-Firestore", code: 3))
+                    continuation.resume(throwing: NSError(domain: FirebaseErrors.firestore.rawValue, code: 3))
                 }
             }
         }
@@ -81,7 +83,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
     func deleteDocument<T: FirestoreObject>(_ type: T.Type, id: String) async throws {
         return try await withCheckedThrowingContinuation { continuation in
             guard let _ = self.auth.currentUser else {
-                continuation.resume(throwing: NSError(domain: "User not defined", code: 1))
+                continuation.resume(throwing: NSError(domain: FirebaseErrors.userNotDefined.rawValue, code: 1))
                 return
             }
             self.firestore.collection(T.collection).document(id).delete { error in
@@ -97,7 +99,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
     func sendDocument<T: DictionaryObject>(document: T) async throws {
         return try await withCheckedThrowingContinuation { continuation in
             guard let user = self.auth.currentUser else {
-                continuation.resume(throwing: NSError(domain: "User not defined", code: 1))
+                continuation.resume(throwing: NSError(domain: FirebaseErrors.userNotDefined.rawValue, code: 1))
                 return
             }
             var dictionary = document.toDictionary
@@ -122,7 +124,7 @@ class FirebaseProvider: FirebaseProviderProtocol {
                 } else if let error = error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(throwing: NSError(domain: "Firebase-RemoteConfig", code: 1))
+                    continuation.resume(throwing: NSError(domain: FirebaseErrors.remoteConfig.rawValue, code: 1))
                 }
             }
         }
@@ -131,4 +133,12 @@ class FirebaseProvider: FirebaseProviderProtocol {
     func getApiKey() -> String? {
         self.remoteConfig.configValue(forKey: self.apiKeyConfigKey).stringValue
     }
+}
+
+enum FirebaseErrors: String {
+    case userNotDefined = "User not defined"
+    case createUser = "Error at registration"
+    case singIn = "Error at login"
+    case firestore = "Error at firestore"
+    case remoteConfig = "Error at remote config"
 }

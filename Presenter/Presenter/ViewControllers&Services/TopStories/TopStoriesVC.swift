@@ -11,7 +11,7 @@ import SafariServices
 
 class TopStoriesVC: BaseVC<Void, TopStoriesEffect, TopStoriesService> {
     
-    private let SafariConfig: SFSafariViewController.Configuration = {
+    private let safariConfig: SFSafariViewController.Configuration = {
         let config = SFSafariViewController.Configuration()
         config.entersReaderIfAvailable = true
         return config
@@ -113,7 +113,7 @@ extension TopStoriesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let url = self.service.topStories[indexPath.row].url {
-            let vc = SFSafariViewController(url: url, configuration: self.SafariConfig)
+            let vc = SFSafariViewController(url: url, configuration: self.safariConfig)
             self.presentVC(vc)
         }
     }
