@@ -13,8 +13,12 @@ class TopStoryRemoteDTO: Decodable {
     let url: String
     let uri: String
     let byline: String
-    let published_date: String
+    let publishedDate: String
     let multimedia: [TSMultimediaRemoteDTO]?
+    
+    enum CodingKeys: String, CodingKey {
+        case section, subsection, title, abstract, url, uri, byline, publishedDate = "published_date", multimedia
+    }
 }
 
 class TSMultimediaRemoteDTO: Decodable {

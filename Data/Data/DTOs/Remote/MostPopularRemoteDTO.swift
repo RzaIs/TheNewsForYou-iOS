@@ -13,8 +13,12 @@ class MostPopularRemoteDTO: Decodable {
     let abstract: String
     let url: String
     let byline: String
-    let published_date: String
+    let publishedDate: String
     let media: [MPMediaRemoteDTO]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, section, subsection, title, abstract, url, byline, publishedDate = "published_date", media
+    }
 }
 
 class MPMediaRemoteDTO: Decodable {
