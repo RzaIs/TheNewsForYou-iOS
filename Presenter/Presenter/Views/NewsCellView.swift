@@ -156,8 +156,6 @@ class NewsCellView: UITableViewCell {
         self.containerView.showAnimatedSkeleton()
     }
     
-    
-    
     func setData(_ data: MostPopularEntity, hasImage: Bool) {
         self.sectionLabel.text = data.section
         self.subsectionLabel.text = data.subsection
@@ -216,9 +214,4 @@ class NewsCellView: UITableViewCell {
             self.previewImg.kf.setImage(with: safeURL)
         }
     }
-}
-
-enum CellType {
-    case topStory(TopStoryEntity)
-    case mostPopular(MostPopularEntity)
 }

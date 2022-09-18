@@ -40,9 +40,9 @@ class TopStoriesVC: BaseVC<Void, TopStoriesEffect, TopStoriesService> {
         view.delegate = self
         view.dataSource = self
         view.separatorStyle = .none
-        view.register(TopStoryCell.self, forCellReuseIdentifier: self.topStoryCellHasImg)
-        view.register(TopStoryCell.self, forCellReuseIdentifier: self.topStoryCellNoImg)
-        view.register(TopStoryCell.self, forCellReuseIdentifier: self.topStoryCellSkeleton)
+        view.register(NewsCellView.self, forCellReuseIdentifier: self.topStoryCellHasImg)
+        view.register(NewsCellView.self, forCellReuseIdentifier: self.topStoryCellNoImg)
+        view.register(NewsCellView.self, forCellReuseIdentifier: self.topStoryCellSkeleton)
         view.addSubview(self.refreshControl)
         self.view.addSubview(view)
         return view
@@ -128,16 +128,16 @@ extension TopStoriesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TopStoryCell
+        let cell: NewsCellView
         
         if self.service.topStories.count ==  0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellSkeleton, for: indexPath) as! TopStoryCell
+            cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellSkeleton, for: indexPath) as! NewsCellView
             cell.setAsSkeleton()
         } else if self.service.topStories[indexPath.row].multimedia.isEmpty {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellNoImg, for: indexPath) as! TopStoryCell
+            cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellNoImg, for: indexPath) as! NewsCellView
             cell.setData(self.service.topStories[indexPath.row], hasImage: false)
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellHasImg, for: indexPath) as! TopStoryCell
+            cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellHasImg, for: indexPath) as! NewsCellView
             cell.setData(self.service.topStories[indexPath.row], hasImage: true)
         }
         return cell

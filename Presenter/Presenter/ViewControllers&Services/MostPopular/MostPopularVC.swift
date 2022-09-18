@@ -33,9 +33,9 @@ class MostPopularVC: BaseVC<Void, MostPopularEffect, MostPopularService> {
         view.delegate = self
         view.dataSource = self
         view.separatorStyle = .none
-        view.register(MostPopularCell.self, forCellReuseIdentifier: self.mostPopularCellWithImage)
-        view.register(MostPopularCell.self, forCellReuseIdentifier: self.mostPopularCellWithNoImg)
-        view.register(MostPopularCell.self, forCellReuseIdentifier: self.mostPopularCellSkeleton)
+        view.register(NewsCellView.self, forCellReuseIdentifier: self.mostPopularCellWithImage)
+        view.register(NewsCellView.self, forCellReuseIdentifier: self.mostPopularCellWithNoImg)
+        view.register(NewsCellView.self, forCellReuseIdentifier: self.mostPopularCellSkeleton)
         view.addSubview(self.refreshControl)
         self.view.addSubview(view)
         return view
@@ -103,16 +103,16 @@ extension MostPopularVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: MostPopularCell
+        let cell: NewsCellView
         
         if self.service.mostPopular.count == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellSkeleton, for: indexPath) as! MostPopularCell
+            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellSkeleton, for: indexPath) as! NewsCellView
             cell.setAsSkeleton()
         } else if self.service.mostPopular[indexPath.row].media.isEmpty {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithImage, for: indexPath) as! MostPopularCell
+            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithImage, for: indexPath) as! NewsCellView
             cell.setData(self.service.mostPopular[indexPath.row], hasImage: false)
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithImage, for: indexPath) as! MostPopularCell
+            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithImage, for: indexPath) as! NewsCellView
             cell.setData(self.service.mostPopular[indexPath.row], hasImage: true)
         }
         return cell
