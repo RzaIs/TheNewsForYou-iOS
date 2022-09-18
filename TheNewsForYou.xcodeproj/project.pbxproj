@@ -340,7 +340,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "swiftgen/swiftgen config run\nexit 0\n";
+			shellScript = "# swiftgen/swiftgen config run\n# exit 0\nif which swiftgen >/dev/null; then\nswiftgen\nexit 0\nelse\necho \"warning: swiftgen not installed!\"\nexit 0\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
