@@ -30,7 +30,7 @@ jobs:
 
       - name: Install Homebrew
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
-             sudo chown -R $(whoami) /usr/local
+             chown -R $(whoami) /usr/local
 
       - name: Setup Python
         uses: actions/setup-python@v4
