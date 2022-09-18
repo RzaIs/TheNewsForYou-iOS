@@ -36,7 +36,6 @@
 		32FADE8828C4897F00A3FD5D /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE8728C4897F00A3FD5D /* XCAssets+Generated.swift */; };
 		32FADE8A28C48BD500A3FD5D /* RobotoMonoVariableFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32FADE8928C48BD500A3FD5D /* RobotoMonoVariableFont.ttf */; };
 		32FADE8C28C48C4100A3FD5D /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE8B28C48C4100A3FD5D /* Fonts+Generated.swift */; };
-		32FADE8E28C48D6B00A3FD5D /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 32FADE8D28C48D6B00A3FD5D /* swiftgen.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		32FADE8728C4897F00A3FD5D /* XCAssets+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		32FADE8928C48BD500A3FD5D /* RobotoMonoVariableFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = RobotoMonoVariableFont.ttf; sourceTree = "<group>"; };
 		32FADE8B28C48C4100A3FD5D /* Fonts+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
-		32FADE8D28C48D6B00A3FD5D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +138,6 @@
 				32A7928928B9454900CC94FE /* PresenterTests */,
 				32A7927C28B9454900CC94FE /* Products */,
 				32A792A628B9462300CC94FE /* Frameworks */,
-				32FADE8D28C48D6B00A3FD5D /* swiftgen.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,7 +293,6 @@
 			buildConfigurationList = 32A7928F28B9454900CC94FE /* Build configuration list for PBXNativeTarget "Presenter" */;
 			buildPhases = (
 				32A7927628B9454900CC94FE /* Headers */,
-				32FADE8528C4875400A3FD5D /* Swiftgen */,
 				32A7927728B9454900CC94FE /* Sources */,
 				32A7927828B9454900CC94FE /* Frameworks */,
 				32A7927928B9454900CC94FE /* Resources */,
@@ -383,7 +379,6 @@
 			files = (
 				32FADE8A28C48BD500A3FD5D /* RobotoMonoVariableFont.ttf in Resources */,
 				32FADE5B28C4844800A3FD5D /* Media.xcassets in Resources */,
-				32FADE8E28C48D6B00A3FD5D /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,28 +390,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		32FADE8528C4875400A3FD5D /* Swiftgen */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftgen;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "../swiftgen/swiftgen config run\nexit 0\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		32A7927728B9454900CC94FE /* Sources */ = {

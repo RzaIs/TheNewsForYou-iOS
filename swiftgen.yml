@@ -5,19 +5,19 @@
 #  Created by Rza Ismayilov on 04.09.22.
 #
 
-input_dir: ./
-output_dir: ./Presenter/Generated/
+input_dir: ./Presenter/Presenter
+output_dir: ./Presenter/Presenter/Generated/
 
 xcassets:
     inputs:
-     - Presenter/Assets/Media.xcassets
+     - Assets/Media.xcassets
     outputs:
      templateName: swift5
      output: XCAssets+Generated.swift
 
 fonts:
   inputs:
-    - Presenter/Assets/RobotoMonoVariableFont.ttf
+    - Assets/RobotoMonoVariableFont.ttf
   outputs:
     templateName: swift5
     output: Fonts+Generated.swift
