@@ -181,7 +181,6 @@
 			buildConfigurationList = 32A791AA28B9293900CC94FE /* Build configuration list for PBXNativeTarget "TheNewsForYou" */;
 			buildPhases = (
 				32FD570728D6A3950080FA5A /* Swiftgen */,
-				32FD56F128D6851A0080FA5A /* Swiftlint */,
 				32A7919228B9293800CC94FE /* Sources */,
 				32A7919328B9293800CC94FE /* Frameworks */,
 				32A7919428B9293800CC94FE /* Resources */,
@@ -305,25 +304,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32FD56F128D6851A0080FA5A /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nexit 0\nswiftlint\nelse\necho \"warning: swiftlint not installed!\"\nexit 0\nfi\n";
-		};
 		32FD570728D6A3950080FA5A /* Swiftgen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
