@@ -11,6 +11,7 @@ protocol NavigationProviderProtocol {
     var rootNC: UINavigationController { get }
     var topStoriesVC: TopStoriesVC { get }
     var mostPopularVC: MostPopularVC { get }
+    var searchArticleVC: SearchArticleVC { get }
     var welcomeVC: WelcomeVC { get }
     var authVC: AuthVC { get }
 }

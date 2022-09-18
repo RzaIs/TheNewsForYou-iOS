@@ -17,7 +17,7 @@ class MostPopularLocalDTO: Object {
     @Persisted var url: String = ""
     @Persisted var author: String = ""
     @Persisted var publishDate: String = ""
-    @Persisted var media: List<MPMediaLocalDTO>
+    @Persisted var media: List<String> = .init()
     
     convenience init(
         id: Int,
@@ -28,7 +28,7 @@ class MostPopularLocalDTO: Object {
         url: String,
         author: String,
         publishDate: String,
-        media: [MPMediaLocalDTO]
+        media: [String]
     ) {
         self.init()
         self.id = id
@@ -43,11 +43,3 @@ class MostPopularLocalDTO: Object {
     }
 }
 
-class MPMediaLocalDTO: Object {
-    @Persisted var url: String = ""
-    
-    convenience init(url: String) {
-        self.init()
-        self.url = url
-    }
-}

@@ -5,7 +5,7 @@
 //  Created by Rza Ismayilov on 27.08.22.
 //
 
-public struct UIError: Error {
+public class UIError: Error {
     public let title: String
     public let message: String
     

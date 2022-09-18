@@ -44,8 +44,16 @@ class TabBarController: UITabBarController {
             image: UIImage(systemName: "flame")?.withTintColor(.black, renderingMode: .alwaysOriginal),
             selectedImage: UIImage(systemName: "flame.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal)
         )
+        
+        let searchArticleVC = self.navigationProvider.searchArticleVC
+        searchArticleVC.title = "Search"
+        searchArticleVC.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(systemName: "magnifyingglass.circle")?.withTintColor(.black, renderingMode: .alwaysOriginal),
+            selectedImage: UIImage(systemName: "magnifyingglass.circle.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        )
                 
-        self.viewControllers = [topStoriesVC, mostPopularVC]
+        self.viewControllers = [topStoriesVC, mostPopularVC, searchArticleVC]
     }
     
     override func viewDidLayoutSubviews() {

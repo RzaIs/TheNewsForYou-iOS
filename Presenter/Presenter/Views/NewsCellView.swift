@@ -156,13 +156,13 @@ class NewsCellView: UITableViewCell {
         self.containerView.showAnimatedSkeleton()
     }
     
-    func setData(_ data: MostPopularEntity, hasImage: Bool) {
-        self.sectionLabel.text = data.section
-        self.subsectionLabel.text = data.subsection
-        self.titleLabel.text = data.title
-        self.authorLabel.text = data.author
-        self.descriptionLabel.text = data.abstract
-        switch data.publishDate {
+    func setData(_ searchArticle: SearchArticleEntity, hasImage: Bool) {
+        self.sectionLabel.text = searchArticle.sectionName
+        self.subsectionLabel.text = searchArticle.subsectionName
+        self.titleLabel.text = searchArticle.title
+        self.authorLabel.text = searchArticle.author
+        self.descriptionLabel.text = searchArticle.abstract
+        switch searchArticle.publishDate {
         case .at(let date):
             self.dateLabel.text = self.dateFormatter.string(from: date)
         case .unknown:
@@ -180,19 +180,18 @@ class NewsCellView: UITableViewCell {
         }
         
         self.previewImg.image = nil
-        if let safeURL = data.media.last {
+        if let safeURL = searchArticle.multimedia.last {
             self.previewImg.kf.setImage(with: safeURL)
         }
     }
     
-    func setData(_ data: TopStoryEntity, hasImage: Bool) {
-        
-        self.sectionLabel.text = data.section
-        self.subsectionLabel.text = data.subsection
-        self.titleLabel.text = data.title
-        self.authorLabel.text = data.author
-        self.descriptionLabel.text = data.abstract
-        switch data.publishDate {
+    func setData(_ mostPopular: MostPopularEntity, hasImage: Bool) {
+        self.sectionLabel.text = mostPopular.section
+        self.subsectionLabel.text = mostPopular.subsection
+        self.titleLabel.text = mostPopular.title
+        self.authorLabel.text = mostPopular.author
+        self.descriptionLabel.text = mostPopular.abstract
+        switch mostPopular.publishDate {
         case .at(let date):
             self.dateLabel.text = self.dateFormatter.string(from: date)
         case .unknown:
@@ -210,7 +209,37 @@ class NewsCellView: UITableViewCell {
         }
         
         self.previewImg.image = nil
-        if let safeURL = data.multimedia.last {
+        if let safeURL = mostPopular.media.last {
+            self.previewImg.kf.setImage(with: safeURL)
+        }
+    }
+    
+    func setData(_ topStory: TopStoryEntity, hasImage: Bool) {
+        
+        self.sectionLabel.text = topStory.section
+        self.subsectionLabel.text = topStory.subsection
+        self.titleLabel.text = topStory.title
+        self.authorLabel.text = topStory.author
+        self.descriptionLabel.text = topStory.abstract
+        switch topStory.publishDate {
+        case .at(let date):
+            self.dateLabel.text = self.dateFormatter.string(from: date)
+        case .unknown:
+            self.dateLabel.text = ""
+        }
+        
+        if hasImage {
+            self.previewImg.snp.updateConstraints { make in
+                make.height.equalTo(100)
+            }
+        } else {
+            self.previewImg.snp.updateConstraints { make in
+                make.height.equalTo(0)
+            }
+        }
+        
+        self.previewImg.image = nil
+        if let safeURL = topStory.multimedia.last {
             self.previewImg.kf.setImage(with: safeURL)
         }
     }

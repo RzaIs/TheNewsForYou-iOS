@@ -18,7 +18,7 @@ class TopStoryLocalDTO: Object {
     @Persisted var author: String = ""
     @Persisted var publishDate: String = ""
     @Persisted var segment: String = ""
-    @Persisted var multimedia: List<TSMultimediaLocalDTO>
+    @Persisted var multimedia: List<String> = .init()
     
     convenience init(
         id: String,
@@ -30,7 +30,7 @@ class TopStoryLocalDTO: Object {
         author: String,
         publishDate: String,
         segment: String,
-        multimedia: [TSMultimediaLocalDTO]
+        multimedia: [String]
     ) {
         self.init()
         self.id = id
@@ -46,11 +46,3 @@ class TopStoryLocalDTO: Object {
     }
 }
 
-class TSMultimediaLocalDTO: Object {
-    @Persisted var url: String = ""
-    
-    convenience init(url: String) {
-        self.init()
-        self.url = url
-    }
-}

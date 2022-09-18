@@ -97,6 +97,10 @@ public class DataAssembly: Assembly {
             )
         }
         
+        container.register(SearchArticleRepoProtocol.self) { r in
+            SearchArticleRepo(remoteDataSource: r.resolve(SearchArticleRemoteDataSourceProtocol.self)!)
+        }
+        
         // Remote Data Sources
         
         container.register(AuthRemoteDataSourceProtocol.self) { r in
@@ -113,6 +117,10 @@ public class DataAssembly: Assembly {
         
         container.register(CommentRemoteDataSourceProtocol.self) { r in
             CommentRemoteDataSource(firebaseProvider: r.resolve(FirebaseProviderProtocol.self)!)
+        }
+        
+        container.register(SearchArticleRemoteDataSourceProtocol.self) { r in
+            SearchArticleRemoteDataSource(networkProvider: r.resolve(NetworkProviderProtocol.self)!)
         }
         
         // Local Data Sources

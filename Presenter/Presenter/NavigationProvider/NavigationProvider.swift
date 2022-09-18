@@ -28,6 +28,10 @@ class NavigationProvider: NavigationProviderProtocol {
         self.resolver.resolve(MostPopularVC.self)!
     }
     
+    var searchArticleVC: SearchArticleVC {
+        self.resolver.resolve(SearchArticleVC.self)!
+    }
+    
     var welcomeVC: WelcomeVC {
         self.resolver.resolve(WelcomeVC.self)!
     }

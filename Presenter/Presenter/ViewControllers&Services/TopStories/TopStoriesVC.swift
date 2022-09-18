@@ -112,7 +112,7 @@ class TopStoriesVC: BaseVC<Void, TopStoriesEffect, TopStoriesService> {
 extension TopStoriesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let url = self.service.topStories[indexPath.row].url {
+        if let url = self.service.topStories.safe[indexPath.row]?.url {
             let vc = SFSafariViewController(url: url, configuration: self.safariConfig)
             self.presentVC(vc)
         }
