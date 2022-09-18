@@ -12,8 +12,6 @@
 		32A791A628B9293900CC94FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A791A428B9293900CC94FE /* LaunchScreen.storyboard */; };
 		32A791E028B92AE500CC94FE /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A791D728B929D200CC94FE /* Data.framework */; platformFilter = ios; };
 		32A791E128B92AE500CC94FE /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32A791D728B929D200CC94FE /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		32A791E628B92B7A00CC94FE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 32A791E528B92B7A00CC94FE /* Swinject */; };
-		32A791F728B92F1500CC94FE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 32A791F628B92F1500CC94FE /* SnapKit */; };
 		32A7924A28B9404800CC94FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7924728B9403400CC94FE /* Domain.framework */; };
 		32A7924B28B9404800CC94FE /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7924728B9403400CC94FE /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		32A792A428B9460E00CC94FE /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7929B28B9454900CC94FE /* Presenter.framework */; };
@@ -101,9 +99,7 @@
 			files = (
 				32A7924A28B9404800CC94FE /* Domain.framework in Frameworks */,
 				32A792A428B9460E00CC94FE /* Presenter.framework in Frameworks */,
-				32A791F728B92F1500CC94FE /* SnapKit in Frameworks */,
 				32A791E028B92AE500CC94FE /* Data.framework in Frameworks */,
-				32A791E628B92B7A00CC94FE /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +180,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32A791AA28B9293900CC94FE /* Build configuration list for PBXNativeTarget "TheNewsForYou" */;
 			buildPhases = (
+				32FD570728D6A3950080FA5A /* Swiftgen */,
 				32A7919228B9293800CC94FE /* Sources */,
 				32A7919328B9293800CC94FE /* Frameworks */,
 				32A7919428B9293800CC94FE /* Resources */,
@@ -195,8 +192,6 @@
 			);
 			name = TheNewsForYou;
 			packageProductDependencies = (
-				32A791E528B92B7A00CC94FE /* Swinject */,
-				32A791F628B92F1500CC94FE /* SnapKit */,
 			);
 			productName = TheNewsForYou;
 			productReference = 32A7919628B9293800CC94FE /* TheNewsForYou.app */;
@@ -227,8 +222,6 @@
 			);
 			mainGroup = 32A7918D28B9293800CC94FE;
 			packageReferences = (
-				32A791E428B92B7A00CC94FE /* XCRemoteSwiftPackageReference "Swinject" */,
-				32A791F528B92F1500CC94FE /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 32A7919728B9293800CC94FE /* Products */;
 			projectDirPath = "";
@@ -309,6 +302,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32FD570728D6A3950080FA5A /* Swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\nswiftgen\nexit 0\nelse\necho \"warning: swiftgen not installed!\"\nexit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		32A7919228B9293800CC94FE /* Sources */ = {
@@ -453,8 +468,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8B4Z6L9SV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheNewsForYou/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -469,6 +486,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = is.rza.TheNewsForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -481,8 +502,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8B4Z6L9SV7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TheNewsForYou/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -497,6 +520,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = is.rza.TheNewsForYou;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,38 +552,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		32A791E428B92B7A00CC94FE /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		32A791F528B92F1500CC94FE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		32A791E528B92B7A00CC94FE /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A791E428B92B7A00CC94FE /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-		32A791F628B92F1500CC94FE /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 32A791F528B92F1500CC94FE /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 32A7918E28B9293800CC94FE /* Project object */;
 }

@@ -13,39 +13,33 @@ import Presenter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    // MARK: UISceneSession Lifecycle
-    
+        
     var window: UIWindow?
 
-    var appAssembler: Assembler!
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        guard let infoPlist = Bundle.main.infoDictionary else {
-            fatalError("info.plist not found")
-        }
-        
-        guard let baseURL = infoPlist["BaseURL"] as? String,
-              let APIKey = infoPlist["APIKey"] as? String,
+    lazy var appAssembler: Assembler = {
+        guard let infoPlist = Bundle.main.infoDictionary,
+              let baseURL = infoPlist["BaseURL"] as? String,
               let keychainService = infoPlist["KeychainService"] as? String
         else {
-            fatalError("Environment variables not found")
+            fatalError("info.plist not found or Environment variables not found")
         }
-
-        self.appAssembler = .init([
+        
+        return Assembler([
             PresenterAssembly(),
             DomainAssembly(),
             DataAssembly(
                 baseURL: baseURL,
-                APIKey: APIKey,
                 keychainService: keychainService
             )
         ])
- 
-        let navigationController = appAssembler.resolver.resolve(UINavigationController.self)!
+    }()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+                
+        let rootVC = appAssembler.resolver.resolve(UINavigationController.self)!
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = rootVC
         self.window?.makeKeyAndVisible()
         
         return true
