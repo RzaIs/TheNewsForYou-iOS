@@ -9,12 +9,16 @@ public class CommentEntity {
     public let id: String
     public let content: String
     public let newsID: String
+    public let isAdmin: Bool
+    public let publishDate: String
     public let author: CommentAuthorEntity
-    
-    public init(id: String, content: String, newsID: String, author: CommentAuthorEntity) {
+
+    public init(id: String, content: String, newsID: String, isAdmin: Bool, publishDate: String, author: CommentAuthorEntity) {
         self.id = id
         self.content = content
         self.newsID = newsID
+        self.isAdmin = isAdmin
+        self.publishDate = publishDate
         self.author = author
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Swinject
+import Domain
 import UIKit
 
 class NavigationProvider: NavigationProviderProtocol {
@@ -20,6 +21,14 @@ class NavigationProvider: NavigationProviderProtocol {
         self.resolver.resolve(UINavigationController.self)!
     }
     
+    var welcomeVC: WelcomeVC {
+        self.resolver.resolve(WelcomeVC.self)!
+    }
+    
+    var authVC: AuthVC {
+        self.resolver.resolve(AuthVC.self)!
+    }
+    
     var topStoriesVC: TopStoriesVC {
         self.resolver.resolve(TopStoriesVC.self)!
     }
@@ -32,11 +41,15 @@ class NavigationProvider: NavigationProviderProtocol {
         self.resolver.resolve(SearchArticleVC.self)!
     }
     
-    var welcomeVC: WelcomeVC {
-        self.resolver.resolve(WelcomeVC.self)!
-    }
-    
-    var authVC: AuthVC {
-        self.resolver.resolve(AuthVC.self)!
+    func commentVC(newsID: String) -> CommentVC {
+        CommentVC(
+            service: CommentService(
+                newsID: newsID,
+                getCommentsUseCase: resolver.resolve(GetCommentsUseCase.self)!,
+                deleteCommentsUseCase: resolver.resolve(DeleteCommentsUseCase.self)!,
+                submitCommentsUseCase: resolver.resolve(SubmitCommentsUseCase.self)!
+            ),
+            navigationProvider: resolver.resolve(NavigationProviderProtocol.self)!
+        )
     }
 }
