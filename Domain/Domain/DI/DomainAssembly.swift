@@ -55,5 +55,9 @@ public class DomainAssembly: Assembly {
         container.register(ObserveMostPopularUseCase.self) { r in
             ObserveMostPopularUseCase(repo: r.resolve(MostPopularRepoProtocol.self)!)
         }
+        
+        container.register(SearchArticleUseCase.self) { r in
+            SearchArticleUseCase(repo: r.resolve(SearchArticleRepoProtocol.self)!)
+        }
     }
 }

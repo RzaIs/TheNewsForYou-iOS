@@ -5,14 +5,14 @@
 //  Created by Rza Ismayilov on 10.09.22.
 //
 
-public class SafeArray<T> {
-    private let array: Array<T>
+public class SafeArray<Element> {
+    private let array: Array<Element>
     
-    init(_ array: [T]) {
+    init(_ array: [Element]) {
         self.array = array
     }
     
-    public subscript(index: Int) -> T? {
+    public subscript(index: Int) -> Element? {
         if index < array.count && index >= 0 {
             return self.array[index]
         } else {

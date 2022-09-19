@@ -51,7 +51,18 @@ public class PresenterAssembly: Assembly {
                 observeMostPopularUseCase: r.resolve(ObserveMostPopularUseCase.self)!
             )
         }
+        
+        container.register(SearchArticleVC.self) { r in
+            SearchArticleVC(
+                service: r.resolve(SearchArticleService.self)!,
+                navigationProvider: r.resolve(NavigationProviderProtocol.self)!
+            )
+        }
 
+        container.register(SearchArticleService.self) { r in
+            SearchArticleService(searchArticleUseCase: r.resolve(SearchArticleUseCase.self)!)
+        }
+        
         container.register(WelcomeVC.self) { r in
             WelcomeVC(
                 service: r.resolve(WelcomeService.self)!,
