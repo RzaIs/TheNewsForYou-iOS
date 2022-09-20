@@ -112,7 +112,7 @@ class TopStoriesVC: BaseVC<Void, TopStoriesEffect, TopStoriesService> {
 extension TopStoriesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let url = self.service.topStories[indexPath.row].url {
+        if let url = self.service.topStories.safe[indexPath.row]?.url {
             let vc = SFSafariViewController(url: url, configuration: self.safariConfig)
             self.presentVC(vc)
         }
@@ -140,6 +140,28 @@ extension TopStoriesVC: UITableViewDelegate, UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: self.topStoryCellHasImg, for: indexPath) as! NewsCellView
             cell.setData(self.service.topStories[indexPath.row], hasImage: true)
         }
+        cell.setDelegate(self)
         return cell
+    }
+}
+
+extension TopStoriesVC: NewsCellDelegate {
+    
+    func showToast(message: String) {
+        self.showToast(message: message, font: .systemFont(ofSize: 12))
+    }
+    
+    func showCommentVC(newsID: String) {
+        let vc = self.navigationProvider.commentVC(newsID: newsID)
+        self.pushVC(vc)
+    }
+    
+    func showWelcomeVC() {
+        let vc = self.navigationProvider.welcomeVC
+        self.presentVC(vc)
+    }
+    
+    var isLoggedIn: Bool {
+        self.service.isLoggedIn
     }
 }

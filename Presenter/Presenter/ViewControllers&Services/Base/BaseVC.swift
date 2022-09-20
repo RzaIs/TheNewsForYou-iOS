@@ -90,6 +90,31 @@ open class BaseVC<State, Effect, Service: BaseService<State, Effect>>: UIViewCon
         self.dismiss(animated: true, completion: completion)
     }
     
+    func showToast(message : String, font: UIFont) {
+        let toastLabel = UILabel(
+            frame: CGRect(
+                x: self.view.frame.size.width/2 - 75,
+                y: self.view.frame.size.height-100,
+                width: 150,
+                height: 35
+            )
+        )
+        toastLabel.backgroundColor = UIColor.black
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 1.0, delay: 2.0, options: .curveEaseOut) {
+            toastLabel.alpha = 0.0
+        } completion: { isCompleted in
+            toastLabel.removeFromSuperview()
+        }
+    }
+    
     func registerKeyboardNotification() {
         NotificationCenter.default.addObserver(
             self, selector: #selector(keyboardDismissed),

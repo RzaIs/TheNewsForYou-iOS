@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32143B6528D776B800B04819 /* SearchArticleRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B6428D776B800B04819 /* SearchArticleRemoteDTO.swift */; };
+		32143B6A28D77FFC00B04819 /* SearchArticleRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B6928D77FFC00B04819 /* SearchArticleRemoteDataSource.swift */; };
+		32143B6C28D7800D00B04819 /* SearchArticleRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B6B28D7800D00B04819 /* SearchArticleRemoteDataSourceProtocol.swift */; };
+		32143B6E28D780D700B04819 /* SearchArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B6D28D780D700B04819 /* SearchArticleAPI.swift */; };
+		32143B7428D787E000B04819 /* SearchArticleRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B7328D787E000B04819 /* SearchArticleRepo.swift */; };
 		321CF21628D6327C006C68F7 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 321CF21528D6327C006C68F7 /* FirebaseRemoteConfig */; };
 		3220D3DE28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */; };
 		3220D3E028CD2CE800DB4A9E /* MostPopularLocalDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3DF28CD2CE800DB4A9E /* MostPopularLocalDTO.swift */; };
@@ -90,6 +95,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		32143B6428D776B800B04819 /* SearchArticleRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRemoteDTO.swift; sourceTree = "<group>"; };
+		32143B6928D77FFC00B04819 /* SearchArticleRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRemoteDataSource.swift; sourceTree = "<group>"; };
+		32143B6B28D7800D00B04819 /* SearchArticleRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		32143B6D28D780D700B04819 /* SearchArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleAPI.swift; sourceTree = "<group>"; };
+		32143B7328D787E000B04819 /* SearchArticleRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRepo.swift; sourceTree = "<group>"; };
 		3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRemoteDTO.swift; sourceTree = "<group>"; };
 		3220D3DF28CD2CE800DB4A9E /* MostPopularLocalDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularLocalDTO.swift; sourceTree = "<group>"; };
 		3220D3E628CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
@@ -168,6 +178,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32143B6828D77FEC00B04819 /* SearchArticle */ = {
+			isa = PBXGroup;
+			children = (
+				32143B6B28D7800D00B04819 /* SearchArticleRemoteDataSourceProtocol.swift */,
+				32143B6928D77FFC00B04819 /* SearchArticleRemoteDataSource.swift */,
+				32143B6D28D780D700B04819 /* SearchArticleAPI.swift */,
+			);
+			path = SearchArticle;
+			sourceTree = "<group>";
+		};
 		3220D3E528CD326A00DB4A9E /* MostPopular */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +315,7 @@
 				32FADE3F28C00C9F00A3FD5D /* TopStoriesRepo.swift */,
 				3220D3EE28CD345900DB4A9E /* MostPopularRepo.swift */,
 				3225E94B28CFC4B800747B5E /* CommentRepo.swift */,
+				32143B7328D787E000B04819 /* SearchArticleRepo.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -362,6 +383,7 @@
 				3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */,
 				32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */,
 				3225E94728CFC39400747B5E /* CommentBody.swift */,
+				32143B6428D776B800B04819 /* SearchArticleRemoteDTO.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -378,6 +400,7 @@
 		32FADE2F28BFC3F800A3FD5D /* NewYorkTimes */ = {
 			isa = PBXGroup;
 			children = (
+				32143B6828D77FEC00B04819 /* SearchArticle */,
 				3220D3E528CD326A00DB4A9E /* MostPopular */,
 				32FADE3428BFC45600A3FD5D /* TopStories */,
 			);
@@ -558,9 +581,11 @@
 				32A7920928B93AFE00CC94FE /* DatabaseProvider.swift in Sources */,
 				32FADE3C28C006C600A3FD5D /* TopStoriesLocalDTO.swift in Sources */,
 				3220D3E928CD328F00DB4A9E /* MostPopularRemoteDataSource.swift in Sources */,
+				32143B6A28D77FFC00B04819 /* SearchArticleRemoteDataSource.swift in Sources */,
 				32E0F11C28CE7E1B00C8986A /* FirestoreObject.swift in Sources */,
 				32FADE0528BD458700A3FD5D /* DataKeys.swift in Sources */,
 				32A791FC28B9364300CC94FE /* FirebaseProvider.swift in Sources */,
+				32143B6528D776B800B04819 /* SearchArticleRemoteDTO.swift in Sources */,
 				32A792BD28B9487800CC94FE /* NetworkProviderProtocol.swift in Sources */,
 				32A7921C28B93F5600CC94FE /* AuthRepo.swift in Sources */,
 				3220D3EF28CD345900DB4A9E /* MostPopularRepo.swift in Sources */,
@@ -570,6 +595,7 @@
 				3220D3E028CD2CE800DB4A9E /* MostPopularLocalDTO.swift in Sources */,
 				32FADE3328BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift in Sources */,
 				3220D3EB28CD329D00DB4A9E /* MostPopularAPI.swift in Sources */,
+				32143B6C28D7800D00B04819 /* SearchArticleRemoteDataSourceProtocol.swift in Sources */,
 				3225E94828CFC39400747B5E /* CommentBody.swift in Sources */,
 				3225E94E28CFC53E00747B5E /* Domain2Remote.swift in Sources */,
 				32A791DB28B92A7D00CC94FE /* DataAssembly.swift in Sources */,
@@ -580,8 +606,10 @@
 				32FADE3A28BFCB6900A3FD5D /* TopStoriesLocalDataSourceProtocol.swift in Sources */,
 				32A791EE28B92C5200CC94FE /* AuthRemoteDataSource.swift in Sources */,
 				32FADE2E28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift in Sources */,
+				32143B7428D787E000B04819 /* SearchArticleRepo.swift in Sources */,
 				32FADE4728C13CA400A3FD5D /* Local2Domain.swift in Sources */,
 				32FADE2C28BFBA3200A3FD5D /* BaseRemoteDTO.swift in Sources */,
+				32143B6E28D780D700B04819 /* SearchArticleAPI.swift in Sources */,
 				32FADE3E28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift in Sources */,
 				3220D3DE28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift in Sources */,
 				32A791FA28B9363C00CC94FE /* FirebaseProviderProtocol.swift in Sources */,

@@ -19,16 +19,18 @@ extension TopStoryRemoteDTO {
             author: self.byline,
             publishDate: self.publishedDate,
             segment: segment,
-            multimedia: (self.multimedia ?? []).map {
-                $0.toLocal
-            }
+            multimedia: (self.multimedia ?? []).toLocal
         )
     }
 }
 
-extension TSMultimediaRemoteDTO {
-    var toLocal: TSMultimediaLocalDTO {
-        TSMultimediaLocalDTO(url: self.url)
+extension Array where Element: TSMultimediaRemoteDTO {
+    var toLocal: [String] {
+        var urlStrings: [String] = []
+        self.forEach { multimediaRemoteDTO in
+            urlStrings.append(multimediaRemoteDTO.url)
+        }
+        return urlStrings
     }
 }
 
@@ -49,15 +51,13 @@ extension MostPopularRemoteDTO {
 }
 
 extension Array where Element: MPMediaRemoteDTO {
-    var toLocal: [MPMediaLocalDTO] {
-        var mpMediaLocalDTO: [MPMediaLocalDTO] = []
+    var toLocal: [String] {
+        var urlStrings: [String] = []
         self.forEach { mediaRemoteDTO in
             mediaRemoteDTO.mediaMetadata.forEach { metadataRemoteDTO in
-                mpMediaLocalDTO.append(
-                    MPMediaLocalDTO(url: metadataRemoteDTO.url)
-                )
+                urlStrings.append(metadataRemoteDTO.url)
             }
         }
-        return mpMediaLocalDTO
+        return urlStrings
     }
 }

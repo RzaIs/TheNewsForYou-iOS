@@ -20,14 +20,14 @@ extension TopStoryLocalDTO {
             author: self.author,
             publishDate: getDate(dateText: self.publishDate),
             segment: TopStorySegmentEntity(rawValue: self.segment) ?? .home,
-            multimedia: getTSMultimedia(localDTOs: self.multimedia)
+            multimedia: getTSMultimedia(urlStrings: self.multimedia)
         )
     }
     
-    fileprivate func getTSMultimedia(localDTOs: List<TSMultimediaLocalDTO>) -> [URL] {
+    fileprivate func getTSMultimedia(urlStrings: List<String>) -> [URL] {
         var multimedia: [URL] = []
-        localDTOs.forEach { localDTO in
-            if let url = URL(string: localDTO.url) {
+        urlStrings.forEach { urlString in
+            if let url = URL(string: urlString) {
                 multimedia.append(url)
             }
         }
@@ -46,14 +46,14 @@ extension MostPopularLocalDTO {
             url: URL(string: self.url),
             author: self.author,
             publishDate: getDate(dateText: self.publishDate),
-            media: getMPMedia(localDTOs: self.media)
+            media: getMPMedia(urlStrings: self.media)
         )
     }
     
-    fileprivate func getMPMedia(localDTOs: List<MPMediaLocalDTO>) -> [URL] {
+    fileprivate func getMPMedia(urlStrings: List<String>) -> [URL] {
         var media: [URL] = []
-        localDTOs.forEach { localDTO in
-            if let url = URL(string: localDTO.url) {
+        urlStrings.forEach { urlStr in
+            if let url = URL(string: urlStr) {
                 media.append(url)
             }
         }
@@ -63,7 +63,7 @@ extension MostPopularLocalDTO {
 
 fileprivate func getDate(dateText: String) -> PublishDateEntity {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ssZ"
     if let date = dateFormatter.date(from: dateText) {
         return .at(date)
     } else {

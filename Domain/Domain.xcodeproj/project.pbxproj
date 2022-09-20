@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32143B7028D781D900B04819 /* SearchArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B6F28D781D900B04819 /* SearchArticleEntity.swift */; };
+		32143B7228D787A200B04819 /* SearchArticleRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B7128D787A200B04819 /* SearchArticleRepoProtocol.swift */; };
+		32143B7728D78A6900B04819 /* SearchArticleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32143B7628D78A6900B04819 /* SearchArticleUseCase.swift */; };
 		321F947628CCE1C2000757F4 /* TopStoriesInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F947528CCE1C2000757F4 /* TopStoriesInput.swift */; };
 		321F947828CCE76F000757F4 /* GetTopStoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F947728CCE76F000757F4 /* GetTopStoriesUseCase.swift */; };
 		321F948028CCEF16000757F4 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F947F28CCEF16000757F4 /* Array+Extension.swift */; };
@@ -17,6 +20,9 @@
 		3220D3F928CD382300DB4A9E /* ObserveMostPopularUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3F828CD382300DB4A9E /* ObserveMostPopularUseCase.swift */; };
 		3225E94128CFC2C400747B5E /* CommentRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */; };
 		3225E94A28CFC3A800747B5E /* CommentInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94928CFC3A800747B5E /* CommentInput.swift */; };
+		32549CE828D8DEB400EF00AB /* GetCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */; };
+		32549CEA28D8DF2100EF00AB /* DeleteCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE928D8DF2100EF00AB /* DeleteCommentsUseCase.swift */; };
+		32549CEC28D8DF7600EF00AB /* SubmitCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CEB28D8DF7600EF00AB /* SubmitCommentsUseCase.swift */; };
 		32A7922C28B9403300CC94FE /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A7922B28B9403300CC94FE /* Domain.docc */; };
 		32A7923228B9403300CC94FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7922728B9403300CC94FE /* Domain.framework */; };
 		32A7923728B9403300CC94FE /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7923628B9403300CC94FE /* DomainTests.swift */; };
@@ -55,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32143B6F28D781D900B04819 /* SearchArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleEntity.swift; sourceTree = "<group>"; };
+		32143B7128D787A200B04819 /* SearchArticleRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRepoProtocol.swift; sourceTree = "<group>"; };
+		32143B7628D78A6900B04819 /* SearchArticleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleUseCase.swift; sourceTree = "<group>"; };
 		321F947528CCE1C2000757F4 /* TopStoriesInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesInput.swift; sourceTree = "<group>"; };
 		321F947728CCE76F000757F4 /* GetTopStoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopStoriesUseCase.swift; sourceTree = "<group>"; };
 		321F947F28CCEF16000757F4 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -65,6 +74,9 @@
 		3220D3F828CD382300DB4A9E /* ObserveMostPopularUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveMostPopularUseCase.swift; sourceTree = "<group>"; };
 		3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepoProtocol.swift; sourceTree = "<group>"; };
 		3225E94928CFC3A800747B5E /* CommentInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInput.swift; sourceTree = "<group>"; };
+		32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCommentsUseCase.swift; sourceTree = "<group>"; };
+		32549CE928D8DF2100EF00AB /* DeleteCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentsUseCase.swift; sourceTree = "<group>"; };
+		32549CEB28D8DF7600EF00AB /* SubmitCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCommentsUseCase.swift; sourceTree = "<group>"; };
 		32A7922728B9403300CC94FE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7922A28B9403300CC94FE /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		32A7922B28B9403300CC94FE /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
@@ -112,6 +124,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32143B7528D78A5800B04819 /* SearchArticle */ = {
+			isa = PBXGroup;
+			children = (
+				32143B7628D78A6900B04819 /* SearchArticleUseCase.swift */,
+			);
+			path = SearchArticle;
+			sourceTree = "<group>";
+		};
 		3220D3F528CD380100DB4A9E /* MostPopular */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +139,16 @@
 				3220D3F828CD382300DB4A9E /* ObserveMostPopularUseCase.swift */,
 			);
 			path = MostPopular;
+			sourceTree = "<group>";
+		};
+		32549CE628D8DEA000EF00AB /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */,
+				32549CE928D8DF2100EF00AB /* DeleteCommentsUseCase.swift */,
+				32549CEB28D8DF7600EF00AB /* SubmitCommentsUseCase.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		32A7921D28B9403300CC94FE = {
@@ -164,6 +194,8 @@
 		32A7924C28B9405100CC94FE /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				32549CE628D8DEA000EF00AB /* Comment */,
+				32143B7528D78A5800B04819 /* SearchArticle */,
 				3220D3F528CD380100DB4A9E /* MostPopular */,
 				32FADE4A28C141C700A3FD5D /* TopStories */,
 				32A7925828B9429900CC94FE /* Base */,
@@ -179,6 +211,7 @@
 				32FADE4828C140B200A3FD5D /* TopStoriesRepoProtocol.swift */,
 				3220D3EC28CD340B00DB4A9E /* MostPopularRepoProtocol.swift */,
 				3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */,
+				32143B7128D787A200B04819 /* SearchArticleRepoProtocol.swift */,
 			);
 			path = RepoProtocols;
 			sourceTree = "<group>";
@@ -200,6 +233,7 @@
 				32FADE4428C13AFD00A3FD5D /* TopStoryEntity.swift */,
 				3220D3E128CD301A00DB4A9E /* MostPopularEntity.swift */,
 				32E0F13028CFAF0A00C8986A /* CommentEntity.swift */,
+				32143B6F28D781D900B04819 /* SearchArticleEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -391,7 +425,9 @@
 				3220D3F928CD382300DB4A9E /* ObserveMostPopularUseCase.swift in Sources */,
 				32FADE4C28C141D600A3FD5D /* SyncTopStoriesUseCase.swift in Sources */,
 				32A7925128B9408F00CC94FE /* AuthInput.swift in Sources */,
+				32143B7028D781D900B04819 /* SearchArticleEntity.swift in Sources */,
 				32FADE4528C13AFD00A3FD5D /* TopStoryEntity.swift in Sources */,
+				32549CE828D8DEB400EF00AB /* GetCommentsUseCase.swift in Sources */,
 				3220D3E428CD307200DB4A9E /* PublishDateEntity.swift in Sources */,
 				321F947828CCE76F000757F4 /* GetTopStoriesUseCase.swift in Sources */,
 				32A7927028B9447B00CC94FE /* AuthRegisterUseCase.swift in Sources */,
@@ -402,11 +438,15 @@
 				3220D3E228CD301A00DB4A9E /* MostPopularEntity.swift in Sources */,
 				321F948028CCEF16000757F4 /* Array+Extension.swift in Sources */,
 				321F947628CCE1C2000757F4 /* TopStoriesInput.swift in Sources */,
+				32549CEA28D8DF2100EF00AB /* DeleteCommentsUseCase.swift in Sources */,
 				32A7925728B9429200CC94FE /* AuthLoginUseCase.swift in Sources */,
 				3220D3ED28CD340B00DB4A9E /* MostPopularRepoProtocol.swift in Sources */,
+				32143B7228D787A200B04819 /* SearchArticleRepoProtocol.swift in Sources */,
 				32A7925C28B942EC00CC94FE /* BaseAsyncThrowsUseCase.swift in Sources */,
 				32FADE1028BD4C1E00A3FD5D /* AuthSetFirstOpeningDateUseCase.swift in Sources */,
+				32143B7728D78A6900B04819 /* SearchArticleUseCase.swift in Sources */,
 				32FADE4E28C1422600A3FD5D /* ObserveTopStoriesUseCase.swift in Sources */,
+				32549CEC28D8DF7600EF00AB /* SubmitCommentsUseCase.swift in Sources */,
 				3225E94128CFC2C400747B5E /* CommentRepoProtocol.swift in Sources */,
 				32A7925E28B9430C00CC94FE /* BaseObserveUseCase.swift in Sources */,
 				32A792EF28BA23B000CC94FE /* BaseThrowsUseCase.swift in Sources */,

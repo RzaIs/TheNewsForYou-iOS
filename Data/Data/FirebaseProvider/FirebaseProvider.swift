@@ -62,13 +62,17 @@ class FirebaseProvider: FirebaseProviderProtocol {
     
     func getDocuments<T: FirestoreObject>() async throws -> [T] {
         return try await withCheckedThrowingContinuation { continuation in
-            guard let _ = self.auth.currentUser else {
+            guard let user = self.auth.currentUser else {
                 continuation.resume(throwing: NSError(domain: FirebaseErrors.userNotDefined.rawValue, code: 1))
                 return
             }
             self.firestore.collection(T.collection).getDocuments { snapshot, error in
                 if let documents = snapshot?.documents.map({ documentSnapshot in
-                    T(document: documentSnapshot)
+                    if let authorID = documentSnapshot["authorID"] as? String, authorID == user.uid {
+                        return T(document: documentSnapshot, isAdmin: true)
+                    } else {
+                        return T(document: documentSnapshot, isAdmin: false)
+                    }
                 }) {
                     continuation.resume(returning: documents)
                 } else if let error = error {

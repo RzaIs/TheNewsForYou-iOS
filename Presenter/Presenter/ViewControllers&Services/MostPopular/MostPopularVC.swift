@@ -87,7 +87,7 @@ class MostPopularVC: BaseVC<Void, MostPopularEffect, MostPopularService> {
 extension MostPopularVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let url = self.service.mostPopular[indexPath.row].url {
+        if let url = self.service.mostPopular.safe[indexPath.row]?.url {
             let vc = SFSafariViewController(url: url, configuration: self.safariConfig)
             self.presentVC(vc)
         }
@@ -109,12 +109,34 @@ extension MostPopularVC: UITableViewDelegate, UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellSkeleton, for: indexPath) as! NewsCellView
             cell.setAsSkeleton()
         } else if self.service.mostPopular[indexPath.row].media.isEmpty {
-            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithImage, for: indexPath) as! NewsCellView
+            cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithNoImg, for: indexPath) as! NewsCellView
             cell.setData(self.service.mostPopular[indexPath.row], hasImage: false)
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: self.mostPopularCellWithImage, for: indexPath) as! NewsCellView
             cell.setData(self.service.mostPopular[indexPath.row], hasImage: true)
         }
+        cell.setDelegate(self)
         return cell
+    }
+}
+
+extension MostPopularVC: NewsCellDelegate {
+    
+    func showToast(message: String) {
+        self.showToast(message: message, font: .systemFont(ofSize: 12))
+    }
+    
+    func showCommentVC(newsID: String) {
+        let vc = self.navigationProvider.commentVC(newsID: newsID)
+        self.pushVC(vc)
+    }
+    
+    func showWelcomeVC() {
+        let vc = self.navigationProvider.welcomeVC
+        self.presentVC(vc)
+    }
+    
+    var isLoggedIn: Bool {
+        self.service.isLoggedIn
     }
 }

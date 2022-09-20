@@ -34,7 +34,8 @@ public class PresenterAssembly: Assembly {
             TopStoriesService(
                 syncTopStoriesUseCase: r.resolve(SyncTopStoriesUseCase.self)!,
                 getTopStoriesUseCase: r.resolve(GetTopStoriesUseCase.self)!,
-                observeTopStoriesUseCase: r.resolve(ObserveTopStoriesUseCase.self)!
+                observeTopStoriesUseCase: r.resolve(ObserveTopStoriesUseCase.self)!,
+                authIsLoggedInUseCase: r.resolve(AuthIsLoggedInUseCase.self)!
             )
         }
         
@@ -48,10 +49,25 @@ public class PresenterAssembly: Assembly {
         container.register(MostPopularService.self) { r in
             MostPopularService(
                 syncMostPopularUseCase: r.resolve(SyncMostPopularUseCase.self)!,
-                observeMostPopularUseCase: r.resolve(ObserveMostPopularUseCase.self)!
+                observeMostPopularUseCase: r.resolve(ObserveMostPopularUseCase.self)!,
+                authIsLoggedInUseCase: r.resolve(AuthIsLoggedInUseCase.self)!
+            )
+        }
+        
+        container.register(SearchArticleVC.self) { r in
+            SearchArticleVC(
+                service: r.resolve(SearchArticleService.self)!,
+                navigationProvider: r.resolve(NavigationProviderProtocol.self)!
             )
         }
 
+        container.register(SearchArticleService.self) { r in
+            SearchArticleService(
+                searchArticleUseCase: r.resolve(SearchArticleUseCase.self)!,
+                authIsLoggedInUseCase: r.resolve(AuthIsLoggedInUseCase.self)!
+            )
+        }
+        
         container.register(WelcomeVC.self) { r in
             WelcomeVC(
                 service: r.resolve(WelcomeService.self)!,

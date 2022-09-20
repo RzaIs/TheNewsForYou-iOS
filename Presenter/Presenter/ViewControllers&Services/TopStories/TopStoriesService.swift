@@ -31,14 +31,17 @@ class TopStoriesService: BaseService<Void, TopStoriesEffect> {
     private let syncTopStoriesUseCase: BaseAsyncThrowsUseCase<TopStoriesInput, Void>
     private let getTopStoriesUseCase: BaseUseCase<TopStoriesInput, [TopStoryEntity]>
     private let observeTopStoriesUseCase: BaseObserveUseCase<Void, [TopStoryEntity]>
+    private let authIsLoggedInUseCase: BaseUseCase<Void, Bool>
     
     init(syncTopStoriesUseCase: BaseAsyncThrowsUseCase<TopStoriesInput, Void>,
          getTopStoriesUseCase: BaseUseCase<TopStoriesInput, [TopStoryEntity]>,
-         observeTopStoriesUseCase: BaseObserveUseCase<Void, [TopStoryEntity]>
+         observeTopStoriesUseCase: BaseObserveUseCase<Void, [TopStoryEntity]>,
+         authIsLoggedInUseCase: BaseUseCase<Void, Bool>
     ) {
         self.syncTopStoriesUseCase = syncTopStoriesUseCase
         self.getTopStoriesUseCase = getTopStoriesUseCase
         self.observeTopStoriesUseCase = observeTopStoriesUseCase
+        self.authIsLoggedInUseCase = authIsLoggedInUseCase
     }
     
     func syncTopStories() async {
@@ -52,6 +55,10 @@ class TopStoriesService: BaseService<Void, TopStoriesEffect> {
     
     var observeTopStories: AnyPublisher<[TopStoryEntity], Never> {
         self.observeTopStoriesUseCase.observe(input: Void())
+    }
+
+    var isLoggedIn: Bool {
+        self.authIsLoggedInUseCase.execute(input: Void())
     }
     
     func selectedSegment(index: Int) async {
