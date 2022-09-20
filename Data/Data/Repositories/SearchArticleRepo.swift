@@ -24,7 +24,7 @@ class SearchArticleRepo: SearchArticleRepoProtocol {
                 .map { $0.toDomain }
                 .sorted { $0.publishDate > $1.publishDate }
         } catch {
-            throw UIError(title: "Search Article Error", message: "\(error.localizedDescription)\nKey: @0.\(0)")
+            throw UIError(title: "Search Article Error", message: "\(error.localizedDescription)\nKey: @0")
         }
     }
 }

@@ -60,12 +60,24 @@ public class DomainAssembly: Assembly {
             GetCommentsUseCase(repo: r.resolve(CommentRepoProtocol.self)!)
         }
         
-        container.register(DeleteCommentsUseCase.self) { r in
-            DeleteCommentsUseCase(repo: r.resolve(CommentRepoProtocol.self)!)
+        container.register(DeleteCommentUseCase.self) { r in
+            DeleteCommentUseCase(repo: r.resolve(CommentRepoProtocol.self)!)
         }
         
-        container.register(SubmitCommentsUseCase.self) { r in
-            SubmitCommentsUseCase(repo: r.resolve(CommentRepoProtocol.self)!)
+        container.register(SubmitCommentUseCase.self) { r in
+            SubmitCommentUseCase(repo: r.resolve(CommentRepoProtocol.self)!)
+        }
+        
+        container.register(GetLikesUseCase.self) { r in
+            GetLikesUseCase(repo: r.resolve(LikeRepoProtocol.self)!)
+        }
+        
+        container.register(SubmitLikeUseCase.self) { r in
+            SubmitLikeUseCase(repo: r.resolve(LikeRepoProtocol.self)!)
+        }
+        
+        container.register(DeleteLikeUseCase.self) { r in
+            DeleteLikeUseCase(repo: r.resolve(LikeRepoProtocol.self)!)
         }
         
         container.register(SearchArticleUseCase.self) { r in

@@ -9,23 +9,35 @@ import Domain
 
 class CommentRepo: CommentRepoProtocol {
     
-    let remoteDataSource: CommentRemoteDataSourceProtocol
+    private let remoteDataSource: CommentRemoteDataSourceProtocol
     
     init(remoteDataSource: CommentRemoteDataSourceProtocol) {
         self.remoteDataSource = remoteDataSource
     }
     
     func getComments(newsID: String) async throws -> [CommentEntity] {
-        try await self.remoteDataSource.getComment(newsID: newsID).map { remoteDTO in
-            remoteDTO.toDomain
+        do {
+            return try await self.remoteDataSource.getComments(newsID: newsID).map { remoteDTO in
+                remoteDTO.toDomain
+            }
+        } catch {
+            throw UIError(title: "Get Comments Error", message: "\(error.localizedDescription)\nKey: @0")
         }
     }
     
-    func submitComment(comment: CommentInput) async throws {
-        try await self.remoteDataSource.sendComment(comment: comment.toRemote)
+    func submit(comment: CommentInput) async throws {
+        do {
+            try await self.remoteDataSource.send(comment: comment.toRemote)
+        } catch {
+            throw UIError(title: "Submit Comments Error", message: "\(error.localizedDescription)\nKey: @1")
+        }
     }
     
     func deleteComment(id: String) async throws {
-        try await self.remoteDataSource.deleteComment(id: id)
+        do {
+            try await self.remoteDataSource.deleteComment(id: id)
+        } catch {
+            throw UIError(title: "Get Comments Error", message: "\(error.localizedDescription)\nKey: @2")
+        }
     }
 }

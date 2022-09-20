@@ -1,11 +1,11 @@
 //
-//  DeleteCommentsUseCase.swift
+//  DeleteCommentUseCase.swift
 //  Domain
 //
 //  Created by Rza Ismayilov on 19.09.22.
 //
 
-public class DeleteCommentsUseCase: BaseAsyncThrowsUseCase<String, Void> {
+public class DeleteCommentUseCase: BaseAsyncThrowsUseCase<String, Void> {
     
     private let repo: CommentRepoProtocol
     

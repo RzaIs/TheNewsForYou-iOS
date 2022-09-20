@@ -10,7 +10,7 @@ import Combine
 import SnapKit
 import Domain
 
-class MostPopularService: BaseService<Void, MostPopularEffect> {
+class MostPopularService: PageService<Void, MostPopularEffect> {
     
     var showSkeleton: Bool = true {
         didSet {
@@ -25,15 +25,22 @@ class MostPopularService: BaseService<Void, MostPopularEffect> {
     
     private let syncMostPopularUseCase: BaseAsyncThrowsUseCase<Void, Void>
     private let observeMostPopularUseCase: BaseObserveUseCase<Void, [MostPopularEntity]>
-    private let authIsLoggedInUseCase: BaseUseCase<Void, Bool>
-
+    
     init(syncMostPopularUseCase: BaseAsyncThrowsUseCase<Void, Void>,
          observeMostPopularUseCase: BaseObserveUseCase<Void, [MostPopularEntity]>,
+         getLikesUseCase: BaseAsyncThrowsUseCase<String, [LikeEntity]>,
+         deleteLikeUseCase: BaseAsyncThrowsUseCase<String, Void>,
+         submitLikeUseCase: BaseAsyncThrowsUseCase<LikeInput, Void>,
          authIsLoggedInUseCase: BaseUseCase<Void, Bool>
     ) {
         self.syncMostPopularUseCase = syncMostPopularUseCase
         self.observeMostPopularUseCase = observeMostPopularUseCase
-        self.authIsLoggedInUseCase = authIsLoggedInUseCase
+        super.init(
+            getLikesUseCase: getLikesUseCase,
+            deleteLikeUseCase: deleteLikeUseCase,
+            submitLikeUseCase: submitLikeUseCase,
+            authIsLoggedInUseCase: authIsLoggedInUseCase
+        )
     }
     
     func syncMostPopular() async {
@@ -47,10 +54,6 @@ class MostPopularService: BaseService<Void, MostPopularEffect> {
     
     var observeMostPopular: AnyPublisher<[MostPopularEntity], Never> {
         self.observeMostPopularUseCase.observe(input: Void())
-    }
-    
-    var isLoggedIn: Bool {
-        self.authIsLoggedInUseCase.execute(input: Void())
     }
 }
 

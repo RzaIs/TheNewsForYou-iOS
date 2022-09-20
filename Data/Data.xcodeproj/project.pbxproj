@@ -25,6 +25,11 @@
 		3225E94828CFC39400747B5E /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94728CFC39400747B5E /* CommentBody.swift */; };
 		3225E94C28CFC4B800747B5E /* CommentRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94B28CFC4B800747B5E /* CommentRepo.swift */; };
 		3225E94E28CFC53E00747B5E /* Domain2Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94D28CFC53E00747B5E /* Domain2Remote.swift */; };
+		32549CF528DA0AE600EF00AB /* LikeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CF428DA0AE600EF00AB /* LikeBody.swift */; };
+		32549CF928DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CF828DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift */; };
+		32549CFF28DA0E7D00EF00AB /* LikeRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CFE28DA0E7D00EF00AB /* LikeRemoteDTO.swift */; };
+		32549D0128DA107300EF00AB /* LikeRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0028DA107300EF00AB /* LikeRemoteDataSource.swift */; };
+		32549D0528DA140000EF00AB /* LikeRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0428DA140000EF00AB /* LikeRepo.swift */; };
 		32A791BC28B929D100CC94FE /* Data.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A791BB28B929D100CC94FE /* Data.docc */; };
 		32A791C228B929D100CC94FE /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A791B728B929D100CC94FE /* Data.framework */; };
 		32A791C728B929D100CC94FE /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A791C628B929D100CC94FE /* DataTests.swift */; };
@@ -112,6 +117,11 @@
 		3225E94728CFC39400747B5E /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
 		3225E94B28CFC4B800747B5E /* CommentRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepo.swift; sourceTree = "<group>"; };
 		3225E94D28CFC53E00747B5E /* Domain2Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain2Remote.swift; sourceTree = "<group>"; };
+		32549CF428DA0AE600EF00AB /* LikeBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBody.swift; sourceTree = "<group>"; };
+		32549CF828DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
+		32549CFE28DA0E7D00EF00AB /* LikeRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRemoteDTO.swift; sourceTree = "<group>"; };
+		32549D0028DA107300EF00AB /* LikeRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRemoteDataSource.swift; sourceTree = "<group>"; };
+		32549D0428DA140000EF00AB /* LikeRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepo.swift; sourceTree = "<group>"; };
 		32A791B728B929D100CC94FE /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A791BA28B929D100CC94FE /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		32A791BB28B929D100CC94FE /* Data.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Data.docc; sourceTree = "<group>"; };
@@ -205,6 +215,61 @@
 				3220D3F328CD353600DB4A9E /* MostPopularLocalDataSource.swift */,
 			);
 			path = MostPopular;
+			sourceTree = "<group>";
+		};
+		32549CF628DA0C8000EF00AB /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */,
+				32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		32549CF728DA0C8E00EF00AB /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				32549CF828DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift */,
+				32549D0028DA107300EF00AB /* LikeRemoteDataSource.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		32549CFA28DA0E3500EF00AB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE2B28BFBA3200A3FD5D /* BaseRemoteDTO.swift */,
+				32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		32549CFB28DA0E3F00EF00AB /* NewYorkTimes */ = {
+			isa = PBXGroup;
+			children = (
+				32FADE2D28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift */,
+				3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */,
+				32143B6428D776B800B04819 /* SearchArticleRemoteDTO.swift */,
+			);
+			path = NewYorkTimes;
+			sourceTree = "<group>";
+		};
+		32549CFC28DA0E5D00EF00AB /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */,
+				3225E94728CFC39400747B5E /* CommentBody.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		32549CFD28DA0E6500EF00AB /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				32549CF428DA0AE600EF00AB /* LikeBody.swift */,
+				32549CFE28DA0E7D00EF00AB /* LikeRemoteDTO.swift */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 		32A791AD28B929D100CC94FE = {
@@ -315,6 +380,7 @@
 				32FADE3F28C00C9F00A3FD5D /* TopStoriesRepo.swift */,
 				3220D3EE28CD345900DB4A9E /* MostPopularRepo.swift */,
 				3225E94B28CFC4B800747B5E /* CommentRepo.swift */,
+				32549D0428DA140000EF00AB /* LikeRepo.swift */,
 				32143B7328D787E000B04819 /* SearchArticleRepo.swift */,
 			);
 			path = Repositories;
@@ -350,8 +416,8 @@
 		32E0F13228CFB03E00C8986A /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
-				32E0F13528CFB07500C8986A /* CommentRemoteDataSourceProtocol.swift */,
-				32E0F13328CFB04E00C8986A /* CommentRemoteDataSource.swift */,
+				32549CF628DA0C8000EF00AB /* Comment */,
+				32549CF728DA0C8E00EF00AB /* Like */,
 			);
 			path = Firestore;
 			sourceTree = "<group>";
@@ -377,13 +443,10 @@
 		32FADE2928BFBA1000A3FD5D /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				32FADE2B28BFBA3200A3FD5D /* BaseRemoteDTO.swift */,
-				32E0F11B28CE7E1B00C8986A /* FirestoreObject.swift */,
-				32FADE2D28BFBB1C00A3FD5D /* TopStoriesRemoteDTO.swift */,
-				3220D3DD28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift */,
-				32E0F11928CE7B5C00C8986A /* CommentRemoteDTO.swift */,
-				3225E94728CFC39400747B5E /* CommentBody.swift */,
-				32143B6428D776B800B04819 /* SearchArticleRemoteDTO.swift */,
+				32549CFD28DA0E6500EF00AB /* Like */,
+				32549CFC28DA0E5D00EF00AB /* Comment */,
+				32549CFB28DA0E3F00EF00AB /* NewYorkTimes */,
+				32549CFA28DA0E3500EF00AB /* Base */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -591,6 +654,7 @@
 				3220D3EF28CD345900DB4A9E /* MostPopularRepo.swift in Sources */,
 				3225E94C28CFC4B800747B5E /* CommentRepo.swift in Sources */,
 				32A791FF28B9386400CC94FE /* DatabaseProviderProtocol.swift in Sources */,
+				32549D0528DA140000EF00AB /* LikeRepo.swift in Sources */,
 				32FADE3628BFC50B00A3FD5D /* TopStoriesAPI.swift in Sources */,
 				3220D3E028CD2CE800DB4A9E /* MostPopularLocalDTO.swift in Sources */,
 				32FADE3328BFC45100A3FD5D /* TopStoriesRemoteDataSource.swift in Sources */,
@@ -609,6 +673,7 @@
 				32143B7428D787E000B04819 /* SearchArticleRepo.swift in Sources */,
 				32FADE4728C13CA400A3FD5D /* Local2Domain.swift in Sources */,
 				32FADE2C28BFBA3200A3FD5D /* BaseRemoteDTO.swift in Sources */,
+				32549CF928DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift in Sources */,
 				32143B6E28D780D700B04819 /* SearchArticleAPI.swift in Sources */,
 				32FADE3E28C009BF00A3FD5D /* TopStoriesLocalDataSource.swift in Sources */,
 				3220D3DE28CD2A4100DB4A9E /* MostPopularRemoteDTO.swift in Sources */,
@@ -616,9 +681,12 @@
 				3220D3E728CD328700DB4A9E /* MostPopularRemoteDataSourceProtocol.swift in Sources */,
 				32E0F13428CFB04E00C8986A /* CommentRemoteDataSource.swift in Sources */,
 				32FADE0A28BD468C00A3FD5D /* AuthLocalDataSourceProtocol.swift in Sources */,
+				32549D0128DA107300EF00AB /* LikeRemoteDataSource.swift in Sources */,
 				32FADE3128BFC41A00A3FD5D /* TopStoriesRemoteDataSourceProtocol.swift in Sources */,
+				32549CF528DA0AE600EF00AB /* LikeBody.swift in Sources */,
 				32FADE4328C00EAD00A3FD5D /* Remote2Local.swift in Sources */,
 				32A791EB28B92BD000CC94FE /* AuthRemoteDataSourceProtocol.swift in Sources */,
+				32549CFF28DA0E7D00EF00AB /* LikeRemoteDTO.swift in Sources */,
 				32E0F11A28CE7B5C00C8986A /* CommentRemoteDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

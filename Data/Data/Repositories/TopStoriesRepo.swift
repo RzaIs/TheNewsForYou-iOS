@@ -54,6 +54,10 @@ class TopStoriesRepo: TopStoriesRepoProtocol {
     }
     
     func deleteTopStories() throws {
-        try self.localDataSource.removeAll()
+        do {
+            try self.localDataSource.removeAll()
+        } catch {
+            throw UIError(title: "Delete Top Stories Error", message: "\(error.localizedDescription)\nKey: @1")
+        }
     }
 }

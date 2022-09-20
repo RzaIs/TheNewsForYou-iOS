@@ -17,6 +17,8 @@
 		32549CE528D8DE3A00EF00AB /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE428D8DE3A00EF00AB /* CommentService.swift */; };
 		32549CEE28D8E2D200EF00AB /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CED28D8E2D200EF00AB /* CommentVC.swift */; };
 		32549CF028D8EC7E00EF00AB /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CEF28D8EC7E00EF00AB /* CommentCellView.swift */; };
+		32549D1228DA285500EF00AB /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D1128DA285500EF00AB /* PageVC.swift */; };
+		32549D1428DA28BE00EF00AB /* PageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D1328DA28BE00EF00AB /* PageService.swift */; };
 		32A7928028B9454900CC94FE /* Presenter.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A7927F28B9454900CC94FE /* Presenter.docc */; };
 		32A7928628B9454900CC94FE /* Presenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7927B28B9454900CC94FE /* Presenter.framework */; };
 		32A7928B28B9454900CC94FE /* PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7928A28B9454900CC94FE /* PresenterTests.swift */; };
@@ -76,6 +78,8 @@
 		32549CE428D8DE3A00EF00AB /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		32549CED28D8E2D200EF00AB /* CommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		32549CEF28D8EC7E00EF00AB /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
+		32549D1128DA285500EF00AB /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		32549D1328DA28BE00EF00AB /* PageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageService.swift; sourceTree = "<group>"; };
 		32A7927B28B9454900CC94FE /* Presenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7927E28B9454900CC94FE /* Presenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presenter.h; sourceTree = "<group>"; };
 		32A7927F28B9454900CC94FE /* Presenter.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Presenter.docc; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			children = (
 				32A792D028BA0FE700CC94FE /* BaseVC.swift */,
 				32A792D828BA12EA00CC94FE /* BaseService.swift */,
+				32549D1128DA285500EF00AB /* PageVC.swift */,
+				32549D1328DA28BE00EF00AB /* PageService.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FADE1528BD4DA000A3FD5D /* WelcomeService.swift in Sources */,
+				32549D1228DA285500EF00AB /* PageVC.swift in Sources */,
 				32FADE2028BFB31000A3FD5D /* TabBarController.swift in Sources */,
 				32A7928028B9454900CC94FE /* Presenter.docc in Sources */,
 				32A792DE28BA1BBC00CC94FE /* AuthVC.swift in Sources */,
@@ -440,6 +447,7 @@
 				32FADE2228BFB3BA00A3FD5D /* TabBarService.swift in Sources */,
 				32A792E928BA1D1900CC94FE /* AuthService.swift in Sources */,
 				32A792DB28BA19D600CC94FE /* NavigationProvider.swift in Sources */,
+				32549D1428DA28BE00EF00AB /* PageService.swift in Sources */,
 				32FADE8C28C48C4100A3FD5D /* Fonts+Generated.swift in Sources */,
 				32549CEE28D8E2D200EF00AB /* CommentVC.swift in Sources */,
 				32143B7C28D78B2400B04819 /* SearchArticleService.swift in Sources */,

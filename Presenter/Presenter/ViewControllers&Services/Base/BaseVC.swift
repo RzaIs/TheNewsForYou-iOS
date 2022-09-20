@@ -90,7 +90,7 @@ open class BaseVC<State, Effect, Service: BaseService<State, Effect>>: UIViewCon
         self.dismiss(animated: true, completion: completion)
     }
     
-    func showToast(message : String, font: UIFont) {
+    func showToast(message: String) {
         let toastLabel = UILabel(
             frame: CGRect(
                 x: self.view.frame.size.width/2 - 75,
@@ -101,7 +101,7 @@ open class BaseVC<State, Effect, Service: BaseService<State, Effect>>: UIViewCon
         )
         toastLabel.backgroundColor = UIColor.black
         toastLabel.textColor = UIColor.white
-        toastLabel.font = font
+        toastLabel.font = .systemFont(ofSize: 12)
         toastLabel.textAlignment = .center;
         toastLabel.text = message
         toastLabel.alpha = 1.0

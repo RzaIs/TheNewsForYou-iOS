@@ -18,18 +18,18 @@ class CommentService: BaseService<Void, CommentEffect> {
     
     private let newsID: String
     private let getCommentsUseCase: BaseAsyncThrowsUseCase<String, [CommentEntity]>
-    private let deleteCommentsUseCase: BaseAsyncThrowsUseCase<String, Void>
-    private let submitCommentsUseCase: BaseAsyncThrowsUseCase<CommentInput, Void>
+    private let deleteCommentUseCase: BaseAsyncThrowsUseCase<String, Void>
+    private let submitCommentUseCase: BaseAsyncThrowsUseCase<CommentInput, Void>
     
     init(newsID: String,
          getCommentsUseCase: BaseAsyncThrowsUseCase<String, [CommentEntity]>,
-         deleteCommentsUseCase: BaseAsyncThrowsUseCase<String, Void>,
-         submitCommentsUseCase: BaseAsyncThrowsUseCase<CommentInput, Void>
+         deleteCommentUseCase: BaseAsyncThrowsUseCase<String, Void>,
+         submitCommentUseCase: BaseAsyncThrowsUseCase<CommentInput, Void>
     ) {
         self.newsID = newsID
         self.getCommentsUseCase = getCommentsUseCase
-        self.deleteCommentsUseCase = deleteCommentsUseCase
-        self.submitCommentsUseCase = submitCommentsUseCase
+        self.deleteCommentUseCase = deleteCommentUseCase
+        self.submitCommentUseCase = submitCommentUseCase
     }
 
     func syncComments() async {
@@ -43,7 +43,7 @@ class CommentService: BaseService<Void, CommentEffect> {
     
     func deleteComment(id: String) async {
         do {
-            try await self.deleteCommentsUseCase.execute(input: id)
+            try await self.deleteCommentUseCase.execute(input: id)
             sleep(1)
             await self.syncComments()
         } catch {
@@ -53,7 +53,7 @@ class CommentService: BaseService<Void, CommentEffect> {
     
     func submitComment(content: String) async {
         do {
-            try await self.submitCommentsUseCase.execute(
+            try await self.submitCommentUseCase.execute(
                 input: CommentInput(content: content, newsID: self.newsID)
             )
             self.post(effect: .dismissKeyboard)

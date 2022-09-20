@@ -8,7 +8,7 @@
 import Combine
 import Domain
 
-class SearchArticleService: BaseService<Void, SearchArticleEffect> {
+class SearchArticleService: PageService<Void, SearchArticleEffect> {
     
     var query: String = ""
     var articles: [SearchArticleEntity] = []
@@ -20,13 +20,20 @@ class SearchArticleService: BaseService<Void, SearchArticleEffect> {
     
     private let searchSubject: PassthroughSubject<String, Never> = .init()
     private let searchArticleUseCase: BaseAsyncThrowsUseCase<String, [SearchArticleEntity]>
-    private let authIsLoggedInUseCase: BaseUseCase<Void, Bool>
 
     init(searchArticleUseCase: BaseAsyncThrowsUseCase<String, [SearchArticleEntity]>,
+         getLikesUseCase: BaseAsyncThrowsUseCase<String, [LikeEntity]>,
+         deleteLikeUseCase: BaseAsyncThrowsUseCase<String, Void>,
+         submitLikeUseCase: BaseAsyncThrowsUseCase<LikeInput, Void>,
          authIsLoggedInUseCase: BaseUseCase<Void, Bool>
     ) {
         self.searchArticleUseCase = searchArticleUseCase
-        self.authIsLoggedInUseCase = authIsLoggedInUseCase
+        super.init(
+            getLikesUseCase: getLikesUseCase,
+            deleteLikeUseCase: deleteLikeUseCase,
+            submitLikeUseCase: submitLikeUseCase,
+            authIsLoggedInUseCase: authIsLoggedInUseCase
+        )
     }
     
     func queryEntered(query: String) {
@@ -63,10 +70,6 @@ class SearchArticleService: BaseService<Void, SearchArticleEffect> {
             self.show(error: error)
         }
         self.showSkeleton = false
-    }
-    
-    var isLoggedIn: Bool {
-        self.authIsLoggedInUseCase.execute(input: Void())
     }
 }
 

@@ -23,6 +23,17 @@ extension CommentRemoteDTO {
     }
 }
 
+extension LikeRemoteDTO {
+    var toDomain: LikeEntity {
+        LikeEntity(
+            id: self.id,
+            newsID: self.newsID,
+            isAdmin: self.isAdmin,
+            authorID: self.authorID
+        )
+    }
+}
+
 extension SearchArticleRemoteDTO {
     var toDomain: SearchArticleEntity {
         SearchArticleEntity(

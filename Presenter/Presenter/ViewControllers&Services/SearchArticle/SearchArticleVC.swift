@@ -11,7 +11,7 @@ import SafariServices
 import SkeletonView
 import Domain
 
-class SearchArticleVC: BaseVC<Void, SearchArticleEffect, SearchArticleService> {
+class SearchArticleVC: PageVC<Void, SearchArticleEffect, SearchArticleService> {
     
     private let safariConfig: SFSafariViewController.Configuration = {
         let config = SFSafariViewController.Configuration()
@@ -206,26 +206,5 @@ extension SearchArticleVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.setDelegate(self)
         return cell
-    }
-}
-
-extension SearchArticleVC: NewsCellDelegate {
-    
-    func showToast(message: String) {
-        self.showToast(message: message, font: .systemFont(ofSize: 12))
-    }
-    
-    func showCommentVC(newsID: String) {
-        let vc = self.navigationProvider.commentVC(newsID: newsID)
-        self.pushVC(vc)
-    }
-    
-    func showWelcomeVC() {
-        let vc = self.navigationProvider.welcomeVC
-        self.presentVC(vc)
-    }
-    
-    var isLoggedIn: Bool {
-        self.service.isLoggedIn
     }
 }
