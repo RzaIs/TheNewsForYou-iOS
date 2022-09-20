@@ -12,13 +12,15 @@ class CommentRemoteDTO: FirestoreObject {
     let newsID: String
     let authorID: String
     let authorEmail: String
+    let publishDate: String
     
-    required init(document: QueryDocumentSnapshot) {
+    required init(document: QueryDocumentSnapshot, isAdmin: Bool) {
         self.content = document["content"] as? String ?? ""
         self.newsID = document["newsID"] as? String ?? ""
         self.authorID = document["authorID"] as? String ?? ""
         self.authorEmail = document["authorEmail"] as? String ?? ""
-        super.init(document: document)
+        self.publishDate = document["publishDate"] as? String ?? ""
+        super.init(document: document, isAdmin: isAdmin)
     }
     
     override class var collection: String {

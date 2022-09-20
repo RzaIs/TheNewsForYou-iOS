@@ -204,6 +204,28 @@ extension SearchArticleVC: UITableViewDelegate, UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: self.searchArticleCellWithImage, for: indexPath) as! NewsCellView
             cell.setData(self.service.articles[indexPath.row], hasImage: true)
         }
+        cell.setDelegate(self)
         return cell
+    }
+}
+
+extension SearchArticleVC: NewsCellDelegate {
+    
+    func showToast(message: String) {
+        self.showToast(message: message, font: .systemFont(ofSize: 12))
+    }
+    
+    func showCommentVC(newsID: String) {
+        let vc = self.navigationProvider.commentVC(newsID: newsID)
+        self.pushVC(vc)
+    }
+    
+    func showWelcomeVC() {
+        let vc = self.navigationProvider.welcomeVC
+        self.presentVC(vc)
+    }
+    
+    var isLoggedIn: Bool {
+        self.service.isLoggedIn
     }
 }

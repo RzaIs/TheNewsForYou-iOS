@@ -20,9 +20,13 @@ class SearchArticleService: BaseService<Void, SearchArticleEffect> {
     
     private let searchSubject: PassthroughSubject<String, Never> = .init()
     private let searchArticleUseCase: BaseAsyncThrowsUseCase<String, [SearchArticleEntity]>
-    
-    init(searchArticleUseCase: BaseAsyncThrowsUseCase<String, [SearchArticleEntity]>) {
+    private let authIsLoggedInUseCase: BaseUseCase<Void, Bool>
+
+    init(searchArticleUseCase: BaseAsyncThrowsUseCase<String, [SearchArticleEntity]>,
+         authIsLoggedInUseCase: BaseUseCase<Void, Bool>
+    ) {
         self.searchArticleUseCase = searchArticleUseCase
+        self.authIsLoggedInUseCase = authIsLoggedInUseCase
     }
     
     func queryEntered(query: String) {
@@ -61,6 +65,9 @@ class SearchArticleService: BaseService<Void, SearchArticleEffect> {
         self.showSkeleton = false
     }
     
+    var isLoggedIn: Bool {
+        self.authIsLoggedInUseCase.execute(input: Void())
+    }
 }
 
 enum SearchArticleEffect {

@@ -13,6 +13,14 @@ import Domain
 
 class NewsCellView: UITableViewCell {
         
+    private weak var delegate: NewsCellDelegate?
+    
+    private var newsID: String = ""
+    private var newsURL: String = ""
+    
+    private let likedImage: UIImage? = .init(systemName:  "hand.thumbsup.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+    private let notLikedImage: UIImage? = .init(systemName:  "hand.thumbsup")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+    
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("MM-dd-YYYY HH:mm")
@@ -89,6 +97,47 @@ class NewsCellView: UITableViewCell {
         return label
     }()
     
+    private lazy var actionStack: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .equalCentering
+        self.containerView.addSubview(view)
+        return view
+    }()
+    
+    private lazy var likeBtn: UIButton = {
+        let btn = UIButton()
+        btn.addTarget(self, action: #selector(onLike), for: .touchUpInside)
+        btn.setImage(
+            UIImage(systemName: "hand.thumbsup")?.withTintColor(.black, renderingMode: .alwaysOriginal),
+            for: .normal
+        )
+        self.containerView.addSubview(btn)
+        return btn
+    }()
+    
+    private lazy var commentBtn: UIButton = {
+        let btn = UIButton()
+        btn.addTarget(self, action: #selector(onComment), for: .touchUpInside)
+        btn.setImage(
+            UIImage(systemName: "text.bubble")?.withTintColor(.black, renderingMode: .alwaysOriginal),
+            for: .normal
+        )
+        self.containerView.addSubview(btn)
+        return btn
+    }()
+    
+    private lazy var shareBtn: UIButton = {
+        let btn = UIButton()
+        btn.addTarget(self, action: #selector(onShare), for: .touchUpInside)
+        btn.setImage(
+            UIImage(systemName: "square.on.square")?.withTintColor(.black, renderingMode: .alwaysOriginal),
+            for: .normal
+        )
+        self.containerView.addSubview(btn)
+        return btn
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setup()
@@ -102,6 +151,10 @@ class NewsCellView: UITableViewCell {
     private func setup() {
         
         self.selectionStyle = .none
+        
+        self.actionStack.addArrangedSubview(self.likeBtn)
+        self.actionStack.addArrangedSubview(self.commentBtn)
+        self.actionStack.addArrangedSubview(self.shareBtn)
         
         self.containerView.snp.makeConstraints { make in
             make.top.left.equalToSuperview().offset(6)
@@ -129,7 +182,7 @@ class NewsCellView: UITableViewCell {
             make.top.equalTo(self.previewImg.snp.bottom).offset(12)
             make.left.equalToSuperview().offset(12)
             make.right.equalTo(self.previewImg.snp.right)
-            make.bottom.lessThanOrEqualToSuperview().offset(-12)
+            make.bottom.lessThanOrEqualTo(self.actionStack.snp.top).offset(-12)
         }
         
         self.titleLabel.snp.makeConstraints { make in
@@ -145,10 +198,31 @@ class NewsCellView: UITableViewCell {
         }
         
         self.dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.descriptionLabel.snp.bottom).offset(12)
+            make.top.greaterThanOrEqualTo(self.descriptionLabel.snp.bottom).offset(12)
             make.left.equalTo(self.descriptionLabel.snp.left)
             make.right.equalToSuperview().offset(-12)
-            make.bottom.lessThanOrEqualToSuperview().offset(-12)
+            make.bottom.equalTo(self.actionStack.snp.top).offset(-12)
+        }
+        
+        self.actionStack.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(12)
+            make.right.equalToSuperview().offset(-12)
+            make.bottom.equalToSuperview().offset(-12)
+        }
+        
+        self.likeBtn.snp.makeConstraints { make in
+            make.height.equalTo(24)
+            make.width.equalTo(96)
+        }
+        
+        self.commentBtn.snp.makeConstraints { make in
+            make.height.equalTo(24)
+            make.width.equalTo(96)
+        }
+        
+        self.shareBtn.snp.makeConstraints { make in
+            make.height.equalTo(24)
+            make.width.equalTo(96)
         }
     }
     
@@ -156,7 +230,13 @@ class NewsCellView: UITableViewCell {
         self.containerView.showAnimatedSkeleton()
     }
     
+    func setDelegate(_ delegate: NewsCellDelegate) {
+        self.delegate = delegate
+    }
+    
     func setData(_ searchArticle: SearchArticleEntity, hasImage: Bool) {
+        self.newsURL = searchArticle.url?.absoluteString ?? ""
+        self.newsID = searchArticle.id
         self.sectionLabel.text = searchArticle.sectionName
         self.subsectionLabel.text = searchArticle.subsectionName
         self.titleLabel.text = searchArticle.title
@@ -186,6 +266,8 @@ class NewsCellView: UITableViewCell {
     }
     
     func setData(_ mostPopular: MostPopularEntity, hasImage: Bool) {
+        self.newsURL = mostPopular.url?.absoluteString ?? ""
+        self.newsID = mostPopular.id.description
         self.sectionLabel.text = mostPopular.section
         self.subsectionLabel.text = mostPopular.subsection
         self.titleLabel.text = mostPopular.title
@@ -215,7 +297,8 @@ class NewsCellView: UITableViewCell {
     }
     
     func setData(_ topStory: TopStoryEntity, hasImage: Bool) {
-        
+        self.newsURL = topStory.url?.absoluteString ?? ""
+        self.newsID = topStory.id
         self.sectionLabel.text = topStory.section
         self.subsectionLabel.text = topStory.subsection
         self.titleLabel.text = topStory.title
@@ -243,4 +326,29 @@ class NewsCellView: UITableViewCell {
             self.previewImg.kf.setImage(with: safeURL)
         }
     }
+    
+    @objc private func onLike() {
+
+    }
+    
+    @objc private func onComment() {
+        guard let delegate = self.delegate else { return }
+        if delegate.isLoggedIn {
+            delegate.showCommentVC(newsID: self.newsID)
+        } else {
+            delegate.showWelcomeVC()
+        }
+    }
+    
+    @objc private func onShare() {
+        UIPasteboard.general.string = self.newsURL
+        self.delegate?.showToast(message: "copied to clipboard")
+    }
+}
+
+protocol NewsCellDelegate: AnyObject {
+    func showToast(message: String)
+    func showCommentVC(newsID: String)
+    func showWelcomeVC()
+    var isLoggedIn: Bool { get }
 }

@@ -97,6 +97,10 @@ public class DataAssembly: Assembly {
             )
         }
         
+        container.register(CommentRepoProtocol.self) { r in
+            CommentRepo(remoteDataSource: r.resolve(CommentRemoteDataSourceProtocol.self)!)
+        }
+        
         container.register(SearchArticleRepoProtocol.self) { r in
             SearchArticleRepo(remoteDataSource: r.resolve(SearchArticleRemoteDataSourceProtocol.self)!)
         }

@@ -13,6 +13,8 @@ extension CommentRemoteDTO {
             id: self.id,
             content: self.content,
             newsID: self.newsID,
+            isAdmin: self.isAdmin,
+            publishDate: self.publishDate,
             author: CommentAuthorEntity(
                 id: self.authorID,
                 email: self.authorEmail
