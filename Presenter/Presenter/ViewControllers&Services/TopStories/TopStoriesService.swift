@@ -8,7 +8,7 @@
 import Domain
 import Combine
 
-class TopStoriesService: BaseService<Void, TopStoriesEffect> {
+class TopStoriesService: PageService<Void, TopStoriesEffect> {
     
     let segmentNames = ["Home", "Arts", "Science", "World"]
     
@@ -31,17 +31,25 @@ class TopStoriesService: BaseService<Void, TopStoriesEffect> {
     private let syncTopStoriesUseCase: BaseAsyncThrowsUseCase<TopStoriesInput, Void>
     private let getTopStoriesUseCase: BaseUseCase<TopStoriesInput, [TopStoryEntity]>
     private let observeTopStoriesUseCase: BaseObserveUseCase<Void, [TopStoryEntity]>
-    private let authIsLoggedInUseCase: BaseUseCase<Void, Bool>
+    
     
     init(syncTopStoriesUseCase: BaseAsyncThrowsUseCase<TopStoriesInput, Void>,
          getTopStoriesUseCase: BaseUseCase<TopStoriesInput, [TopStoryEntity]>,
          observeTopStoriesUseCase: BaseObserveUseCase<Void, [TopStoryEntity]>,
+         getLikesUseCase: BaseAsyncThrowsUseCase<String, [LikeEntity]>,
+         deleteLikeUseCase: BaseAsyncThrowsUseCase<String, Void>,
+         submitLikeUseCase: BaseAsyncThrowsUseCase<LikeInput, Void>,
          authIsLoggedInUseCase: BaseUseCase<Void, Bool>
     ) {
         self.syncTopStoriesUseCase = syncTopStoriesUseCase
         self.getTopStoriesUseCase = getTopStoriesUseCase
         self.observeTopStoriesUseCase = observeTopStoriesUseCase
-        self.authIsLoggedInUseCase = authIsLoggedInUseCase
+        super.init(
+            getLikesUseCase: getLikesUseCase,
+            deleteLikeUseCase: deleteLikeUseCase,
+            submitLikeUseCase: submitLikeUseCase,
+            authIsLoggedInUseCase: authIsLoggedInUseCase
+        )
     }
     
     func syncTopStories() async {
@@ -55,10 +63,6 @@ class TopStoriesService: BaseService<Void, TopStoriesEffect> {
     
     var observeTopStories: AnyPublisher<[TopStoryEntity], Never> {
         self.observeTopStoriesUseCase.observe(input: Void())
-    }
-
-    var isLoggedIn: Bool {
-        self.authIsLoggedInUseCase.execute(input: Void())
     }
     
     func selectedSegment(index: Int) async {

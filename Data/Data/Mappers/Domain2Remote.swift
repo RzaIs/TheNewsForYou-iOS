@@ -15,3 +15,9 @@ extension CommentInput {
         )
     }
 }
+
+extension LikeInput {
+    var toRemote: LikeBody {
+        LikeBody(newsID: self.newsID)
+    }
+}

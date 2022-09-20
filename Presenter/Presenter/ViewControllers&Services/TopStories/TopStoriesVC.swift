@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Domain
 import SnapKit
 import SafariServices
 
-class TopStoriesVC: BaseVC<Void, TopStoriesEffect, TopStoriesService> {
+class TopStoriesVC: PageVC<Void, TopStoriesEffect, TopStoriesService> {
     
     private let safariConfig: SFSafariViewController.Configuration = {
         let config = SFSafariViewController.Configuration()
@@ -142,26 +143,5 @@ extension TopStoriesVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.setDelegate(self)
         return cell
-    }
-}
-
-extension TopStoriesVC: NewsCellDelegate {
-    
-    func showToast(message: String) {
-        self.showToast(message: message, font: .systemFont(ofSize: 12))
-    }
-    
-    func showCommentVC(newsID: String) {
-        let vc = self.navigationProvider.commentVC(newsID: newsID)
-        self.pushVC(vc)
-    }
-    
-    func showWelcomeVC() {
-        let vc = self.navigationProvider.welcomeVC
-        self.presentVC(vc)
-    }
-    
-    var isLoggedIn: Bool {
-        self.service.isLoggedIn
     }
 }

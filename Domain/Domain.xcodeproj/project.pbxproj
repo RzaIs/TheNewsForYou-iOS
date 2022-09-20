@@ -21,8 +21,14 @@
 		3225E94128CFC2C400747B5E /* CommentRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */; };
 		3225E94A28CFC3A800747B5E /* CommentInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94928CFC3A800747B5E /* CommentInput.swift */; };
 		32549CE828D8DEB400EF00AB /* GetCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */; };
-		32549CEA28D8DF2100EF00AB /* DeleteCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE928D8DF2100EF00AB /* DeleteCommentsUseCase.swift */; };
-		32549CEC28D8DF7600EF00AB /* SubmitCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CEB28D8DF7600EF00AB /* SubmitCommentsUseCase.swift */; };
+		32549CEA28D8DF2100EF00AB /* DeleteCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE928D8DF2100EF00AB /* DeleteCommentUseCase.swift */; };
+		32549CEC28D8DF7600EF00AB /* SubmitCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CEB28D8DF7600EF00AB /* SubmitCommentUseCase.swift */; };
+		32549D0328DA127000EF00AB /* LikeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0228DA127000EF00AB /* LikeEntity.swift */; };
+		32549D0728DA149200EF00AB /* LikeRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0628DA149200EF00AB /* LikeRepoProtocol.swift */; };
+		32549D0928DA14C800EF00AB /* LikeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0828DA14C800EF00AB /* LikeInput.swift */; };
+		32549D0C28DA16BF00EF00AB /* GetLikesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0B28DA16BF00EF00AB /* GetLikesUseCase.swift */; };
+		32549D0E28DA16CA00EF00AB /* DeleteLikeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0D28DA16CA00EF00AB /* DeleteLikeUseCase.swift */; };
+		32549D1028DA1C5E00EF00AB /* SubmitLikeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0F28DA1C5E00EF00AB /* SubmitLikeUseCase.swift */; };
 		32A7922C28B9403300CC94FE /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A7922B28B9403300CC94FE /* Domain.docc */; };
 		32A7923228B9403300CC94FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7922728B9403300CC94FE /* Domain.framework */; };
 		32A7923728B9403300CC94FE /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7923628B9403300CC94FE /* DomainTests.swift */; };
@@ -75,8 +81,14 @@
 		3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepoProtocol.swift; sourceTree = "<group>"; };
 		3225E94928CFC3A800747B5E /* CommentInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInput.swift; sourceTree = "<group>"; };
 		32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCommentsUseCase.swift; sourceTree = "<group>"; };
-		32549CE928D8DF2100EF00AB /* DeleteCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentsUseCase.swift; sourceTree = "<group>"; };
-		32549CEB28D8DF7600EF00AB /* SubmitCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCommentsUseCase.swift; sourceTree = "<group>"; };
+		32549CE928D8DF2100EF00AB /* DeleteCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentUseCase.swift; sourceTree = "<group>"; };
+		32549CEB28D8DF7600EF00AB /* SubmitCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCommentUseCase.swift; sourceTree = "<group>"; };
+		32549D0228DA127000EF00AB /* LikeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeEntity.swift; sourceTree = "<group>"; };
+		32549D0628DA149200EF00AB /* LikeRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepoProtocol.swift; sourceTree = "<group>"; };
+		32549D0828DA14C800EF00AB /* LikeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeInput.swift; sourceTree = "<group>"; };
+		32549D0B28DA16BF00EF00AB /* GetLikesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLikesUseCase.swift; sourceTree = "<group>"; };
+		32549D0D28DA16CA00EF00AB /* DeleteLikeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLikeUseCase.swift; sourceTree = "<group>"; };
+		32549D0F28DA1C5E00EF00AB /* SubmitLikeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitLikeUseCase.swift; sourceTree = "<group>"; };
 		32A7922728B9403300CC94FE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7922A28B9403300CC94FE /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		32A7922B28B9403300CC94FE /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
@@ -145,10 +157,20 @@
 			isa = PBXGroup;
 			children = (
 				32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */,
-				32549CE928D8DF2100EF00AB /* DeleteCommentsUseCase.swift */,
-				32549CEB28D8DF7600EF00AB /* SubmitCommentsUseCase.swift */,
+				32549CE928D8DF2100EF00AB /* DeleteCommentUseCase.swift */,
+				32549CEB28D8DF7600EF00AB /* SubmitCommentUseCase.swift */,
 			);
 			path = Comment;
+			sourceTree = "<group>";
+		};
+		32549D0A28DA169A00EF00AB /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				32549D0B28DA16BF00EF00AB /* GetLikesUseCase.swift */,
+				32549D0D28DA16CA00EF00AB /* DeleteLikeUseCase.swift */,
+				32549D0F28DA1C5E00EF00AB /* SubmitLikeUseCase.swift */,
+			);
+			path = Like;
 			sourceTree = "<group>";
 		};
 		32A7921D28B9403300CC94FE = {
@@ -194,6 +216,7 @@
 		32A7924C28B9405100CC94FE /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				32549D0A28DA169A00EF00AB /* Like */,
 				32549CE628D8DEA000EF00AB /* Comment */,
 				32143B7528D78A5800B04819 /* SearchArticle */,
 				3220D3F528CD380100DB4A9E /* MostPopular */,
@@ -211,6 +234,7 @@
 				32FADE4828C140B200A3FD5D /* TopStoriesRepoProtocol.swift */,
 				3220D3EC28CD340B00DB4A9E /* MostPopularRepoProtocol.swift */,
 				3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */,
+				32549D0628DA149200EF00AB /* LikeRepoProtocol.swift */,
 				32143B7128D787A200B04819 /* SearchArticleRepoProtocol.swift */,
 			);
 			path = RepoProtocols;
@@ -233,6 +257,7 @@
 				32FADE4428C13AFD00A3FD5D /* TopStoryEntity.swift */,
 				3220D3E128CD301A00DB4A9E /* MostPopularEntity.swift */,
 				32E0F13028CFAF0A00C8986A /* CommentEntity.swift */,
+				32549D0228DA127000EF00AB /* LikeEntity.swift */,
 				32143B6F28D781D900B04819 /* SearchArticleEntity.swift */,
 			);
 			path = Entities;
@@ -244,6 +269,7 @@
 				32A7925028B9408F00CC94FE /* AuthInput.swift */,
 				321F947528CCE1C2000757F4 /* TopStoriesInput.swift */,
 				3225E94928CFC3A800747B5E /* CommentInput.swift */,
+				32549D0828DA14C800EF00AB /* LikeInput.swift */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -415,9 +441,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				32E0F13128CFAF0A00C8986A /* CommentEntity.swift in Sources */,
+				32549D1028DA1C5E00EF00AB /* SubmitLikeUseCase.swift in Sources */,
 				32A7925A28B942A100CC94FE /* BaseUseCase.swift in Sources */,
 				32A792A028B9455B00CC94FE /* DomainAssembly.swift in Sources */,
 				32A792D728BA12BA00CC94FE /* UIError.swift in Sources */,
+				32549D0728DA149200EF00AB /* LikeRepoProtocol.swift in Sources */,
 				3220D3F728CD381700DB4A9E /* SyncMostPopularUseCase.swift in Sources */,
 				32A7926928B9438B00CC94FE /* AuthRepoProtocol.swift in Sources */,
 				32A792EB28BA208800CC94FE /* AuthIsLoggedInUseCase.swift in Sources */,
@@ -430,15 +458,18 @@
 				32549CE828D8DEB400EF00AB /* GetCommentsUseCase.swift in Sources */,
 				3220D3E428CD307200DB4A9E /* PublishDateEntity.swift in Sources */,
 				321F947828CCE76F000757F4 /* GetTopStoriesUseCase.swift in Sources */,
+				32549D0E28DA16CA00EF00AB /* DeleteLikeUseCase.swift in Sources */,
 				32A7927028B9447B00CC94FE /* AuthRegisterUseCase.swift in Sources */,
 				3225E94A28CFC3A800747B5E /* CommentInput.swift in Sources */,
 				32FADE4928C140B200A3FD5D /* TopStoriesRepoProtocol.swift in Sources */,
+				32549D0328DA127000EF00AB /* LikeEntity.swift in Sources */,
 				32FADE0C28BD49DC00A3FD5D /* FirstOpeningEntity.swift in Sources */,
 				32FADE0E28BD4BB100A3FD5D /* AuthGetFirstOpeningDateUseCase.swift in Sources */,
 				3220D3E228CD301A00DB4A9E /* MostPopularEntity.swift in Sources */,
 				321F948028CCEF16000757F4 /* Array+Extension.swift in Sources */,
 				321F947628CCE1C2000757F4 /* TopStoriesInput.swift in Sources */,
-				32549CEA28D8DF2100EF00AB /* DeleteCommentsUseCase.swift in Sources */,
+				32549CEA28D8DF2100EF00AB /* DeleteCommentUseCase.swift in Sources */,
+				32549D0C28DA16BF00EF00AB /* GetLikesUseCase.swift in Sources */,
 				32A7925728B9429200CC94FE /* AuthLoginUseCase.swift in Sources */,
 				3220D3ED28CD340B00DB4A9E /* MostPopularRepoProtocol.swift in Sources */,
 				32143B7228D787A200B04819 /* SearchArticleRepoProtocol.swift in Sources */,
@@ -446,11 +477,12 @@
 				32FADE1028BD4C1E00A3FD5D /* AuthSetFirstOpeningDateUseCase.swift in Sources */,
 				32143B7728D78A6900B04819 /* SearchArticleUseCase.swift in Sources */,
 				32FADE4E28C1422600A3FD5D /* ObserveTopStoriesUseCase.swift in Sources */,
-				32549CEC28D8DF7600EF00AB /* SubmitCommentsUseCase.swift in Sources */,
+				32549CEC28D8DF7600EF00AB /* SubmitCommentUseCase.swift in Sources */,
 				3225E94128CFC2C400747B5E /* CommentRepoProtocol.swift in Sources */,
 				32A7925E28B9430C00CC94FE /* BaseObserveUseCase.swift in Sources */,
 				32A792EF28BA23B000CC94FE /* BaseThrowsUseCase.swift in Sources */,
 				32A792ED28BA22D100CC94FE /* AuthLogoutUseCase.swift in Sources */,
+				32549D0928DA14C800EF00AB /* LikeInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

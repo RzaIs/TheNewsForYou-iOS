@@ -35,6 +35,9 @@ public class PresenterAssembly: Assembly {
                 syncTopStoriesUseCase: r.resolve(SyncTopStoriesUseCase.self)!,
                 getTopStoriesUseCase: r.resolve(GetTopStoriesUseCase.self)!,
                 observeTopStoriesUseCase: r.resolve(ObserveTopStoriesUseCase.self)!,
+                getLikesUseCase: r.resolve(GetLikesUseCase.self)!,
+                deleteLikeUseCase: r.resolve(DeleteLikeUseCase.self)!,
+                submitLikeUseCase: r.resolve(SubmitLikeUseCase.self)!,
                 authIsLoggedInUseCase: r.resolve(AuthIsLoggedInUseCase.self)!
             )
         }
@@ -50,6 +53,9 @@ public class PresenterAssembly: Assembly {
             MostPopularService(
                 syncMostPopularUseCase: r.resolve(SyncMostPopularUseCase.self)!,
                 observeMostPopularUseCase: r.resolve(ObserveMostPopularUseCase.self)!,
+                getLikesUseCase: r.resolve(GetLikesUseCase.self)!,
+                deleteLikeUseCase: r.resolve(DeleteLikeUseCase.self)!,
+                submitLikeUseCase: r.resolve(SubmitLikeUseCase.self)!,
                 authIsLoggedInUseCase: r.resolve(AuthIsLoggedInUseCase.self)!
             )
         }
@@ -64,6 +70,9 @@ public class PresenterAssembly: Assembly {
         container.register(SearchArticleService.self) { r in
             SearchArticleService(
                 searchArticleUseCase: r.resolve(SearchArticleUseCase.self)!,
+                getLikesUseCase: r.resolve(GetLikesUseCase.self)!,
+                deleteLikeUseCase: r.resolve(DeleteLikeUseCase.self)!,
+                submitLikeUseCase: r.resolve(SubmitLikeUseCase.self)!,
                 authIsLoggedInUseCase: r.resolve(AuthIsLoggedInUseCase.self)!
             )
         }

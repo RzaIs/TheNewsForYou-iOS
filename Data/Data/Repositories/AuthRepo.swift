@@ -29,14 +29,19 @@ class AuthRepo: AuthRepoProtocol {
     }
     
     func logout() throws {
-        try self.remoteDataSource.logout()
+        do {
+            try self.remoteDataSource.logout()
+        } catch {
+            throw UIError(title: "Logout Error", message: "\(error.localizedDescription)\nKey: @1")
+        }
+        
     }
     
     func register(credentials: AuthInput) async throws {
         do {
             try await self.remoteDataSource.register(credentials: credentials)
         } catch {
-            throw UIError(title: "Register Error", message: "\(error.localizedDescription)\nKey: @1")
+            throw UIError(title: "Register Error", message: "\(error.localizedDescription)\nKey: @2")
         }
     }
     
