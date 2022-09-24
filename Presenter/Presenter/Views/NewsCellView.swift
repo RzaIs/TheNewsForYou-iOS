@@ -48,7 +48,7 @@ class NewsCellView: UITableViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 12
-        view.backgroundColor = .systemGray5
+        view.backgroundColor = .systemGray6
         self.contentView.addSubview(view)
         return view
     }()
@@ -369,6 +369,11 @@ class NewsCellView: UITableViewCell {
     }
     
     @objc private func onLike() {
+        guard let delegate = self.delegate else { return }
+        guard delegate.isLoggedIn else {
+            delegate.showWelcomeVC()
+            return
+        }
         guard mutex else { return }
         mutex = false
         switch self.status {

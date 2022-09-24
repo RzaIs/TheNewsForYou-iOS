@@ -27,10 +27,6 @@ class MostPopularLocalDataSource: MostPopularLocalDataSourceProtocol {
         self.mostPopularSubject.send(mostPopular)
     }
     
-    func getTopStories() -> [MostPopularLocalDTO] {
-        self.databaseProvider.read()
-    }
-    
     func observeMostPopular() -> AnyPublisher<[MostPopularLocalDTO], Never> {
         self.mostPopularSubject.eraseToAnyPublisher()
     }

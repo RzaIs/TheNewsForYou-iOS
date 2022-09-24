@@ -21,12 +21,20 @@ class NavigationProvider: NavigationProviderProtocol {
         self.resolver.resolve(UINavigationController.self)!
     }
     
+    var tabBarDelegate: TabBarDelegate {
+        self.resolver.resolve(TabBarController.self)!
+    }
+    
     var welcomeVC: WelcomeVC {
         self.resolver.resolve(WelcomeVC.self)!
     }
     
     var authVC: AuthVC {
         self.resolver.resolve(AuthVC.self)!
+    }
+    
+    var profileVC: ProfileVC {
+        self.resolver.resolve(ProfileVC.self)!
     }
     
     var topStoriesVC: TopStoriesVC {

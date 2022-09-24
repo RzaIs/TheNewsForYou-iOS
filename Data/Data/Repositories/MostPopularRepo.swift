@@ -10,8 +10,8 @@ import Combine
 
 class MostPopularRepo: MostPopularRepoProtocol {
     
-    let localDataSource: MostPopularLocalDataSourceProtocol
-    let remoteDataSource: MostPopularRemoteDataSourceProtocol
+    private let localDataSource: MostPopularLocalDataSourceProtocol
+    private let remoteDataSource: MostPopularRemoteDataSourceProtocol
     
     init(localDataSource: MostPopularLocalDataSourceProtocol,
          remoteDataSource: MostPopularRemoteDataSourceProtocol

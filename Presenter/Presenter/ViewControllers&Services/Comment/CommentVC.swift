@@ -42,6 +42,7 @@ class CommentVC: BaseVC<Void, CommentEffect, CommentService> {
     
     private lazy var commentField: UITextField = {
         let field = UITextField()
+        field.autocorrectionType = .no
         field.font = FontFamily.RobotoMono.regular.font(size: 18)
         self.commentInputView.addSubview(field)
         return field
@@ -67,7 +68,7 @@ class CommentVC: BaseVC<Void, CommentEffect, CommentService> {
             make.height.equalTo(28)
             make.width.equalTo(32)
         }
-        btn.backgroundColor = .systemGray3
+        btn.backgroundColor = .systemGray4
         btn.layer.cornerRadius = 21
         btn.clipsToBounds = true
         btn.isHidden = true

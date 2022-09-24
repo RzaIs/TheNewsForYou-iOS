@@ -21,6 +21,10 @@ class SearchDataRemoteDTO: Decodable {
         let nestedContainer = try container.nestedContainer(keyedBy: DocumentKeys.self, forKey: .result)
         self.result = try nestedContainer.decode([SearchArticleRemoteDTO].self, forKey: .docs)
     }
+    
+    init(data: [SearchArticleRemoteDTO]) {
+        self.result = data
+    }
 }
 
 class SearchArticleRemoteDTO: Decodable {
