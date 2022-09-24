@@ -20,6 +20,7 @@
 		3220D3F928CD382300DB4A9E /* ObserveMostPopularUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D3F828CD382300DB4A9E /* ObserveMostPopularUseCase.swift */; };
 		3225E94128CFC2C400747B5E /* CommentRepoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */; };
 		3225E94A28CFC3A800747B5E /* CommentInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3225E94928CFC3A800747B5E /* CommentInput.swift */; };
+		3234991128DF1F1B00AE33F2 /* AuthGetUserEmailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234991028DF1F1B00AE33F2 /* AuthGetUserEmailUseCase.swift */; };
 		32549CE828D8DEB400EF00AB /* GetCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */; };
 		32549CEA28D8DF2100EF00AB /* DeleteCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE928D8DF2100EF00AB /* DeleteCommentUseCase.swift */; };
 		32549CEC28D8DF7600EF00AB /* SubmitCommentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CEB28D8DF7600EF00AB /* SubmitCommentUseCase.swift */; };
@@ -80,6 +81,7 @@
 		3220D3F828CD382300DB4A9E /* ObserveMostPopularUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserveMostPopularUseCase.swift; sourceTree = "<group>"; };
 		3225E94028CFC2C400747B5E /* CommentRepoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepoProtocol.swift; sourceTree = "<group>"; };
 		3225E94928CFC3A800747B5E /* CommentInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInput.swift; sourceTree = "<group>"; };
+		3234991028DF1F1B00AE33F2 /* AuthGetUserEmailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGetUserEmailUseCase.swift; sourceTree = "<group>"; };
 		32549CE728D8DEB400EF00AB /* GetCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCommentsUseCase.swift; sourceTree = "<group>"; };
 		32549CE928D8DF2100EF00AB /* DeleteCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentUseCase.swift; sourceTree = "<group>"; };
 		32549CEB28D8DF7600EF00AB /* SubmitCommentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCommentUseCase.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				32A792EC28BA22D100CC94FE /* AuthLogoutUseCase.swift */,
 				32FADE0D28BD4BB100A3FD5D /* AuthGetFirstOpeningDateUseCase.swift */,
 				32FADE0F28BD4C1E00A3FD5D /* AuthSetFirstOpeningDateUseCase.swift */,
+				3234991028DF1F1B00AE33F2 /* AuthGetUserEmailUseCase.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			files = (
 				32E0F13128CFAF0A00C8986A /* CommentEntity.swift in Sources */,
 				32549D1028DA1C5E00EF00AB /* SubmitLikeUseCase.swift in Sources */,
+				3234991128DF1F1B00AE33F2 /* AuthGetUserEmailUseCase.swift in Sources */,
 				32A7925A28B942A100CC94FE /* BaseUseCase.swift in Sources */,
 				32A792A028B9455B00CC94FE /* DomainAssembly.swift in Sources */,
 				32A792D728BA12BA00CC94FE /* UIError.swift in Sources */,

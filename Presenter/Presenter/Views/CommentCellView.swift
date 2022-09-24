@@ -74,10 +74,10 @@ class CommentCellView: UITableViewCell {
     }
     
     func setAsSkeleton() {
-        self.authorLabel.backgroundColor = .systemGray3
+        self.authorLabel.backgroundColor = .systemGray6
         self.authorLabel.layer.cornerRadius = 4
         self.authorLabel.clipsToBounds = true
-        self.contentLabel.backgroundColor = .systemGray3
+        self.contentLabel.backgroundColor = .systemGray6
         self.contentLabel.layer.cornerRadius = 4
         self.contentLabel.clipsToBounds = true
         self.authorLabel.snp.makeConstraints { make in

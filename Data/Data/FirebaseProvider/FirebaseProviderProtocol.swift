@@ -10,11 +10,13 @@ import FirebaseAuth
 protocol FirebaseProviderProtocol {
     func isSignedIn() -> Bool
     func createUser(email: String, password: String) async throws
-    func signin(email: String, password: String) async throws
+    func verifyEmail() async throws
+    func signin(email: String, password: String) async throws -> Bool
     func signout() throws
     func getDocuments<T: FirestoreObject>(field: String, value: Any) async throws -> [T]
     func deleteDocument<T: FirestoreObject>(_ type: T.Type, id: String) async throws
     func sendDocument<T: DictionaryObject>(document: T) async throws
     func syncRemoteConfig() async throws
     func getApiKey() -> String?
+    func getEmail() -> String?
 }

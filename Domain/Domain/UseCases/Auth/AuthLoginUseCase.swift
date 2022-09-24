@@ -5,7 +5,7 @@
 //  Created by Rza Ismayilov on 26.08.22.
 //
 
-public class AuthLoginUseCase: BaseAsyncThrowsUseCase<AuthInput, Void> {
+public class AuthLoginUseCase: BaseAsyncThrowsUseCase<AuthInput, Bool> {
     
     private let repo: AuthRepoProtocol
     
@@ -13,7 +13,7 @@ public class AuthLoginUseCase: BaseAsyncThrowsUseCase<AuthInput, Void> {
         self.repo = repo
     }
     
-    override public func execute(input: AuthInput) async throws -> Void {
+    override public func execute(input: AuthInput) async throws -> Bool {
         try await self.repo.login(credentials: input)
     }
 }

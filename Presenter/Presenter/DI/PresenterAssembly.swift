@@ -88,6 +88,13 @@ public class PresenterAssembly: Assembly {
             WelcomeService()
         }
         
+        container.register(ProfileVC.self) { r in
+            ProfileVC(
+                service: r.resolve(AuthService.self)!,
+                navigationProvider: r.resolve(NavigationProviderProtocol.self)!
+            )
+        }
+        
         container.register(AuthVC.self) { r in
             AuthVC(
                 service: r.resolve(AuthService.self)!,
@@ -98,7 +105,9 @@ public class PresenterAssembly: Assembly {
         container.register(AuthService.self) { r in
             AuthService(
                 authLoginUseCase: r.resolve(AuthLoginUseCase.self)!,
-                authRegisterUseCase: r.resolve(AuthRegisterUseCase.self)!
+                authRegisterUseCase: r.resolve(AuthRegisterUseCase.self)!,
+                authLogoutUseCase: r.resolve(AuthLogoutUseCase.self)!,
+                authGetUserEmailUseCase: r.resolve(AuthGetUserEmailUseCase.self)!
             )
         }
         
@@ -107,7 +116,7 @@ public class PresenterAssembly: Assembly {
                 service: r.resolve(TabBarService.self)!,
                 navigationProvider: r.resolve(NavigationProviderProtocol.self)!
             )
-        }
+        }.inObjectScope(.container)
         
         container.register(TabBarService.self) { r in
             TabBarService(

@@ -19,7 +19,11 @@ class FirebaseProvider: FirebaseProviderProtocol {
     private let remoteConfig: RemoteConfig = .remoteConfig()
     
     func isSignedIn() -> Bool {
-        self.auth.currentUser != nil
+        if let user = self.auth.currentUser {
+            return user.isEmailVerified
+        } else {
+            return false
+        }
     }
     
     init() {
@@ -42,11 +46,24 @@ class FirebaseProvider: FirebaseProviderProtocol {
         }
     }
     
-    func signin(email: String, password: String) async throws {
+    func verifyEmail() async throws {
+        guard let user = self.auth.currentUser else { return }
+        return try await withCheckedThrowingContinuation { continuation in
+            user.sendEmailVerification { error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume()
+                }
+            }
+        }
+    }
+    
+    func signin(email: String, password: String) async throws -> Bool {
         return try await withCheckedThrowingContinuation { continuation in
             self.auth.signIn(withEmail: email, password: password) { result, error in
-                if let _ = result {
-                    continuation.resume(returning: Void())
+                if let verified = result?.user.isEmailVerified {
+                    continuation.resume(returning: verified)
                 } else if let error = error {
                     continuation.resume(throwing: error)
                 } else {
@@ -62,13 +79,11 @@ class FirebaseProvider: FirebaseProviderProtocol {
     
     func getDocuments<T: FirestoreObject>(field: String, value: Any) async throws -> [T] {
         return try await withCheckedThrowingContinuation { continuation in
-            guard let user = self.auth.currentUser else {
-                continuation.resume(throwing: NSError(domain: FirebaseErrors.userNotDefined.rawValue, code: 1))
-                return
-            }
             self.firestore.collection(T.collection).whereField(field, isEqualTo: value).getDocuments { snapshot, error in
                 if let documents = snapshot?.documents.map({ documentSnapshot in
-                    if let authorID = documentSnapshot["authorID"] as? String, authorID == user.uid {
+                    if let authorID = documentSnapshot["authorID"] as? String,
+                       authorID == self.auth.currentUser?.uid
+                    {
                         return T(document: documentSnapshot, isAdmin: true)
                     } else {
                         return T(document: documentSnapshot, isAdmin: false)
@@ -136,6 +151,10 @@ class FirebaseProvider: FirebaseProviderProtocol {
     
     func getApiKey() -> String? {
         self.remoteConfig.configValue(forKey: self.apiKeyConfigKey).stringValue
+    }
+    
+    func getEmail() -> String? {
+        self.auth.currentUser?.email
     }
 }
 

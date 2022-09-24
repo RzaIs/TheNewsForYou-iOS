@@ -9,8 +9,10 @@ import UIKit
 
 protocol NavigationProviderProtocol {
     var rootNC: UINavigationController { get }
+    var tabBarDelegate: TabBarDelegate { get }
     var welcomeVC: WelcomeVC { get }
     var authVC: AuthVC { get }
+    var profileVC: ProfileVC { get }
     var topStoriesVC: TopStoriesVC { get }
     var mostPopularVC: MostPopularVC { get }
     var searchArticleVC: SearchArticleVC { get }

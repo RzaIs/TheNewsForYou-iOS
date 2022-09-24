@@ -42,6 +42,7 @@ class SearchArticleVC: PageVC<Void, SearchArticleEffect, SearchArticleService> {
     private lazy var searchField: UITextField = {
         let field = UITextField()
         field.font = FontFamily.RobotoMono.regular.font(size: 18)
+        field.autocorrectionType = .no
         field.addTarget(self, action: #selector(onSearchFieldChange), for: .editingChanged)
         self.searchView.addSubview(field)
         return field
@@ -77,8 +78,8 @@ class SearchArticleVC: PageVC<Void, SearchArticleEffect, SearchArticleService> {
             make.height.equalTo(28)
             make.width.equalTo(32)
         }
-        btn.backgroundColor = .systemGray3
-        btn.layer.cornerRadius = 28
+        btn.backgroundColor = .systemGray4
+        btn.layer.cornerRadius = 21
         btn.clipsToBounds = true
         btn.isHidden = true
         self.view.addSubview(btn)
@@ -112,7 +113,13 @@ class SearchArticleVC: PageVC<Void, SearchArticleEffect, SearchArticleService> {
             make.top.equalTo(self.searchField.snp.bottom).offset(16)
             make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(6)
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-6)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-16)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-6)
+        }
+        
+        self.keyboardCloseBtn.snp.makeConstraints { make in
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-6)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-6)
+            make.height.width.equalTo(42)
         }
     }
     
@@ -137,22 +144,28 @@ class SearchArticleVC: PageVC<Void, SearchArticleEffect, SearchArticleService> {
     
     override func keyboardAppeared(offset: CGFloat) {
         super.keyboardAppeared(offset: offset)
-        self.articlesTable.snp.updateConstraints { make in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(offset + 72)
+        self.articlesTable.snp.remakeConstraints { make in
+            make.top.equalTo(self.searchField.snp.bottom).offset(16)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(6)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-6)
+            make.bottom.equalToSuperview().offset(offset - 6)
         }
         self.keyboardCloseBtn.isHidden = false
-        self.keyboardCloseBtn.snp.makeConstraints { make in
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-18)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(offset + 64)
-            make.height.width.equalTo(56)
+        self.keyboardCloseBtn.snp.remakeConstraints { make in
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-20)
+            make.bottom.equalTo(self.articlesTable.snp.bottom).offset(-8)
+            make.height.width.equalTo(42)
         }
     }
     
     override func keyboardDisappeared() {
         super.keyboardDisappeared()
         self.keyboardCloseBtn.isHidden = true
-        self.articlesTable.snp.updateConstraints { make in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-16)
+        self.articlesTable.snp.remakeConstraints { make in
+            make.top.equalTo(self.searchField.snp.bottom).offset(16)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(6)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-6)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-6)
         }
     }
     

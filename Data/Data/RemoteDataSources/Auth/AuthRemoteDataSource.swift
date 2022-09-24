@@ -23,11 +23,19 @@ class AuthRemoteDataSource: AuthRemoteDataSourceProtocol {
         try await self.firebaseProvider.createUser(email: credentials.email, password: credentials.password)
     }
     
-    func login(credentials: AuthInput) async throws {
+    func verify() async throws {
+        try await self.firebaseProvider.verifyEmail()
+    }
+    
+    func login(credentials: AuthInput) async throws -> Bool {
         try await self.firebaseProvider.signin(email: credentials.email, password: credentials.password)
     }
     
     func logout() throws {
         try self.firebaseProvider.signout()
+    }
+    
+    func getEmail() -> String {
+        self.firebaseProvider.getEmail() ?? ""
     }
 }

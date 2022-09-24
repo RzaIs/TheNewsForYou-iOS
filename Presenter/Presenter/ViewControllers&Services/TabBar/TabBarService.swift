@@ -25,7 +25,7 @@ class TabBarService: BaseService<Void, Void> {
         self.authSetFirstOpeningDateUseCase = authSetFirstOpeningDateUseCase
     }
     
-    private var isLoggedIn: Bool {
+    var isLoggedIn: Bool {
         self.authIsLoggedInUseCase.execute(input: Void())
     }
     
