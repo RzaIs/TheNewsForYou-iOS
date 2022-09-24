@@ -15,11 +15,29 @@ class NewsCellView: UITableViewCell {
         
     private weak var delegate: NewsCellDelegate?
     
+    private var mutex: Bool = false
     private var newsID: String = ""
     private var newsURL: String = ""
+    private var numberOfLikes: Int = 0 {
+        didSet {
+            self.likeBtn.setTitle("  \(self.numberOfLikes)", for: .normal)
+        }
+    }
+    private var status: NewsCellLikeStatus = .notLikedYet {
+        didSet {
+            switch self.status {
+            case .alreadyLiked:
+                self.likeBtn.setImage(self.likedImage, for: .normal)
+            case .notLikedYet:
+                self.likeBtn.setImage(self.notLikedImage, for: .normal)
+            }
+        }
+    }
     
-    private let likedImage: UIImage? = .init(systemName:  "hand.thumbsup.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal)
-    private let notLikedImage: UIImage? = .init(systemName:  "hand.thumbsup")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+    private let likedImage: UIImage? = .init(systemName:  "hand.thumbsup.fill")?
+        .withTintColor(.black, renderingMode: .alwaysOriginal)
+    private let notLikedImage: UIImage? = .init(systemName:  "hand.thumbsup")?
+        .withTintColor(.black, renderingMode: .alwaysOriginal)
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -108,6 +126,8 @@ class NewsCellView: UITableViewCell {
     private lazy var likeBtn: UIButton = {
         let btn = UIButton()
         btn.addTarget(self, action: #selector(onLike), for: .touchUpInside)
+        btn.setTitleColor(.black, for: .normal)
+        btn.setTitle("   ", for: .normal)
         btn.setImage(
             UIImage(systemName: "hand.thumbsup")?.withTintColor(.black, renderingMode: .alwaysOriginal),
             for: .normal
@@ -232,6 +252,22 @@ class NewsCellView: UITableViewCell {
     
     func setDelegate(_ delegate: NewsCellDelegate) {
         self.delegate = delegate
+        self.initState()
+    }
+    
+    func initState() {
+        mutex = false
+        Task {
+            guard let likes = await self.delegate?.getLikes(newsID: self.newsID)
+            else { return }
+            self.numberOfLikes = likes.count
+            if let owned = likes.first(where: { $0.isAdmin }) {
+                self.status = .alreadyLiked(owned)
+            } else {
+                self.status = .notLikedYet
+            }
+            self.mutex = true
+        }
     }
     
     func setData(_ searchArticle: SearchArticleEntity, hasImage: Bool) {
@@ -327,8 +363,26 @@ class NewsCellView: UITableViewCell {
         }
     }
     
+    private func reloadTable() {
+        guard let tableView = self.superview as? UITableView else { return }
+        tableView.reloadData()
+    }
+    
     @objc private func onLike() {
-
+        guard mutex else { return }
+        mutex = false
+        switch self.status {
+        case .notLikedYet:
+            Task {
+                await self.delegate?.submitLike(newsID: self.newsID)
+                self.initState()
+            }
+        case .alreadyLiked(let like):
+            Task {
+                await self.delegate?.deleteLike(id: like.id)
+                self.initState()
+            }
+        }
     }
     
     @objc private func onComment() {
@@ -346,9 +400,17 @@ class NewsCellView: UITableViewCell {
     }
 }
 
+enum NewsCellLikeStatus {
+    case notLikedYet
+    case alreadyLiked(LikeEntity)
+}
+
 protocol NewsCellDelegate: AnyObject {
     func showToast(message: String)
     func showCommentVC(newsID: String)
     func showWelcomeVC()
+    func getLikes(newsID: String) async -> [LikeEntity]?
+    func submitLike(newsID: String) async
+    func deleteLike(id: String) async
     var isLoggedIn: Bool { get }
 }

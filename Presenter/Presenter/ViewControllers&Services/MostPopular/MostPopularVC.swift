@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Domain
 import SnapKit
 import SafariServices
 
-class MostPopularVC: BaseVC<Void, MostPopularEffect, MostPopularService> {
+class MostPopularVC: PageVC<Void, MostPopularEffect, MostPopularService> {
     
     private let safariConfig: SFSafariViewController.Configuration = {
         let config = SFSafariViewController.Configuration()
@@ -117,26 +118,5 @@ extension MostPopularVC: UITableViewDelegate, UITableViewDataSource {
         }
         cell.setDelegate(self)
         return cell
-    }
-}
-
-extension MostPopularVC: NewsCellDelegate {
-    
-    func showToast(message: String) {
-        self.showToast(message: message, font: .systemFont(ofSize: 12))
-    }
-    
-    func showCommentVC(newsID: String) {
-        let vc = self.navigationProvider.commentVC(newsID: newsID)
-        self.pushVC(vc)
-    }
-    
-    func showWelcomeVC() {
-        let vc = self.navigationProvider.welcomeVC
-        self.presentVC(vc)
-    }
-    
-    var isLoggedIn: Bool {
-        self.service.isLoggedIn
     }
 }

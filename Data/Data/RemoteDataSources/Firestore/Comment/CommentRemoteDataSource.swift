@@ -13,13 +13,11 @@ class CommentRemoteDataSource: CommentRemoteDataSourceProtocol {
         self.firebaseProvider = firebaseProvider
     }
     
-    func getComment(newsID: String) async throws -> [CommentRemoteDTO] {
-        try await self.firebaseProvider.getDocuments().filter { comment in
-            comment.newsID == newsID
-        }
+    func getComments(newsID: String) async throws -> [CommentRemoteDTO] {
+        try await self.firebaseProvider.getDocuments(field: "newsID", value: newsID)
     }
     
-    func sendComment(comment: CommentBody) async throws {
+    func send(comment: CommentBody) async throws {
         try await self.firebaseProvider.sendDocument(document: comment)
     }
     

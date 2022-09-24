@@ -7,6 +7,6 @@
 
 public protocol CommentRepoProtocol {
     func getComments(newsID: String) async throws -> [CommentEntity]
-    func submitComment(comment: CommentInput) async throws
+    func submit(comment: CommentInput) async throws
     func deleteComment(id: String) async throws
 }

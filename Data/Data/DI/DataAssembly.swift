@@ -101,6 +101,10 @@ public class DataAssembly: Assembly {
             CommentRepo(remoteDataSource: r.resolve(CommentRemoteDataSourceProtocol.self)!)
         }
         
+        container.register(LikeRepoProtocol.self) { r in
+            LikeRepo(likeRemoteDataSource: r.resolve(LikeRemoteDataSourceProtocol.self)!)
+        }
+        
         container.register(SearchArticleRepoProtocol.self) { r in
             SearchArticleRepo(remoteDataSource: r.resolve(SearchArticleRemoteDataSourceProtocol.self)!)
         }
@@ -121,6 +125,10 @@ public class DataAssembly: Assembly {
         
         container.register(CommentRemoteDataSourceProtocol.self) { r in
             CommentRemoteDataSource(firebaseProvider: r.resolve(FirebaseProviderProtocol.self)!)
+        }
+        
+        container.register(LikeRemoteDataSourceProtocol.self) { r in
+            LikeRemoteDataSource(firebaseProvider: r.resolve(FirebaseProviderProtocol.self)!)
         }
         
         container.register(SearchArticleRemoteDataSourceProtocol.self) { r in

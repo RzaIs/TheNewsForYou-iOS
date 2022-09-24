@@ -6,7 +6,7 @@
 //
 
 protocol CommentRemoteDataSourceProtocol {
-    func getComment(newsID: String) async throws -> [CommentRemoteDTO]
-    func sendComment(comment: CommentBody) async throws
+    func getComments(newsID: String) async throws -> [CommentRemoteDTO]
+    func send(comment: CommentBody) async throws
     func deleteComment(id: String) async throws
 }

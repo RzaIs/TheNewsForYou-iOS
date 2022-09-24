@@ -46,8 +46,8 @@ class NavigationProvider: NavigationProviderProtocol {
             service: CommentService(
                 newsID: newsID,
                 getCommentsUseCase: resolver.resolve(GetCommentsUseCase.self)!,
-                deleteCommentsUseCase: resolver.resolve(DeleteCommentsUseCase.self)!,
-                submitCommentsUseCase: resolver.resolve(SubmitCommentsUseCase.self)!
+                deleteCommentUseCase: resolver.resolve(DeleteCommentUseCase.self)!,
+                submitCommentUseCase: resolver.resolve(SubmitCommentUseCase.self)!
             ),
             navigationProvider: resolver.resolve(NavigationProviderProtocol.self)!
         )

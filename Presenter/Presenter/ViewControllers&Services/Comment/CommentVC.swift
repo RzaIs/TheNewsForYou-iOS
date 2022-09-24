@@ -159,7 +159,7 @@ class CommentVC: BaseVC<Void, CommentEffect, CommentService> {
     
     func copyComment(index: Int) {
         UIPasteboard.general.string = self.service.comments[index].content
-        self.showToast(message: "copied to clipboard", font: .systemFont(ofSize: 12))
+        self.showToast(message: "copied to clipboard")
     }
     
     func deleteComment(index: Int) {

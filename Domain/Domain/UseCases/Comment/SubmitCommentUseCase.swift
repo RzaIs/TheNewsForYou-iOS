@@ -1,11 +1,11 @@
 //
-//  SubmitCommentsUseCase.swift
+//  SubmitCommentUseCase.swift
 //  Domain
 //
 //  Created by Rza Ismayilov on 19.09.22.
 //
 
-public class SubmitCommentsUseCase: BaseAsyncThrowsUseCase<CommentInput, Void> {
+public class SubmitCommentUseCase: BaseAsyncThrowsUseCase<CommentInput, Void> {
     
     private let repo: CommentRepoProtocol
     
@@ -14,6 +14,6 @@ public class SubmitCommentsUseCase: BaseAsyncThrowsUseCase<CommentInput, Void> {
     }
     
     public override func execute(input: CommentInput) async throws -> Void {
-        try await self.repo.submitComment(comment: input)
+        try await self.repo.submit(comment: input)
     }
 }

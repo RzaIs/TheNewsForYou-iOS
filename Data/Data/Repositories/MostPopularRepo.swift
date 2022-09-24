@@ -36,7 +36,11 @@ class MostPopularRepo: MostPopularRepoProtocol {
     }
     
     func deleteMostPopular() throws {
-        try self.localDataSource.removeAll()
+        do {
+            try self.localDataSource.removeAll()
+        } catch {
+            throw UIError(title: "Delete Most Popular Error", message: "\(error.localizedDescription)\nKey: @1")
+        }
     }
     
     var observeMostPopular: AnyPublisher<[MostPopularEntity], Never> {
