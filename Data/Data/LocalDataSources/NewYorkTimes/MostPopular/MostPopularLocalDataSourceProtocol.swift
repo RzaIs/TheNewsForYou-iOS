@@ -10,6 +10,5 @@ import Combine
 protocol MostPopularLocalDataSourceProtocol {
     func removeAll() throws
     func save(mostPopular: [MostPopularLocalDTO]) throws
-    func getTopStories() -> [MostPopularLocalDTO]
     func observeMostPopular() -> AnyPublisher<[MostPopularLocalDTO], Never>
 }

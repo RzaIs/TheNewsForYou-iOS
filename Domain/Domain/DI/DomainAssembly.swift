@@ -36,6 +36,10 @@ public class DomainAssembly: Assembly {
             AuthSetFirstOpeningDateUseCase(repo: r.resolve(AuthRepoProtocol.self)!)
         }
         
+        container.register(AuthGetUserEmailUseCase.self) { r in
+            AuthGetUserEmailUseCase(repo: r.resolve(AuthRepoProtocol.self)!)
+        }
+        
         container.register(SyncTopStoriesUseCase.self) { r in
             SyncTopStoriesUseCase(repo: r.resolve(TopStoriesRepoProtocol.self)!)
         }

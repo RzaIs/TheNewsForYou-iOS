@@ -44,7 +44,7 @@ class CommentService: BaseService<Void, CommentEffect> {
     func deleteComment(id: String) async {
         do {
             try await self.deleteCommentUseCase.execute(input: id)
-            sleep(1)
+            usleep(100000)
             await self.syncComments()
         } catch {
             self.show(error: error)

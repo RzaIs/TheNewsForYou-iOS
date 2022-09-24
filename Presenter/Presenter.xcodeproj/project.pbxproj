@@ -13,6 +13,7 @@
 		321CF20B28D629DF006C68F7 /* NewsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321CF20A28D629DF006C68F7 /* NewsCellView.swift */; };
 		323120EE28CDD9DA00C3960D /* MostPopularVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323120ED28CDD9DA00C3960D /* MostPopularVC.swift */; };
 		323120F028CDD9F500C3960D /* MostPopularService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323120EF28CDD9F500C3960D /* MostPopularService.swift */; };
+		3234990F28DF186600AE33F2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3234990E28DF186600AE33F2 /* ProfileVC.swift */; };
 		3243DA2028D20FFD00B97DF3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3243DA1F28D20FFD00B97DF3 /* Kingfisher */; };
 		32549CE528D8DE3A00EF00AB /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CE428D8DE3A00EF00AB /* CommentService.swift */; };
 		32549CEE28D8E2D200EF00AB /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CED28D8E2D200EF00AB /* CommentVC.swift */; };
@@ -75,6 +76,7 @@
 		321CF20A28D629DF006C68F7 /* NewsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellView.swift; sourceTree = "<group>"; };
 		323120ED28CDD9DA00C3960D /* MostPopularVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularVC.swift; sourceTree = "<group>"; };
 		323120EF28CDD9F500C3960D /* MostPopularService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularService.swift; sourceTree = "<group>"; };
+		3234990E28DF186600AE33F2 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		32549CE428D8DE3A00EF00AB /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		32549CED28D8E2D200EF00AB /* CommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		32549CEF28D8EC7E00EF00AB /* CommentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		32A792DC28BA1BB000CC94FE /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				3234990E28DF186600AE33F2 /* ProfileVC.swift */,
 				32A792DD28BA1BBC00CC94FE /* AuthVC.swift */,
 				32A792E828BA1D1900CC94FE /* AuthService.swift */,
 			);
@@ -454,6 +457,7 @@
 				32FADE1328BD4D3A00A3FD5D /* WelcomeVC.swift in Sources */,
 				32FADE8828C4897F00A3FD5D /* XCAssets+Generated.swift in Sources */,
 				32549CF028D8EC7E00EF00AB /* CommentCellView.swift in Sources */,
+				3234990F28DF186600AE33F2 /* ProfileVC.swift in Sources */,
 				32A792D128BA0FE700CC94FE /* BaseVC.swift in Sources */,
 				323120EE28CDD9DA00C3960D /* MostPopularVC.swift in Sources */,
 				32549CE528D8DE3A00EF00AB /* CommentService.swift in Sources */,
