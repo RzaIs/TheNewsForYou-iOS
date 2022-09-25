@@ -23,6 +23,15 @@ class CommentRemoteDTO: FirestoreObject {
         super.init(document: document, isAdmin: isAdmin)
     }
     
+    required init(id: String, document: [String : Any], isAdmin: Bool) {
+        self.content = document["content"] as? String ?? ""
+        self.newsID = document["newsID"] as? String ?? ""
+        self.authorID = document["authorID"] as? String ?? ""
+        self.authorEmail = document["authorEmail"] as? String ?? ""
+        self.publishDate = document["publishDate"] as? String ?? ""
+        super.init(id: id, document: document, isAdmin: isAdmin)
+    }
+    
     override class var collection: String {
         "comment"
     }    

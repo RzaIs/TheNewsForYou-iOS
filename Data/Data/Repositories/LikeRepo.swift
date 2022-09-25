@@ -16,7 +16,7 @@ class LikeRepo: LikeRepoProtocol {
         self.likeRemoteDataSource = likeRemoteDataSource
     }
     
-    func getLikes(newsID: String) async throws -> [Domain.LikeEntity] {
+    func getLikes(newsID: String) async throws -> [LikeEntity] {
         do {
             return try await self.likeRemoteDataSource.getLikes(newsID: newsID)
                 .map { $0.toDomain }

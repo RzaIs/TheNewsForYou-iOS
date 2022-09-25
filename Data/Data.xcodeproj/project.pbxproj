@@ -38,6 +38,10 @@
 		32549D2128DB694A00EF00AB /* TopStoriesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D2028DB694A00EF00AB /* TopStoriesTest.swift */; };
 		32549D2328DB697F00EF00AB /* TopStoriesRemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D2228DB697F00EF00AB /* TopStoriesRemoteDataSourceMock.swift */; };
 		32549D2528DC230B00EF00AB /* TopStoriesLocalDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D2428DC230B00EF00AB /* TopStoriesLocalDataSourceMock.swift */; };
+		327DDA5828E0AD9700E2AD26 /* CommentRemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327DDA5728E0AD9700E2AD26 /* CommentRemoteDataSourceMock.swift */; };
+		327DDA5A28E0B0F500E2AD26 /* CommentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327DDA5928E0B0F500E2AD26 /* CommentTest.swift */; };
+		327DDA5D28E0B62200E2AD26 /* LikeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327DDA5C28E0B62200E2AD26 /* LikeTest.swift */; };
+		327DDA5F28E0B63100E2AD26 /* LikeRemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327DDA5E28E0B63100E2AD26 /* LikeRemoteDataSourceMock.swift */; };
 		32A791BC28B929D100CC94FE /* Data.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A791BB28B929D100CC94FE /* Data.docc */; };
 		32A791C228B929D100CC94FE /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A791B728B929D100CC94FE /* Data.framework */; };
 		32A791C828B929D100CC94FE /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A791BA28B929D100CC94FE /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -137,6 +141,10 @@
 		32549D2028DB694A00EF00AB /* TopStoriesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesTest.swift; sourceTree = "<group>"; };
 		32549D2228DB697F00EF00AB /* TopStoriesRemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesRemoteDataSourceMock.swift; sourceTree = "<group>"; };
 		32549D2428DC230B00EF00AB /* TopStoriesLocalDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesLocalDataSourceMock.swift; sourceTree = "<group>"; };
+		327DDA5728E0AD9700E2AD26 /* CommentRemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRemoteDataSourceMock.swift; sourceTree = "<group>"; };
+		327DDA5928E0B0F500E2AD26 /* CommentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTest.swift; sourceTree = "<group>"; };
+		327DDA5C28E0B62200E2AD26 /* LikeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTest.swift; sourceTree = "<group>"; };
+		327DDA5E28E0B63100E2AD26 /* LikeRemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRemoteDataSourceMock.swift; sourceTree = "<group>"; };
 		32A791B728B929D100CC94FE /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A791BA28B929D100CC94FE /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		32A791BB28B929D100CC94FE /* Data.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Data.docc; sourceTree = "<group>"; };
@@ -308,6 +316,8 @@
 		32549D1E28DB692800EF00AB /* RepoTests */ = {
 			isa = PBXGroup;
 			children = (
+				327DDA5B28E0B61700E2AD26 /* LikeTests */,
+				327DDA5628E0AD8500E2AD26 /* CommentTest */,
 				3235736F28DFA37F0003ADA9 /* SearchArticleTest */,
 				3235736828DF9ED90003ADA9 /* MostPopularTest */,
 				32549D1F28DB693600EF00AB /* TopStoriesTest */,
@@ -323,6 +333,24 @@
 				32549D2428DC230B00EF00AB /* TopStoriesLocalDataSourceMock.swift */,
 			);
 			path = TopStoriesTest;
+			sourceTree = "<group>";
+		};
+		327DDA5628E0AD8500E2AD26 /* CommentTest */ = {
+			isa = PBXGroup;
+			children = (
+				327DDA5928E0B0F500E2AD26 /* CommentTest.swift */,
+				327DDA5728E0AD9700E2AD26 /* CommentRemoteDataSourceMock.swift */,
+			);
+			path = CommentTest;
+			sourceTree = "<group>";
+		};
+		327DDA5B28E0B61700E2AD26 /* LikeTests */ = {
+			isa = PBXGroup;
+			children = (
+				327DDA5C28E0B62200E2AD26 /* LikeTest.swift */,
+				327DDA5E28E0B63100E2AD26 /* LikeRemoteDataSourceMock.swift */,
+			);
+			path = LikeTests;
 			sourceTree = "<group>";
 		};
 		32A791AD28B929D100CC94FE = {
@@ -749,11 +777,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3235737128DFA38C0003ADA9 /* SearchArticleTest.swift in Sources */,
+				327DDA5A28E0B0F500E2AD26 /* CommentTest.swift in Sources */,
 				32549D2528DC230B00EF00AB /* TopStoriesLocalDataSourceMock.swift in Sources */,
+				327DDA5F28E0B63100E2AD26 /* LikeRemoteDataSourceMock.swift in Sources */,
 				32549D2328DB697F00EF00AB /* TopStoriesRemoteDataSourceMock.swift in Sources */,
 				3235736A28DF9EE70003ADA9 /* MostPopularTest.swift in Sources */,
 				3235736C28DF9F130003ADA9 /* MostPopularRemoteDataSourceMock.swift in Sources */,
+				327DDA5828E0AD9700E2AD26 /* CommentRemoteDataSourceMock.swift in Sources */,
 				3235737328DFA3FC0003ADA9 /* SearchArticleRemoteDataSourceMock.swift in Sources */,
+				327DDA5D28E0B62200E2AD26 /* LikeTest.swift in Sources */,
 				32549D2128DB694A00EF00AB /* TopStoriesTest.swift in Sources */,
 				3235736E28DF9F920003ADA9 /* MostPopularLocalDataSourceMock.swift in Sources */,
 			);

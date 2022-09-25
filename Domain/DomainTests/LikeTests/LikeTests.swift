@@ -114,7 +114,7 @@ class LikeTests: XCTestCase {
 }
 
 extension LikeEntity: Equatable {
-    public static func == (lhs: Domain.LikeEntity, rhs: Domain.LikeEntity) -> Bool {
+    public static func == (lhs: LikeEntity, rhs: LikeEntity) -> Bool {
         lhs.id == rhs.id &&
         lhs.newsID == rhs.newsID &&
         lhs.isAdmin == rhs.isAdmin &&
