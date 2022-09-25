@@ -15,10 +15,11 @@ class FirestoreObject {
         self.id = document.documentID
         self.isAdmin = isAdmin
     }
-//    
-//    init(id: String, ) {
-//        self.id = id
-//    }
+    
+    required init(id: String, document: [String: Any], isAdmin: Bool) {
+        self.id = id
+        self.isAdmin = isAdmin
+    }
 
     class var collection: String {
         "collection"

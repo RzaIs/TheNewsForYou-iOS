@@ -114,7 +114,7 @@ class MostPopularTest: XCTestCase {
 }
 
 extension MostPopularEntity: Equatable {
-    public static func == (lhs: Domain.MostPopularEntity, rhs: Domain.MostPopularEntity) -> Bool {
+    public static func == (lhs: MostPopularEntity, rhs: MostPopularEntity) -> Bool {
         lhs.id == rhs.id &&
         lhs.section == rhs.section &&
         lhs.subsection == rhs.subsection &&
