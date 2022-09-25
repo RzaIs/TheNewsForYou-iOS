@@ -47,6 +47,18 @@
 		32A792EB28BA208800CC94FE /* AuthIsLoggedInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A792EA28BA208800CC94FE /* AuthIsLoggedInUseCase.swift */; };
 		32A792ED28BA22D100CC94FE /* AuthLogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A792EC28BA22D100CC94FE /* AuthLogoutUseCase.swift */; };
 		32A792EF28BA23B000CC94FE /* BaseThrowsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A792EE28BA23B000CC94FE /* BaseThrowsUseCase.swift */; };
+		32C641C728E06B29000F22DE /* TopStoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641C628E06B29000F22DE /* TopStoriesTests.swift */; };
+		32C641C928E06B72000F22DE /* TopStoriesRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641C828E06B72000F22DE /* TopStoriesRepoMock.swift */; };
+		32C641CC28E07014000F22DE /* MostPopularTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641CB28E07014000F22DE /* MostPopularTests.swift */; };
+		32C641CE28E0701C000F22DE /* MostPopularRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641CD28E0701C000F22DE /* MostPopularRepoMock.swift */; };
+		32C641D128E072A4000F22DE /* SearchArticleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641D028E072A4000F22DE /* SearchArticleTests.swift */; };
+		32C641D328E072CC000F22DE /* SearchArticleRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641D228E072CC000F22DE /* SearchArticleRepoMock.swift */; };
+		32C641D628E074A6000F22DE /* CommentRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641D528E074A6000F22DE /* CommentRepoMock.swift */; };
+		32C641D828E075B5000F22DE /* CommentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641D728E075B5000F22DE /* CommentTests.swift */; };
+		32C641DB28E07982000F22DE /* LikeRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641DA28E07982000F22DE /* LikeRepoMock.swift */; };
+		32C641DD28E07AB5000F22DE /* LikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641DC28E07AB5000F22DE /* LikeTests.swift */; };
+		32C641E028E07CA2000F22DE /* AuthRepoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641DF28E07CA2000F22DE /* AuthRepoMock.swift */; };
+		32C641E228E07E41000F22DE /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C641E128E07E41000F22DE /* AuthTests.swift */; };
 		32E0F13128CFAF0A00C8986A /* CommentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0F13028CFAF0A00C8986A /* CommentEntity.swift */; };
 		32FADE0C28BD49DC00A3FD5D /* FirstOpeningEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE0B28BD49DC00A3FD5D /* FirstOpeningEntity.swift */; };
 		32FADE0E28BD4BB100A3FD5D /* AuthGetFirstOpeningDateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FADE0D28BD4BB100A3FD5D /* AuthGetFirstOpeningDateUseCase.swift */; };
@@ -108,6 +120,18 @@
 		32A792EA28BA208800CC94FE /* AuthIsLoggedInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthIsLoggedInUseCase.swift; sourceTree = "<group>"; };
 		32A792EC28BA22D100CC94FE /* AuthLogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogoutUseCase.swift; sourceTree = "<group>"; };
 		32A792EE28BA23B000CC94FE /* BaseThrowsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseThrowsUseCase.swift; sourceTree = "<group>"; };
+		32C641C628E06B29000F22DE /* TopStoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesTests.swift; sourceTree = "<group>"; };
+		32C641C828E06B72000F22DE /* TopStoriesRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesRepoMock.swift; sourceTree = "<group>"; };
+		32C641CB28E07014000F22DE /* MostPopularTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularTests.swift; sourceTree = "<group>"; };
+		32C641CD28E0701C000F22DE /* MostPopularRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularRepoMock.swift; sourceTree = "<group>"; };
+		32C641D028E072A4000F22DE /* SearchArticleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleTests.swift; sourceTree = "<group>"; };
+		32C641D228E072CC000F22DE /* SearchArticleRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRepoMock.swift; sourceTree = "<group>"; };
+		32C641D528E074A6000F22DE /* CommentRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepoMock.swift; sourceTree = "<group>"; };
+		32C641D728E075B5000F22DE /* CommentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTests.swift; sourceTree = "<group>"; };
+		32C641DA28E07982000F22DE /* LikeRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRepoMock.swift; sourceTree = "<group>"; };
+		32C641DC28E07AB5000F22DE /* LikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTests.swift; sourceTree = "<group>"; };
+		32C641DF28E07CA2000F22DE /* AuthRepoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepoMock.swift; sourceTree = "<group>"; };
+		32C641E128E07E41000F22DE /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
 		32E0F13028CFAF0A00C8986A /* CommentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEntity.swift; sourceTree = "<group>"; };
 		32FADE0B28BD49DC00A3FD5D /* FirstOpeningEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOpeningEntity.swift; sourceTree = "<group>"; };
 		32FADE0D28BD4BB100A3FD5D /* AuthGetFirstOpeningDateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGetFirstOpeningDateUseCase.swift; sourceTree = "<group>"; };
@@ -210,6 +234,12 @@
 		32A7923528B9403300CC94FE /* DomainTests */ = {
 			isa = PBXGroup;
 			children = (
+				32C641DE28E07C97000F22DE /* AuthTests */,
+				32C641D928E07979000F22DE /* LikeTests */,
+				32C641D428E0748F000F22DE /* CommentTests */,
+				32C641CF28E07294000F22DE /* SearchArticleTests */,
+				32C641CA28E07007000F22DE /* MostPopularTests */,
+				32C641C528E06B0C000F22DE /* TopStoriesTests */,
 				32A7923628B9403300CC94FE /* DomainTests.swift */,
 			);
 			path = DomainTests;
@@ -316,6 +346,60 @@
 				321F947F28CCEF16000757F4 /* Array+Extension.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		32C641C528E06B0C000F22DE /* TopStoriesTests */ = {
+			isa = PBXGroup;
+			children = (
+				32C641C628E06B29000F22DE /* TopStoriesTests.swift */,
+				32C641C828E06B72000F22DE /* TopStoriesRepoMock.swift */,
+			);
+			path = TopStoriesTests;
+			sourceTree = "<group>";
+		};
+		32C641CA28E07007000F22DE /* MostPopularTests */ = {
+			isa = PBXGroup;
+			children = (
+				32C641CB28E07014000F22DE /* MostPopularTests.swift */,
+				32C641CD28E0701C000F22DE /* MostPopularRepoMock.swift */,
+			);
+			path = MostPopularTests;
+			sourceTree = "<group>";
+		};
+		32C641CF28E07294000F22DE /* SearchArticleTests */ = {
+			isa = PBXGroup;
+			children = (
+				32C641D028E072A4000F22DE /* SearchArticleTests.swift */,
+				32C641D228E072CC000F22DE /* SearchArticleRepoMock.swift */,
+			);
+			path = SearchArticleTests;
+			sourceTree = "<group>";
+		};
+		32C641D428E0748F000F22DE /* CommentTests */ = {
+			isa = PBXGroup;
+			children = (
+				32C641D728E075B5000F22DE /* CommentTests.swift */,
+				32C641D528E074A6000F22DE /* CommentRepoMock.swift */,
+			);
+			path = CommentTests;
+			sourceTree = "<group>";
+		};
+		32C641D928E07979000F22DE /* LikeTests */ = {
+			isa = PBXGroup;
+			children = (
+				32C641DC28E07AB5000F22DE /* LikeTests.swift */,
+				32C641DA28E07982000F22DE /* LikeRepoMock.swift */,
+			);
+			path = LikeTests;
+			sourceTree = "<group>";
+		};
+		32C641DE28E07C97000F22DE /* AuthTests */ = {
+			isa = PBXGroup;
+			children = (
+				32C641E128E07E41000F22DE /* AuthTests.swift */,
+				32C641DF28E07CA2000F22DE /* AuthRepoMock.swift */,
+			);
+			path = AuthTests;
 			sourceTree = "<group>";
 		};
 		32FADE4A28C141C700A3FD5D /* TopStories */ = {
@@ -494,7 +578,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C641D128E072A4000F22DE /* SearchArticleTests.swift in Sources */,
 				32A7923728B9403300CC94FE /* DomainTests.swift in Sources */,
+				32C641D328E072CC000F22DE /* SearchArticleRepoMock.swift in Sources */,
+				32C641D628E074A6000F22DE /* CommentRepoMock.swift in Sources */,
+				32C641DB28E07982000F22DE /* LikeRepoMock.swift in Sources */,
+				32C641D828E075B5000F22DE /* CommentTests.swift in Sources */,
+				32C641CE28E0701C000F22DE /* MostPopularRepoMock.swift in Sources */,
+				32C641C728E06B29000F22DE /* TopStoriesTests.swift in Sources */,
+				32C641DD28E07AB5000F22DE /* LikeTests.swift in Sources */,
+				32C641CC28E07014000F22DE /* MostPopularTests.swift in Sources */,
+				32C641E228E07E41000F22DE /* AuthTests.swift in Sources */,
+				32C641C928E06B72000F22DE /* TopStoriesRepoMock.swift in Sources */,
+				32C641E028E07CA2000F22DE /* AuthRepoMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
