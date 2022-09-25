@@ -55,7 +55,7 @@ class SearchArticleTest: XCTestCase {
 }
 
 extension SearchArticleEntity: Equatable {
-    public static func == (lhs: Domain.SearchArticleEntity, rhs: Domain.SearchArticleEntity) -> Bool {
+    public static func == (lhs: SearchArticleEntity, rhs: SearchArticleEntity) -> Bool {
         lhs.id == rhs.id &&
         lhs.title == rhs.title &&
         lhs.author == rhs.author &&
