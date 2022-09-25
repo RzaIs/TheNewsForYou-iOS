@@ -51,10 +51,15 @@ extension SearchArticleRemoteDTO {
 }
 
 extension Array where Element: SDMultimediaRemoteDTO {
+    
+    func getMediaURL(path: String) -> String {
+        "https://static01.nyt.com/\(path)"
+    }
+    
     var toDomain: [URL] {
         var multimedia: [URL] = []
         self.forEach { sdMultimediaRemoteDTO in
-            if let url = URL(string: "https://static01.nyt.com/\(sdMultimediaRemoteDTO.url)") {
+            if let url = URL(string: self.getMediaURL(path: sdMultimediaRemoteDTO.url)) {
                 multimedia.append(url)
             }
         }
