@@ -29,7 +29,7 @@ class LikeRepo: LikeRepoProtocol {
         do {
             try await self.likeRemoteDataSource.send(like: like.toRemote)
         } catch {
-            throw UIError(title: "Get Likes Error", message: "\(error.localizedDescription)\nKey: @1")
+            throw UIError(title: "Submit Likes Error", message: "\(error.localizedDescription)\nKey: @1")
         }
     }
     
@@ -37,7 +37,7 @@ class LikeRepo: LikeRepoProtocol {
         do {
             try await self.likeRemoteDataSource.deleteLike(id: id)
         } catch {
-            throw UIError(title: "Get Likes Error", message: "\(error.localizedDescription)\nKey: @2")
+            throw UIError(title: "Delete Likes Error", message: "\(error.localizedDescription)\nKey: @2")
         }
     }
 }
