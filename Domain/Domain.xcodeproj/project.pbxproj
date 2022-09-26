@@ -32,7 +32,6 @@
 		32549D1028DA1C5E00EF00AB /* SubmitLikeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549D0F28DA1C5E00EF00AB /* SubmitLikeUseCase.swift */; };
 		32A7922C28B9403300CC94FE /* Domain.docc in Sources */ = {isa = PBXBuildFile; fileRef = 32A7922B28B9403300CC94FE /* Domain.docc */; };
 		32A7923228B9403300CC94FE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7922728B9403300CC94FE /* Domain.framework */; };
-		32A7923728B9403300CC94FE /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7923628B9403300CC94FE /* DomainTests.swift */; };
 		32A7923828B9403300CC94FE /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A7922A28B9403300CC94FE /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32A7925128B9408F00CC94FE /* AuthInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7925028B9408F00CC94FE /* AuthInput.swift */; };
 		32A7925728B9429200CC94FE /* AuthLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7925628B9429200CC94FE /* AuthLoginUseCase.swift */; };
@@ -107,7 +106,6 @@
 		32A7922A28B9403300CC94FE /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		32A7922B28B9403300CC94FE /* Domain.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Domain.docc; sourceTree = "<group>"; };
 		32A7923128B9403300CC94FE /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		32A7923628B9403300CC94FE /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		32A7925028B9408F00CC94FE /* AuthInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInput.swift; sourceTree = "<group>"; };
 		32A7925628B9429200CC94FE /* AuthLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginUseCase.swift; sourceTree = "<group>"; };
 		32A7925928B942A100CC94FE /* BaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUseCase.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				32C641CF28E07294000F22DE /* SearchArticleTests */,
 				32C641CA28E07007000F22DE /* MostPopularTests */,
 				32C641C528E06B0C000F22DE /* TopStoriesTests */,
-				32A7923628B9403300CC94FE /* DomainTests.swift */,
 			);
 			path = DomainTests;
 			sourceTree = "<group>";
@@ -579,7 +576,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32C641D128E072A4000F22DE /* SearchArticleTests.swift in Sources */,
-				32A7923728B9403300CC94FE /* DomainTests.swift in Sources */,
 				32C641D328E072CC000F22DE /* SearchArticleRepoMock.swift in Sources */,
 				32C641D628E074A6000F22DE /* CommentRepoMock.swift in Sources */,
 				32C641DB28E07982000F22DE /* LikeRepoMock.swift in Sources */,

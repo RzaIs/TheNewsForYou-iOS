@@ -17,6 +17,12 @@ class FirebaseProvider: FirebaseProviderProtocol {
     private let auth: Auth = .auth()
     private let firestore: Firestore = .firestore()
     private let remoteConfig: RemoteConfig = .remoteConfig()
+
+    init() {
+        let remoteConfigSettings = RemoteConfigSettings()
+        remoteConfigSettings.minimumFetchInterval = 0
+        self.remoteConfig.configSettings = remoteConfigSettings
+    }
     
     func isSignedIn() -> Bool {
         if let user = self.auth.currentUser {
@@ -24,12 +30,6 @@ class FirebaseProvider: FirebaseProviderProtocol {
         } else {
             return false
         }
-    }
-    
-    init() {
-        let remoteConfigSettings = RemoteConfigSettings()
-        remoteConfigSettings.minimumFetchInterval = 0
-        self.remoteConfig.configSettings = remoteConfigSettings
     }
     
     func createUser(email: String, password: String) async throws {

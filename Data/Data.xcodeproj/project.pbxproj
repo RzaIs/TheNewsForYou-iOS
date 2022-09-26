@@ -30,6 +30,12 @@
 		3235736E28DF9F920003ADA9 /* MostPopularLocalDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235736D28DF9F920003ADA9 /* MostPopularLocalDataSourceMock.swift */; };
 		3235737128DFA38C0003ADA9 /* SearchArticleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235737028DFA38C0003ADA9 /* SearchArticleTest.swift */; };
 		3235737328DFA3FC0003ADA9 /* SearchArticleRemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235737228DFA3FC0003ADA9 /* SearchArticleRemoteDataSourceMock.swift */; };
+		323CCFC028E22AEC0010EF8A /* FirebaseProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CCFBF28E22AEC0010EF8A /* FirebaseProviderMock.swift */; };
+		323CCFC328E22FD00010EF8A /* CommentRDSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CCFC228E22FD00010EF8A /* CommentRDSTests.swift */; };
+		323CCFC528E232F30010EF8A /* LikeRDSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CCFC428E232F30010EF8A /* LikeRDSTests.swift */; };
+		323CCFC828E234310010EF8A /* AuthRemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CCFC728E234310010EF8A /* AuthRemoteDataSourceMock.swift */; };
+		323CCFCA28E235F80010EF8A /* AuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CCFC928E235F80010EF8A /* AuthTest.swift */; };
+		323CCFCC28E236510010EF8A /* AuthLocalDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323CCFCB28E236510010EF8A /* AuthLocalDataSourceMock.swift */; };
 		32549CF528DA0AE600EF00AB /* LikeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CF428DA0AE600EF00AB /* LikeBody.swift */; };
 		32549CF928DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CF828DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift */; };
 		32549CFF28DA0E7D00EF00AB /* LikeRemoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32549CFE28DA0E7D00EF00AB /* LikeRemoteDTO.swift */; };
@@ -133,6 +139,12 @@
 		3235736D28DF9F920003ADA9 /* MostPopularLocalDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularLocalDataSourceMock.swift; sourceTree = "<group>"; };
 		3235737028DFA38C0003ADA9 /* SearchArticleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleTest.swift; sourceTree = "<group>"; };
 		3235737228DFA3FC0003ADA9 /* SearchArticleRemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticleRemoteDataSourceMock.swift; sourceTree = "<group>"; };
+		323CCFBF28E22AEC0010EF8A /* FirebaseProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProviderMock.swift; sourceTree = "<group>"; };
+		323CCFC228E22FD00010EF8A /* CommentRDSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRDSTests.swift; sourceTree = "<group>"; };
+		323CCFC428E232F30010EF8A /* LikeRDSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRDSTests.swift; sourceTree = "<group>"; };
+		323CCFC728E234310010EF8A /* AuthRemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemoteDataSourceMock.swift; sourceTree = "<group>"; };
+		323CCFC928E235F80010EF8A /* AuthTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTest.swift; sourceTree = "<group>"; };
+		323CCFCB28E236510010EF8A /* AuthLocalDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLocalDataSourceMock.swift; sourceTree = "<group>"; };
 		32549CF428DA0AE600EF00AB /* LikeBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBody.swift; sourceTree = "<group>"; };
 		32549CF828DA0D4C00EF00AB /* LikeRemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		32549CFE28DA0E7D00EF00AB /* LikeRemoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRemoteDTO.swift; sourceTree = "<group>"; };
@@ -258,6 +270,34 @@
 			path = SearchArticleTest;
 			sourceTree = "<group>";
 		};
+		323CCFBE28E22ACF0010EF8A /* RemoteDataSourceTests */ = {
+			isa = PBXGroup;
+			children = (
+				323CCFC128E22FB20010EF8A /* Mocks */,
+				323CCFC228E22FD00010EF8A /* CommentRDSTests.swift */,
+				323CCFC428E232F30010EF8A /* LikeRDSTests.swift */,
+			);
+			path = RemoteDataSourceTests;
+			sourceTree = "<group>";
+		};
+		323CCFC128E22FB20010EF8A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				323CCFBF28E22AEC0010EF8A /* FirebaseProviderMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		323CCFC628E2340A0010EF8A /* AuthTests */ = {
+			isa = PBXGroup;
+			children = (
+				323CCFC928E235F80010EF8A /* AuthTest.swift */,
+				323CCFC728E234310010EF8A /* AuthRemoteDataSourceMock.swift */,
+				323CCFCB28E236510010EF8A /* AuthLocalDataSourceMock.swift */,
+			);
+			path = AuthTests;
+			sourceTree = "<group>";
+		};
 		32549CF628DA0C8000EF00AB /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +356,7 @@
 		32549D1E28DB692800EF00AB /* RepoTests */ = {
 			isa = PBXGroup;
 			children = (
+				323CCFC628E2340A0010EF8A /* AuthTests */,
 				327DDA5B28E0B61700E2AD26 /* LikeTests */,
 				327DDA5628E0AD8500E2AD26 /* CommentTest */,
 				3235736F28DFA37F0003ADA9 /* SearchArticleTest */,
@@ -394,6 +435,7 @@
 		32A791C528B929D100CC94FE /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
+				323CCFBE28E22ACF0010EF8A /* RemoteDataSourceTests */,
 				32549D1E28DB692800EF00AB /* RepoTests */,
 			);
 			path = DataTests;
@@ -776,9 +818,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323CCFCC28E236510010EF8A /* AuthLocalDataSourceMock.swift in Sources */,
 				3235737128DFA38C0003ADA9 /* SearchArticleTest.swift in Sources */,
 				327DDA5A28E0B0F500E2AD26 /* CommentTest.swift in Sources */,
 				32549D2528DC230B00EF00AB /* TopStoriesLocalDataSourceMock.swift in Sources */,
+				323CCFCA28E235F80010EF8A /* AuthTest.swift in Sources */,
+				323CCFC528E232F30010EF8A /* LikeRDSTests.swift in Sources */,
 				327DDA5F28E0B63100E2AD26 /* LikeRemoteDataSourceMock.swift in Sources */,
 				32549D2328DB697F00EF00AB /* TopStoriesRemoteDataSourceMock.swift in Sources */,
 				3235736A28DF9EE70003ADA9 /* MostPopularTest.swift in Sources */,
@@ -787,7 +832,10 @@
 				3235737328DFA3FC0003ADA9 /* SearchArticleRemoteDataSourceMock.swift in Sources */,
 				327DDA5D28E0B62200E2AD26 /* LikeTest.swift in Sources */,
 				32549D2128DB694A00EF00AB /* TopStoriesTest.swift in Sources */,
+				323CCFC828E234310010EF8A /* AuthRemoteDataSourceMock.swift in Sources */,
+				323CCFC028E22AEC0010EF8A /* FirebaseProviderMock.swift in Sources */,
 				3235736E28DF9F920003ADA9 /* MostPopularLocalDataSourceMock.swift in Sources */,
+				323CCFC328E22FD00010EF8A /* CommentRDSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,7 +1106,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 9.6.0;
 			};
 		};
 		32A7920028B9395200CC94FE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
