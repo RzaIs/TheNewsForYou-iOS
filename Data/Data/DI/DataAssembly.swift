@@ -5,11 +5,10 @@
 //  Created by Rza Ismayilov on 26.08.22.
 //
 
-import Firebase
 import Swinject
 import RealmSwift
 import Domain
-import Foundation
+import Firebase
 import KeychainAccess
 
 public class DataAssembly: Assembly {
